@@ -3,7 +3,7 @@ import { UserIcon, HeartIcon, LightBulbIcon } from '@heroicons/react/24/solid'
 
 export default function About() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center py-8">
+    <main className="min-h-screen flex flex-col items-center py-8">
       <section className="w-full max-w-2xl bg-ocean rounded-2xl shadow-lg p-8 mb-8 text-center">
         <UserIcon className="h-10 w-10 mx-auto text-coral mb-2" />
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-2 text-sand">Meet Marlie</h1>

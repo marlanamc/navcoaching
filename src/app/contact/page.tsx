@@ -5,7 +5,7 @@ import { EnvelopeIcon, CalendarDaysIcon } from '@heroicons/react/24/solid'
 
 export default function Contact() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center py-8">
+    <main className="min-h-screen flex flex-col items-center py-8">
       <section className="w-full max-w-xl bg-ocean rounded-2xl shadow-lg p-8 mb-8 text-center">
         <EnvelopeIcon className="h-10 w-10 mx-auto text-coral mb-2" />
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-2 text-sand">Let's Connect!</h1>
@@ -38,7 +38,7 @@ export default function Contact() {
         <div className="bg-aqua rounded-xl p-4 flex flex-col items-center text-center">
           <EnvelopeIcon className="h-7 w-7 text-coral mb-1" />
           <span className="font-bold text-ocean">Email</span>
-          <a href="mailto:hello@navcoaching.org" className="text-coral underline">hello@navcoaching.org</a>
+          <a href="mailto:marlie@navcoaching.org" className="text-coral underline">marlie@navcoaching.org</a>
         </div>
         <div className="bg-lavender rounded-xl p-4 flex flex-col items-center text-center">
           <CalendarDaysIcon className="h-7 w-7 text-coral mb-1" />

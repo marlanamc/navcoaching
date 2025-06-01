@@ -9,6 +9,11 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Navigating the Storm | Accountability Coaching with Marlie',
   description: 'ADHD Accountability and Productivity Coaching',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
@@ -18,9 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-screen bg-gradient-to-b from-ocean via-softblue to-freshaqua`}>
         <Header />
-        <main className="min-h-screen bg-white">
+        <main className="min-h-screen">
           {children}
         </main>
         <footer className="bg-gray-50 border-t">

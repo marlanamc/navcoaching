@@ -3,29 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 24, 58, 74; /* ocean for text */
-  --background-gradient: linear-gradient(180deg, #183A4A 0%, #4FC3F7 100%);
+  --foreground-rgb: 8, 26, 83; /* navy for text */
+  --background-gradient: linear-gradient(180deg, #AED2E0 0%, #89D2C7 100%);
 }
 
 body {
-  color: #183A4A;
-  background: var(--background-gradient);
+  color: #081a53;
   font-family: 'Inter', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #183A4A;
+  color: #081a53;
   font-weight: 700;
 }
 
-button, .btn, .cta {
-  background-color: #FF8A65; /* coral */
-  color: #fff;
-  border-radius: 0.5rem;
-  font-weight: 700;
-  transition: background 0.2s;
-}
-button:hover, .btn:hover, .cta:hover {
-  background-color: #E1BEE7; /* lavender */
-  color: #183A4A;
-} 

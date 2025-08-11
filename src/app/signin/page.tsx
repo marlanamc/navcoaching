@@ -1,106 +1,84 @@
-'use client'
+'use client';
 
-import React, { useEffect, useState } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { createBrowserClient } from '@supabase/ssr'
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { createBrowserClient } from '@supabase/ssr';
 
-export default function SignUp() {
-  const router = useRouter()
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [successMessage, setSuccessMessage] = useState<string | null>(null)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+export default function SignIn() {
+  const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  )
+  );
 
   useEffect(() => {
     const checkUser = async () => {
-      const { data: { session } } = await supabase.auth.getSession()
+      const { data: { session } } = await supabase.auth.getSession();
       if (session) {
-        setIsLoggedIn(true)
+        setIsLoggedIn(true);
       }
-    }
-    checkUser()
-  }, [supabase.auth])
+    };
+    checkUser();
+  }, [supabase.auth]);
 
-  const handleEmailSignUp = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setError(null)
-    setSuccessMessage(null)
-
-    if (password !== confirmPassword) {
-      setError('Passwords do not match')
-      setIsLoading(false)
-      return
-    }
-    if (password.length < 8) {
-      setError('Password must be at least 8 characters long')
-      setIsLoading(false)
-      return
-    }
-    if (!name.trim()) {
-      setError('Please enter your name')
-      setIsLoading(false)
-      return
-    }
+  const handleEmailSignIn = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError(null);
+    setSuccessMessage(null);
 
     try {
-      const { error } = await supabase.auth.signUp({
+      const { error } = await supabase.auth.signInWithPassword({
         email,
-        password,
-        options: {
-          data: { full_name: name }
-        }
-      })
-      if (error) {
-        setError(error.message || 'An error occurred during sign up')
-        setIsLoading(false)
-        return
-      }
-      setSuccessMessage('Sign up successful! Please check your email to confirm your account.')
-      setEmail('')
-      setPassword('')
-      setConfirmPassword('')
-      setName('')
-    } catch (error) {
-      console.error('Error:', error)
-      setError(error instanceof Error ? error.message : 'An error occurred during sign up')
-    } finally {
-      setIsLoading(false)
-    }
-  }
+        password
+      });
 
-  const handleGoogleSignUp = async () => {
+      if (error) {
+        if (error.message && error.message.toLowerCase().includes('invalid login credentials')) {
+          setError('no-account');
+        } else {
+          setError(error.message || 'An error occurred during sign in');
+        }
+        setIsLoading(false);
+        return;
+      }
+      router.push('/dashboard');
+    } catch (error) {
+      console.error('Error:', error);
+      setError(error instanceof Error ? error.message : 'An error occurred during sign in');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
           redirectTo: `${window.location.origin}/dashboard`,
         },
-      })
-      if (error) throw error
+      });
+      if (error) throw error;
     } catch (error) {
-      console.error('Error:', error)
-      setError(error instanceof Error ? error.message : 'An error occurred during sign up')
+      console.error('Error:', error);
+      setError(error instanceof Error ? error.message : 'An error occurred during sign in');
     }
-  }
+  };
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut()
-    setIsLoggedIn(false)
-    setEmail('')
-    setPassword('')
-    setConfirmPassword('')
-    setName('')
-  }
+    await supabase.auth.signOut();
+    setIsLoggedIn(false);
+    setEmail('');
+    setPassword('');
+  };
 
   if (isLoggedIn) {
     return (
@@ -113,16 +91,30 @@ export default function SignUp() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="max-w-md mx-auto bg-white bg-opacity-90 p-8 rounded-lg shadow-soft content-card">
-        <h1 className="text-3xl font-bold text-navy font-playfair mb-8 text-center">Sign Up</h1>
+        <h1 className="text-3xl font-bold text-navy font-playfair mb-8 text-center">Sign In</h1>
+        <div className="mb-8 text-center">
+          <p className="text-navy">
+            Don't have an account?{' '}
+            <Link href="/signup" className="text-tealblue hover:text-navy font-semibold transition-colors">Sign up</Link>
+          </p>
+        </div>
         {error && (
           <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
-            {error}
+            {error === 'no-account' ? (
+              <span>
+                No account found with that email. If you are interested in joining, please{' '}
+                <Link href="/contact" className="text-tealblue underline hover:text-navy">contact us</Link> or{' '}
+                <Link href="/services" className="text-tealblue underline hover:text-navy">learn more</Link>.
+              </span>
+            ) : (
+              error
+            )}
           </div>
         )}
         {successMessage && (
@@ -130,18 +122,7 @@ export default function SignUp() {
             {successMessage}
           </div>
         )}
-        <form onSubmit={handleEmailSignUp} className="space-y-6 mb-8">
-          <div>
-            <label htmlFor="name" className="block text-navy font-semibold mb-2">Name</label>
-            <input
-              id="name"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tealblue focus:border-transparent"
-              required
-            />
-          </div>
+        <form onSubmit={handleEmailSignIn} className="space-y-6 mb-8">
           <div>
             <label htmlFor="email" className="block text-navy font-semibold mb-2">Email</label>
             <input
@@ -162,20 +143,6 @@ export default function SignUp() {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tealblue focus:border-transparent"
               required
-              minLength={8}
-            />
-            <p className="mt-1 text-sm text-gray-500">Must be at least 8 characters long</p>
-          </div>
-          <div>
-            <label htmlFor="confirmPassword" className="block text-navy font-semibold mb-2">Confirm Password</label>
-            <input
-              id="confirmPassword"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tealblue focus:border-transparent"
-              required
-              minLength={8}
             />
           </div>
           <button
@@ -183,7 +150,7 @@ export default function SignUp() {
             disabled={isLoading}
             className="w-full btn px-6 py-3 bg-tealblue text-white font-bold rounded-lg shadow-soft hover:bg-opacity-90 transition hover-lift disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isLoading ? 'Signing up...' : 'Sign Up'}
+            {isLoading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
         <div className="relative mb-8">
@@ -195,7 +162,7 @@ export default function SignUp() {
           </div>
         </div>
         <button
-          onClick={handleGoogleSignUp}
+          onClick={handleGoogleSignIn}
           disabled={isLoading}
           className="w-full btn px-6 py-3 bg-white text-navy font-bold rounded-lg shadow-soft hover:bg-gray-50 transition hover-lift border border-gray-300 flex items-center justify-center"
         >
@@ -205,15 +172,9 @@ export default function SignUp() {
             <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
             <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
           </svg>
-          Sign up with Google
+          Sign in with Google
         </button>
-        <div className="mt-8 text-center">
-          <p className="text-navy">
-            Already have an account?{' '}
-            <Link href="/signin" className="text-tealblue hover:text-navy font-semibold transition-colors">Sign in</Link>
-          </p>
-        </div>
       </div>
     </div>
-  )
+  );
 } 

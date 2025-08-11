@@ -1,16 +1,6 @@
 import React from 'react'
+import Link from 'next/link'
 import { VideoCameraIcon, ClipboardDocumentCheckIcon, UsersIcon, BellAlertIcon } from '@heroicons/react/24/solid'
-
-const AnchorBullet = () => (
-  <svg
-    className="inline-block w-5 h-5 text-coral mr-2 -mt-1"
-    fill="currentColor"
-    viewBox="0 0 20 20"
-    aria-hidden="true"
-  >
-    <path d="M10 2a1 1 0 011 1v7a1 1 0 11-2 0V3a1 1 0 011-1zm-4.293 9.293a1 1 0 011.414 0l.293.293V13a4 4 0 008 0v-1.414l.293-.293a1 1 0 111.414 1.414l-1 1A1 1 0 0115 14v1a6 6 0 01-12 0v-1a1 1 0 01.293-.707l1-1a1 1 0 011.414 0z" />
-  </svg>
-);
 
 const Bullet = () => (
   <span
@@ -21,50 +11,145 @@ const Bullet = () => (
 
 export default function Services() {
   return (
-    <main className="min-h-screen flex flex-col items-center py-8">
-      <h1 className="text-4xl font-extrabold text-center mb-8 text-ocean">What You Get</h1>
-      <section className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        {/* Video Coaching */}
-        <div className="bg-aqua rounded-2xl p-6 flex flex-col items-center shadow-lg">
-          <VideoCameraIcon className="h-10 w-10 text-coral mb-2" />
-          <h2 className="text-xl font-bold mb-2 text-ocean">Video Coaching</h2>
-          <ul className="text-ocean text-base font-medium space-y-1 mb-4">
-            <li><Bullet />One 60-min deep dive per month</li>
-            <li><Bullet />Weekly 30-min video check-ins</li>
-            <li><Bullet />Weekly experiements to help you stay on track</li>
-          </ul>
-        </div>
-        {/* Private Dashboard */}
-        <div className="bg-lavender rounded-2xl p-6 flex flex-col items-center shadow-lg">
-          <ClipboardDocumentCheckIcon className="h-10 w-10 text-coral mb-2" />
-          <h2 className="text-xl font-bold mb-2 text-ocean">Private Dashboard</h2>
-          <ul className="text-ocean text-base font-medium space-y-1 mb-4">
-            <li><Bullet />Brainstorming space</li>
-            <li><Bullet />Session notes</li>
-            <li><Bullet />Progress tracking</li>
-          </ul>
-        </div>
-        {/* Body Doubling */}
-        <div className="bg-sand rounded-2xl p-6 flex flex-col items-center shadow-lg">
-          <UsersIcon className="h-10 w-10 text-coral mb-2" />
-          <h2 className="text-xl font-bold mb-2 text-ocean">Weekly Body Doubling</h2>
-          <ul className="text-ocean text-base font-medium space-y-1 mb-4">
-            <li><Bullet />Join virtual coworking sessions</li>
-            <li><Bullet />Camera on optional!</li>
-            <li><Bullet />Work alongside others with ADHD</li>
-          </ul>
-        </div>
-        {/* Text Nudges */}
-        <div className="bg-palepurple rounded-2xl p-6 flex flex-col items-center shadow-lg">
-          <BellAlertIcon className="h-10 w-10 text-coral mb-2" />
-          <h2 className="text-xl font-bold mb-2 text-ocean">Text Nudges</h2>
-          <ul className="text-ocean text-base font-medium space-y-1 mb-4">
-            <li><Bullet />Gentle reminders for important events</li>
-            <li><Bullet />Supportive check-ins</li>
-            <li><Bullet />Stay on track, your way</li>
-          </ul>
-        </div>
-      </section>
+    <main className="min-h-screen flex flex-col items-center py-12 px-4">
+      <div className="max-w-4xl w-full">
+        <h1 className="text-4xl font-extrabold text-center mb-4 text-ocean font-playfair">Your ADHD Success Toolkit</h1>
+        <p className="text-xl text-center mb-12 text-navy max-w-2xl mx-auto">
+          Personalized coaching and support designed specifically for ADHD brains. 
+          Choose the combination of services that works best for you.
+        </p>
+
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {/* Video Coaching */}
+          <div className="bg-white bg-opacity-90 rounded-2xl p-8 flex flex-col shadow-soft hover:shadow-lg transition-shadow">
+            <div className="flex items-center mb-4">
+              <VideoCameraIcon className="h-8 w-8 text-coral mr-3" />
+              <h2 className="text-2xl font-bold text-ocean font-playfair">Video Coaching</h2>
+            </div>
+            <p className="text-navy mb-4">Deep dive sessions and regular check-ins to keep you on track.</p>
+            <ul className="text-navy space-y-3 mb-6">
+              <li className="flex items-start">
+                <Bullet />
+                <span>60-minute strategy sessions</span>
+              </li>
+              <li className="flex items-start">
+                <Bullet />
+                <span>Weekly 30-minute check-ins</span>
+              </li>
+              <li className="flex items-start">
+                <Bullet />
+                <span>Personalized action plans</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Private Dashboard */}
+          <div className="bg-white bg-opacity-90 rounded-2xl p-8 flex flex-col shadow-soft hover:shadow-lg transition-shadow">
+            <div className="flex items-center mb-4">
+              <ClipboardDocumentCheckIcon className="h-8 w-8 text-coral mr-3" />
+              <h2 className="text-2xl font-bold text-ocean font-playfair">Private Dashboard</h2>
+            </div>
+            <p className="text-navy mb-4">Your personal command center for tracking progress and staying organized.</p>
+            <ul className="text-navy space-y-3 mb-6">
+              <li className="flex items-start">
+                <Bullet />
+                <span>Custom Notion workspace</span>
+              </li>
+              <li className="flex items-start">
+                <Bullet />
+                <span>Progress tracking tools</span>
+              </li>
+              <li className="flex items-start">
+                <Bullet />
+                <span>Resource library access</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Body Doubling */}
+          <div className="bg-white bg-opacity-90 rounded-2xl p-8 flex flex-col shadow-soft hover:shadow-lg transition-shadow">
+            <div className="flex items-center mb-4">
+              <UsersIcon className="h-8 w-8 text-coral mr-3" />
+              <h2 className="text-2xl font-bold text-ocean font-playfair">Body Doubling</h2>
+            </div>
+            <p className="text-navy mb-4">Virtual coworking sessions to boost your productivity and focus.</p>
+            <ul className="text-navy space-y-3 mb-6">
+              <li className="flex items-start">
+                <Bullet />
+                <span>Weekly group sessions</span>
+              </li>
+              <li className="flex items-start">
+                <Bullet />
+                <span>Camera optional</span>
+              </li>
+              <li className="flex items-start">
+                <Bullet />
+                <span>ADHD-friendly environment</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Text Support */}
+          <div className="bg-white bg-opacity-90 rounded-2xl p-8 flex flex-col shadow-soft hover:shadow-lg transition-shadow">
+            <div className="flex items-center mb-4">
+              <BellAlertIcon className="h-8 w-8 text-coral mr-3" />
+              <h2 className="text-2xl font-bold text-ocean font-playfair">Text Support</h2>
+            </div>
+            <p className="text-navy mb-4">Gentle reminders and support when you need it most.</p>
+            <ul className="text-navy space-y-3 mb-6">
+              <li className="flex items-start">
+                <Bullet />
+                <span>Custom reminder system</span>
+              </li>
+              <li className="flex items-start">
+                <Bullet />
+                <span>Quick check-ins</span>
+              </li>
+              <li className="flex items-start">
+                <Bullet />
+                <span>24/7 support access</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-navy mb-6 font-playfair">Ready to Get Started?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-navy">
+            Choose the package that best fits your needs and start your journey to better productivity.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link 
+              href="/pricing" 
+              className="btn px-8 py-3 bg-coral text-white font-bold rounded-lg shadow-soft hover:bg-opacity-90 transition hover-lift text-lg"
+            >
+              View Pricing
+            </Link>
+            <Link 
+              href="/contact" 
+              className="btn cta px-8 py-3 bg-freshaqua text-navy font-bold rounded-lg shadow-soft hover:bg-tealblue hover:text-white transition hover-lift text-lg"
+            >
+              Book a Free Consultation
+            </Link>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-navy mb-8 text-center font-playfair">What My Clients Say</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white bg-opacity-90 rounded-2xl p-8 shadow-soft">
+              <p className="text-navy italic mb-4">"Marlie's coaching has been a game-changer for my productivity. The combination of video sessions and text support keeps me accountable in a way that works for my ADHD brain."</p>
+              <p className="font-bold text-ocean">- Sarah K.</p>
+            </div>
+            <div className="bg-white bg-opacity-90 rounded-2xl p-8 shadow-soft">
+              <p className="text-navy italic mb-4">"The body doubling sessions are incredible! I've never been so productive. Having someone there to keep me on track makes all the difference."</p>
+              <p className="font-bold text-ocean">- Michael T.</p>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
   )
 } 

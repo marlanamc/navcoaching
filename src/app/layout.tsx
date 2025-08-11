@@ -1,41 +1,40 @@
-import React from 'react'
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import Header from '@/components/layout/Header'
+import type { Metadata } from 'next';
+import { Inter, Playfair_Display } from 'next/font/google';
+import './globals.css';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import Providers from './providers';
+import QuizPopup from '@/components/quiz/QuizPopup';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' });
 
 export const metadata: Metadata = {
   title: 'Navigating the Storm | Accountability Coaching with Marlie',
-  description: 'ADHD Accountability and Productivity Coaching',
+  description: 'ADHD Accountability and Productivity Coaching with personalized human support',
   icons: {
     icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen bg-gradient-to-b from-ocean via-softblue to-freshaqua`}>
-        <Header />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <footer className="bg-gray-50 border-t">
-          <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-            <p className="text-center text-gray-500">
-              © {new Date().getFullYear()} Navigating the Storm. All rights reserved.
-            </p>
-          </div>
-        </footer>
+      <body className={`${inter.variable} ${playfair.variable} font-sans bg-gradient-to-br from-gradientStart to-gradientEnd min-h-screen`}>
+        <Providers>
+          <Header />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+          <QuizPopup />
+        </Providers>
       </body>
     </html>
-  )
-} 
+  );
+}
+ 

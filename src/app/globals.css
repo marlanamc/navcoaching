@@ -4,12 +4,14 @@
 
 :root {
   --foreground-rgb: 8, 26, 83; /* navy for text */
-  --background-gradient: linear-gradient(180deg, #AED2E0 0%, #89D2C7 100%);
+  --background-gradient: linear-gradient(135deg, #d8b5ff 0%, #1eae98 100%);
 }
 
 body {
   color: #081a53;
   font-family: 'Inter', sans-serif;
+  background: var(--background-gradient);
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,3 +19,144 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+/* Animation for dopamine-friendly elements */
+@keyframes gentle-wave {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtle-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* ADHD-friendly interactive elements */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.focus-highlight:focus {
+  outline: 3px solid #FF8A65;
+  outline-offset: 2px;
+}
+
+/* Button styles (keep energetic, dopamine-friendly look) */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.btn:hover:before {
+  left: 100%;
+}
+
+.btn.cta {
+  animation: gentle-wave 5s infinite ease-in-out;
+}
+
+/* Accessibility improvements */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 640px) {
+  .mobile-friendly-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .mobile-touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Focus mode toggle styles */
+.focus-mode {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+
+/* Card styles for content sections */
+.content-card {
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Animated icon styles */
+.animated-icon {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Quiz Popup Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+ 

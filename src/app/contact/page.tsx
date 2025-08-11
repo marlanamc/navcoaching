@@ -43,7 +43,14 @@ export default function Contact() {
         <div className="bg-lavender rounded-xl p-4 flex flex-col items-center text-center">
           <CalendarDaysIcon className="h-7 w-7 text-coral mb-1" />
           <span className="font-bold text-ocean">Book a Free Consult</span>
-          <a href="#" className="text-ocean underline">Schedule Now</a>
+          <a 
+            href="https://calendly.com/marlie-navcoaching/initial" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-ocean underline hover:text-coral transition-colors"
+          >
+            Schedule Now
+          </a>
         </div>
       </section>
     </main>

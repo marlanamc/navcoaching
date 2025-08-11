@@ -239,23 +239,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quiz CTA */}
-      <section className="mb-16">
-        <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-soft text-center max-w-3xl mx-auto content-card">
-          <h2 className="text-2xl font-bold text-navy mb-4 font-playfair">
-            Discover Your Structure Archetype
-          </h2>
-          <p className="text-lg text-navy mb-6">
-            Take our quick quiz to understand your unique relationship with structure and get personalized ADHD coaching recommendations.
-          </p>
-          <Link 
-            href="/quiz"
-            className="inline-block px-8 py-3 bg-coral text-freshaqua font-bold rounded-lg shadow hover:bg-opacity-90 transition hover-lift"
-          >
-            Take the Free Quiz
-          </Link>
-        </div>
-      </section>
+      {/* Quiz CTA removed */}
       
       {/* Testimonials Section */}
       <section className="mb-16">
@@ -279,34 +263,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI Tools Section */}
-      <section className="mb-16">
-        <div className="max-w-3xl mx-auto bg-white bg-opacity-90 p-8 rounded-lg shadow-soft content-card">
-          <h2 className="text-2xl font-bold text-navy mb-4 font-playfair text-center">
-            AI Tools That <span className="text-tealblue">Actually Help</span>
-          </h2>
-          <p className="mb-4 text-center">
-            Feeling overwhelmed by all the AI tools and apps promising to fix your productivity? 
-            I'll help you find the ones that actually work for <em>your</em> brain and integrate them 
-            into systems you'll actually use.
-          </p>
-          <p className="mb-6 text-center">
-            No more abandoned apps or complicated workflows—just practical tools that complement 
-            human accountability and support.
-          </p>
-          <div className="text-center">
-            <Link 
-            href="/services#pricing" 
-            className="btn px-6 py-2 bg-ocean text-white font-bold rounded-lg shadow-soft hover:bg-opacity-90 transition hover-lift inline-flex items-center"
-            >
-              <span>Learn More</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* AI Tools section removed */}
       
       {/* Legal Disclaimer */}
       <div className="max-w-3xl mx-auto mb-12">

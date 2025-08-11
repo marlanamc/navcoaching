@@ -192,7 +192,7 @@ export default function About() {
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link 
-            href="/pricing" 
+            href="/services#pricing" 
             className="btn px-8 py-3 bg-coral text-white font-bold rounded-lg shadow-soft hover:bg-opacity-90 transition hover-lift text-lg"
           >
             View Pricing Options

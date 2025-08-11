@@ -121,7 +121,7 @@ export default function Services() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 
-              href="/pricing" 
+              href="/services#pricing" 
               className="btn px-8 py-3 bg-coral text-white font-bold rounded-lg shadow-soft hover:bg-opacity-90 transition hover-lift text-lg"
             >
               View Pricing
@@ -132,6 +132,70 @@ export default function Services() {
             >
               Book a Free Consultation
             </Link>
+          </div>
+        </section>
+
+        {/* Pricing embedded */}
+        <section id="pricing" className="mb-16">
+          <h2 className="text-3xl font-bold text-navy mb-8 text-center font-playfair">Coaching Packages</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* First Voyage */}
+            <div className="bg-white bg-opacity-90 rounded-lg shadow-soft overflow-hidden content-card">
+              <div className="bg-softblue p-6">
+                <h3 className="text-2xl font-bold text-navy mb-1 font-playfair">First Voyage</h3>
+                <p className="text-navy">Perfect for getting started</p>
+                <div className="mt-4">
+                  <span className="text-3xl font-bold text-navy">$299</span>
+                  <span className="text-navy ml-2">/month</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <ul className="space-y-3 mb-6 text-navy">
+                  <li className="flex items-start"><Bullet /><span>2 coaching sessions per month</span></li>
+                  <li className="flex items-start"><Bullet /><span>Weekly text check-ins</span></li>
+                  <li className="flex items-start"><Bullet /><span>Personal Notion dashboard</span></li>
+                </ul>
+                <Link href="/contact" className="block w-full py-3 px-4 bg-ocean text-white text-center font-bold rounded-lg shadow hover:bg-opacity-90 transition hover-lift">Get Started</Link>
+              </div>
+            </div>
+            {/* Steady Course */}
+            <div className="bg-white bg-opacity-90 rounded-lg shadow-soft overflow-hidden content-card">
+              <div className="bg-ocean p-6 text-white">
+                <h3 className="text-2xl font-bold mb-1 font-playfair">Steady Course</h3>
+                <p>Comprehensive support</p>
+                <div className="mt-4">
+                  <span className="text-3xl font-bold">$399</span>
+                  <span className="ml-2">/month</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <ul className="space-y-3 mb-6 text-navy">
+                  <li className="flex items-start"><Bullet /><span>4 coaching sessions per month</span></li>
+                  <li className="flex items-start"><Bullet /><span>Unlimited text check-ins</span></li>
+                  <li className="flex items-start"><Bullet /><span>Weekly body doubling sessions</span></li>
+                </ul>
+                <Link href="/contact" className="block w-full py-3 px-4 bg-coral text-white text-center font-bold rounded-lg shadow hover:bg-opacity-90 transition hover-lift">Get Started</Link>
+              </div>
+            </div>
+            {/* Full Journey */}
+            <div className="bg-white bg-opacity-90 rounded-lg shadow-soft overflow-hidden content-card">
+              <div className="bg-tealblue p-6 text-white">
+                <h3 className="text-2xl font-bold mb-1 font-playfair">Full Journey</h3>
+                <p>Maximum accountability</p>
+                <div className="mt-4">
+                  <span className="text-3xl font-bold">$599</span>
+                  <span className="ml-2">/month</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <ul className="space-y-3 mb-6 text-navy">
+                  <li className="flex items-start"><Bullet /><span>6 coaching sessions per month</span></li>
+                  <li className="flex items-start"><Bullet /><span>Daily text check-ins</span></li>
+                  <li className="flex items-start"><Bullet /><span>Priority scheduling</span></li>
+                </ul>
+                <Link href="/contact" className="block w-full py-3 px-4 bg-tealblue text-white text-center font-bold rounded-lg shadow hover:bg-opacity-90 transition hover-lift">Get Started</Link>
+              </div>
+            </div>
           </div>
         </section>
 

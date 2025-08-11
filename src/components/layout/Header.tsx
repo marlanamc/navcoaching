@@ -2,12 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import QuizDropdown from './QuizDropdown';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [focusMode, setFocusMode] = useState(false);
 
   // Handle scroll effect for header
   useEffect(() => {
@@ -25,12 +23,6 @@ export default function Header() {
     };
   }, []);
 
-  // Toggle focus mode
-  const toggleFocusMode = () => {
-    setFocusMode(!focusMode);
-    document.body.classList.toggle('focus-mode');
-  };
-
   return (
     <header className={`${scrolled ? 'bg-black shadow-md' : 'bg-black'} transition-all duration-300 sticky top-0 z-50`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,35 +37,19 @@ export default function Header() {
             <Link href="/services" className="text-dustylilac font-semibold px-3 py-2 rounded-lg hover:bg-black hover:text-dustylilac_light transition hover-lift focus-highlight">
               Services
             </Link>
-            <QuizDropdown />
-            <Link href="/pricing" className="text-mutedpink font-semibold px-3 py-2 rounded-lg hover:bg-black hover:text-mutedpink_light transition hover-lift focus-highlight">
-              Pricing
-            </Link>
-            <Link href="/members" className="text-palepurple font-semibold px-3 py-2 rounded-lg hover:bg-black hover:text-palepurple_light transition hover-lift focus-highlight">
-              Members
+            <Link href="/quiz" className="text-mutedpink font-semibold px-3 py-2 rounded-lg hover:bg-black hover:text-mutedpink_light transition hover-lift focus-highlight">
+              Quiz
             </Link>
             <Link href="/contact" className="text-aquablue font-semibold px-3 py-2 rounded-lg hover:bg-black hover:text-aquablue_light transition hover-lift focus-highlight">
               Contact
             </Link>
           </div>
           <div className="flex items-center space-x-3">
-            {/* Focus mode toggle */}
-            <button 
-              onClick={toggleFocusMode}
-              className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition"
-              aria-label={focusMode ? "Disable focus mode" : "Enable focus mode"}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-14-14zM2 10a8 8 0 1116 0 8 8 0 01-16 0zm8 6a6 6 0 110-12 6 6 0 010 12z" clipRule="evenodd" />
-              </svg>
-            </button>
-            
-            {/* Sign up button */}
             <Link 
-              href="/signup" 
+              href="/signin" 
               className="btn px-4 py-2 bg-coral text-gradientStart font-bold rounded-lg shadow hover:bg-opacity-90 hover-lift focus-highlight"
             >
-              Sign Up
+              Sign In
             </Link>
             
             {/* Consultation button */}
@@ -123,24 +99,13 @@ export default function Header() {
             <Link href="/" className="block px-3 py-2 text-base font-bold text-navy hover:bg-aquablue hover:text-ocean rounded-lg mobile-touch-target">Home</Link>
             <Link href="/about" className="block px-3 py-2 text-base font-medium text-navy hover:bg-aquablue hover:text-ocean rounded-lg mobile-touch-target">About</Link>
             <Link href="/services" className="block px-3 py-2 text-base font-medium text-navy hover:bg-aquablue hover:text-ocean rounded-lg mobile-touch-target">Services</Link>
-            
-            {/* Quiz section in mobile menu */}
-            <div className="px-3 py-2">
-              <div className="text-base font-medium text-navy mb-2">Quizzes</div>
-              <Link href="/quiz" className="block pl-4 py-2 text-sm text-navy hover:bg-aquablue hover:text-ocean rounded-lg mobile-touch-target">
-                ADHD Structure Style
-              </Link>
-              <div className="pl-4 py-2 text-sm text-gray-400">More Quizzes Coming Soon</div>
-            </div>
-
-            <Link href="/pricing" className="block px-3 py-2 text-base font-medium text-navy hover:bg-aquablue hover:text-ocean rounded-lg mobile-touch-target">Pricing</Link>
-            <Link href="/members" className="block px-3 py-2 text-base font-medium text-navy hover:bg-aquablue hover:text-ocean rounded-lg mobile-touch-target">Members</Link>
+            <Link href="/quiz" className="block px-3 py-2 text-base font-medium text-navy hover:bg-aquablue hover:text-ocean rounded-lg mobile-touch-target">Quiz</Link>
             <Link href="/contact" className="block px-3 py-2 text-base font-medium text-navy hover:bg-aquablue hover:text-ocean rounded-lg mobile-touch-target">Contact</Link>
             <Link
-              href="/signup"
+              href="/signin"
               className="block px-3 py-2 text-base font-bold text-white bg-coral rounded-lg mt-2 hover:bg-opacity-90 transition mobile-touch-target"
             >
-              Sign Up
+              Sign In
             </Link>
             <a
               href="https://calendly.com/marlie-navcoaching/initial"
@@ -150,16 +115,6 @@ export default function Header() {
             >
               Book a Free Consultation
             </a>
-            {/* Focus mode toggle in mobile menu */}
-            <button 
-              onClick={toggleFocusMode}
-              className="flex items-center w-full px-3 py-2 text-base font-medium text-navy hover:bg-aquablue hover:text-ocean rounded-lg mobile-touch-target"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-14-14zM2 10a8 8 0 1116 0 8 8 0 01-16 0zm8 6a6 6 0 110-12 6 6 0 010 12z" clipRule="evenodd" />
-              </svg>
-              {focusMode ? "Disable Focus Mode" : "Enable Focus Mode"}
-            </button>
           </div>
         </div>
       </nav>

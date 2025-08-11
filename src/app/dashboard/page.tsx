@@ -149,7 +149,7 @@ export default function Dashboard() {
                 Upgrade to a paid membership to access resources and your personalized Notion dashboard.
               </p>
               <Link
-                href="/pricing"
+                href="/services#pricing"
                 className="btn px-6 py-3 bg-tealblue text-white font-bold rounded-lg shadow-soft hover:bg-opacity-90 transition hover-lift inline-block"
               >
                 Upgrade Membership
@@ -176,38 +176,10 @@ export default function Dashboard() {
               ) : null}
 
               {/* Quick Links */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-softblue rounded-lg p-6">
-                  <h3 className="text-xl font-bold text-navy mb-4">ADHD Worksheets</h3>
-                  <p className="text-navy mb-4">
-                    Access your personalized worksheets and templates designed for ADHD brains.
-                  </p>
-                  <Link
-                    href="/worksheets"
-                    className="btn px-4 py-2 bg-tealblue text-white font-bold rounded-lg shadow-soft hover:bg-opacity-90 transition hover-lift inline-flex items-center"
-                  >
-                    View Worksheets
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </Link>
-                </div>
-
-                <div className="bg-softblue rounded-lg p-6">
-                  <h3 className="text-xl font-bold text-navy mb-4">Body Doubling Sessions</h3>
-                  <p className="text-navy mb-4">
-                    Join virtual coworking sessions with other members. Camera optional, productivity guaranteed.
-                  </p>
-                  <Link
-                    href="/body-doubling"
-                    className="btn px-4 py-2 bg-tealblue text-white font-bold rounded-lg shadow-soft hover:bg-opacity-90 transition hover-lift inline-flex items-center"
-                  >
-                    Join Session
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </Link>
-                </div>
+              <div className="bg-softblue rounded-lg p-6">
+                <p className="text-navy">
+                  Member resources will appear here.
+                </p>
               </div>
             </>
           )}

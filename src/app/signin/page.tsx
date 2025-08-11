@@ -99,10 +99,10 @@ export default function SignIn() {
       <div className="max-w-md mx-auto bg-white bg-opacity-90 p-8 rounded-lg shadow-soft content-card">
         <h1 className="text-3xl font-bold text-navy font-playfair mb-8 text-center">Sign In</h1>
         <div className="mb-8 text-center">
-          <p className="text-navy">
-            Don't have an account?{' '}
-            <Link href="/signup" className="text-tealblue hover:text-navy font-semibold transition-colors">Sign up</Link>
-          </p>
+           <p className="text-navy">
+             New here? Have questions?{' '}
+             <Link href="/contact" className="text-tealblue hover:text-navy font-semibold transition-colors">Contact me</Link>
+           </p>
         </div>
         {error && (
           <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">

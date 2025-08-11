@@ -296,8 +296,8 @@ export default function Home() {
           </p>
           <div className="text-center">
             <Link 
-              href="/services" 
-              className="btn px-6 py-2 bg-ocean text-white font-bold rounded-lg shadow-soft hover:bg-opacity-90 transition hover-lift inline-flex items-center"
+            href="/services#pricing" 
+            className="btn px-6 py-2 bg-ocean text-white font-bold rounded-lg shadow-soft hover:bg-opacity-90 transition hover-lift inline-flex items-center"
             >
               <span>Learn More</span>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
@@ -323,10 +323,10 @@ export default function Home() {
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link 
-            href="/signup" 
+            href="/signin" 
             className="btn px-8 py-3 bg-tealblue text-white font-bold rounded-lg shadow-soft hover:bg-opacity-90 transition hover-lift text-lg"
           >
-            Sign Up Now
+            Sign In
           </Link>
           <Link 
             href="/contact" 

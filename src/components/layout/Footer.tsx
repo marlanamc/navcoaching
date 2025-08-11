@@ -45,7 +45,7 @@ export default function Footer() {
                 <Link href="/contact" className="hover:text-coral transition hover-lift inline-block">Contact</Link>
               </li>
               <li>
-                <Link href="/signup" className="hover:text-coral transition hover-lift inline-block">Sign Up</Link>
+                <Link href="/signin" className="hover:text-coral transition hover-lift inline-block">Sign In</Link>
               </li>
             </ul>
           </div>

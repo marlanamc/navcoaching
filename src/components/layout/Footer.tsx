@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import LegalDisclaimer from '@/components/common/LegalDisclaimer';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -69,7 +70,13 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="mt-8 pt-8 border-t border-gray-700">
+        <div className="mt-8">
+          <div className="mb-8">
+            <LegalDisclaimer />
+          </div>
+        </div>
+
+        <div className="pt-8 border-t border-gray-700">
           <p className="text-center text-sm">
             © {new Date().getFullYear()} Navigating the Storm. All rights reserved.
           </p>

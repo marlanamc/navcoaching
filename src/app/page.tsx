@@ -39,17 +39,18 @@ export default function Home() {
           Your Personal <span className="text-ocean">Navigation System</span>
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white bg-opacity-90 p-6 rounded-lg shadow-soft content-card">
-            <div className="flex justify-center mb-4">
-              <div className="w-16 h-16 bg-softblue rounded-full flex items-center justify-center animated-icon">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Primary: Weekly Coaching */}
+          <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-soft content-card md:col-span-2">
+            <div className="flex justify-center mb-6">
+              <div className="w-20 h-20 bg-softblue rounded-full flex items-center justify-center animated-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                 </svg>
               </div>
             </div>
-            <h3 className="text-xl font-bold text-navy mb-2 text-center">Weekly Coaching</h3>
-            <ul className="space-y-2">
+            <h3 className="text-2xl font-bold text-navy mb-3 text-center">Weekly Coaching</h3>
+            <ul className="space-y-3 max-w-2xl mx-auto">
               <li className="flex items-start">
                 <span className="text-tealblue mr-2">•</span>
                 <span>One 60-min deep dive per month</span>
@@ -64,7 +65,7 @@ export default function Home() {
               </li>
             </ul>
           </div>
-          
+          {/* Secondary: Private Dashboard */}
           <div className="bg-white bg-opacity-90 p-6 rounded-lg shadow-soft content-card">
             <div className="flex justify-center mb-4">
               <div className="w-16 h-16 bg-softblue rounded-full flex items-center justify-center animated-icon">
@@ -89,7 +90,7 @@ export default function Home() {
               </li>
             </ul>
           </div>
-          
+          {/* Secondary: Weekly Body Doubling */}
           <div className="bg-white bg-opacity-90 p-6 rounded-lg shadow-soft content-card">
             <div className="flex justify-center mb-4">
               <div className="w-16 h-16 bg-softblue rounded-full flex items-center justify-center animated-icon">

@@ -7,6 +7,7 @@ import { ChevronDown } from 'lucide-react';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHomeDropdownOpen, setIsHomeDropdownOpen] = useState(false);
+  const [isSectionsDropdownOpen, setIsSectionsDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   // Handle scroll effect for header
@@ -213,6 +214,172 @@ export default function Header() {
                 </div>
               )}
             </div>
+            
+            {/* Sections Dropdown */}
+            <div className="relative">
+              <button
+                onMouseEnter={() => setIsSectionsDropdownOpen(true)}
+                onMouseLeave={() => setIsSectionsDropdownOpen(false)}
+                className="flex items-center text-purple-300 font-semibold px-3 py-2 rounded-lg hover:bg-black hover:text-purple-200 transition hover-lift focus-highlight"
+              >
+                Sections
+                <ChevronDown className="ml-1 w-4 h-4" />
+              </button>
+              
+              {isSectionsDropdownOpen && (
+                <div 
+                  className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-lg border border-gray-200 py-2 min-w-48 z-50"
+                  onMouseEnter={() => setIsSectionsDropdownOpen(true)}
+                  onMouseLeave={() => setIsSectionsDropdownOpen(false)}
+                >
+                  <Link 
+                    href="/#framework" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    🧭 Framework
+                  </Link>
+                  <Link 
+                    href="/#dashboard" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    📊 Dashboard
+                  </Link>
+                  <Link 
+                    href="/#who" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    👥 Who It's For
+                  </Link>
+                  <Link 
+                    href="/#value" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    💰 Pricing
+                  </Link>
+                  <Link 
+                    href="/#not" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    ❌ What It's NOT
+                  </Link>
+                  <Link 
+                    href="/#testimonials" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    💬 Testimonials
+                  </Link>
+                  <Link 
+                    href="/#faq" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    ❓ FAQ
+                  </Link>
+                  <Link 
+                    href="/#policy" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    📅 Scheduling
+                  </Link>
+                  <Link 
+                    href="/#process" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout={() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    🚀 Get Started
+                  </Link>
+                </div>
+              )}
+            </div>
+            
             <Link href="/about" className="text-lavenderblue font-semibold px-3 py-2 rounded-lg hover:bg-black hover:text-lavenderblue_light transition hover-lift focus-highlight">
               About
             </Link>
@@ -286,6 +453,167 @@ export default function Header() {
             <Link href="/services" className="block px-3 py-3 text-base font-medium text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target" onClick={() => setIsMenuOpen(false)}>Services</Link>
             <Link href="/quiz" className="block px-3 py-3 text-base font-medium text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target" onClick={() => setIsMenuOpen(false)}>Quiz</Link>
             <Link href="/contact" className="block px-3 py-3 text-base font-medium text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+            
+            {/* Sections Submenu for Mobile */}
+            <div className="pt-2 border-t border-gray-600 mt-2">
+              <div className="px-3 py-2 text-sm font-semibold text-gray-400 uppercase tracking-wider">
+                Sections
+              </div>
+              <Link 
+                href="/#framework" 
+                className="block px-3 py-2 text-sm text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => {
+                    const tabbedSection = document.getElementById('tabbed-section');
+                    if (tabbedSection) {
+                      const headerHeight = 80;
+                      const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                      window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                    }
+                  }, 100);
+                }}
+              >
+                🧭 Framework
+              </Link>
+              <Link 
+                href="/#dashboard" 
+                className="block px-3 py-2 text-sm text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => {
+                    const tabbedSection = document.getElementById('tabbed-section');
+                    if (tabbedSection) {
+                      const headerHeight = 80;
+                      const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                      window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                    }
+                  }, 100);
+                }}
+              >
+                📊 Dashboard
+              </Link>
+              <Link 
+                href="/#who" 
+                className="block px-3 py-2 text-sm text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => {
+                    const tabbedSection = document.getElementById('tabbed-section');
+                    if (tabbedSection) {
+                      const headerHeight = 80;
+                      const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                      window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                    }
+                  }, 100);
+                }}
+              >
+                👥 Who It's For
+              </Link>
+              <Link 
+                href="/#value" 
+                className="block px-3 py-2 text-sm text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => {
+                    const tabbedSection = document.getElementById('tabbed-section');
+                    if (tabbedSection) {
+                      const headerHeight = 80;
+                      const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                      window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                    }
+                  }, 100);
+                }}
+              >
+                💰 Pricing
+              </Link>
+              <Link 
+                href="/#not" 
+                className="block px-3 py-2 text-sm text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => {
+                    const tabbedSection = document.getElementById('tabbed-section');
+                    if (tabbedSection) {
+                      const headerHeight = 80;
+                      const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                      window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                    }
+                  }, 100);
+                }}
+              >
+                ❌ What It's NOT
+              </Link>
+              <Link 
+                href="/#testimonials" 
+                className="block px-3 py-2 text-sm text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => {
+                    const tabbedSection = document.getElementById('tabbed-section');
+                    if (tabbedSection) {
+                      const headerHeight = 80;
+                      const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                      window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                    }
+                  }, 100);
+                }}
+              >
+                💬 Testimonials
+              </Link>
+              <Link 
+                href="/#faq" 
+                className="block px-3 py-2 text-sm text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => {
+                    const tabbedSection = document.getElementById('tabbed-section');
+                    if (tabbedSection) {
+                      const headerHeight = 80;
+                      const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                      window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                    }
+                  }, 100);
+                }}
+              >
+                ❓ FAQ
+              </Link>
+              <Link 
+                href="/#policy" 
+                className="block px-3 py-2 text-sm text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => {
+                    const tabbedSection = document.getElementById('tabbed-section');
+                    if (tabbedSection) {
+                      const headerHeight = 80;
+                      const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                      window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                    }
+                  }, 100);
+                }}
+              >
+                📅 Scheduling
+              </Link>
+              <Link 
+                href="/#process" 
+                className="block px-3 py-2 text-sm text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setTimeout(() => {
+                    const tabbedSection = document.getElementById('tabbed-section');
+                    if (tabbedSection) {
+                      const headerHeight = 80;
+                      const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                      window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                    }
+                  }, 100);
+                }}
+              >
+                🚀 Get Started
+              </Link>
+            </div>
+            
             <div className="pt-2 space-y-2">
               <Link
                 href="/signin"

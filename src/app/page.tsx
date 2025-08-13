@@ -40,69 +40,69 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-sky-200 via-blue-300 via-purple-300 via-pink-300 to-indigo-900">
       <div className="container mx-auto px-4">
       <header role="banner" className="w-full">
-        <div className="mx-auto max-w-6xl px-4 py-10 sm:py-12 lg:py-16 text-center">
+        <div className="mx-auto max-w-6xl px-4 py-8 sm:py-12 lg:py-16 text-center">
           {/* Logo */}
           <img
             src="/logo.png"
             alt="Navigating the Storm, Accountability Coaching"
-            className="mx-auto h-40 w-40 mb-6"
+            className="mx-auto h-32 w-32 sm:h-40 sm:w-40 mb-6"
           />
 
           {/* Headings */}
-          <div className="mb-6">
-            <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight text-navy font-playfair mb-4">
+          <div className="mb-6 px-2">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-navy font-playfair mb-4 leading-tight">
               Navigating the Storm
             </h1>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-navy font-playfair">
+            <h2 className="text-xl sm:text-2xl lg:text-4xl font-extrabold tracking-tight text-navy font-playfair leading-tight">
               Your Personal First Mate for Life's Most Important Voyage
             </h2>
           </div>
           {/* Benefits Cards */}
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border-2 border-white/60">
+          <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto px-2">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-white/60">
               <Heart className="mx-auto h-12 w-12 text-fuchsia-400 mb-4" />
               <h3 className="text-lg font-bold text-navy mb-2">Real human<br />connection</h3>
               <p className="text-sm text-gray-700">Someone who genuinely cares and<br />remembers your goals</p>
             </div>
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border-2 border-white/60">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-white/60">
               <Handshake className="mx-auto h-12 w-12 text-violet-400 mb-4" />
               <h3 className="text-lg font-bold text-navy mb-2">Weekly 1 on 1<br />accountability</h3>
               <p className="text-sm text-gray-700">30 minutes a week, simple system,<br />real progress</p>
             </div>
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border-2 border-white/60">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-white/60">
               <MapPin className="mx-auto h-12 w-12 text-sky-400 mb-4" />
               <h3 className="text-lg font-bold text-navy mb-2">Reach your goal,<br />one week at a time</h3>
               <p className="text-sm text-gray-700">Focus on what matters, skip<br />the overwhelm</p>
             </div>
           </div>
 
-          <p className="mt-8 text-xl sm:text-2xl tracking-tight text-navy font-medium text-center">
+          <p className="mt-6 sm:mt-8 text-lg sm:text-xl lg:text-2xl tracking-tight text-navy font-medium text-center px-4">
             Not another app. Not AI. Not group coaching.
           </p>
-          <p className="mt-4 text-xl sm:text-2xl tracking-tight text-navy font-bold text-center">
+          <p className="mt-4 text-lg sm:text-xl lg:text-2xl tracking-tight text-navy font-bold text-center px-4">
             Stop fighting your brain. Start working with it.
           </p>
 
           {/* Trust Row */}
-          <div className="mt-12 flex flex-wrap justify-center gap-4 text-sm text-navy">
-            <span className="bg-white/80 backdrop-blur px-4 py-2 rounded-full border border-white/60">ADHD specialized</span>
-            <span className="bg-white/80 backdrop-blur px-4 py-2 rounded-full border border-white/60">Trauma informed</span>
-            <span className="bg-white/80 backdrop-blur px-4 py-2 rounded-full border border-white/60">No diagnosis required</span>
+          <div className="mt-8 sm:mt-12 flex flex-wrap justify-center gap-2 sm:gap-4 text-xs sm:text-sm text-navy px-4">
+            <span className="bg-white/80 backdrop-blur px-3 sm:px-4 py-2 rounded-full border border-white/60">ADHD specialized</span>
+            <span className="bg-white/80 backdrop-blur px-3 sm:px-4 py-2 rounded-full border border-white/60">Trauma informed</span>
+            <span className="bg-white/80 backdrop-blur px-3 sm:px-4 py-2 rounded-full border border-white/60">No diagnosis required</span>
           </div>
 
           {/* CTA */}
-          <div className="mt-12 text-center">
+          <div className="mt-8 sm:mt-12 text-center px-4">
             <a 
               href="https://cal.com/navcoaching/first-session" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-tealblue text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-deepteal transition-colors text-xl"
+              className="inline-block bg-tealblue text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg hover:bg-deepteal transition-colors text-lg sm:text-xl w-full sm:w-auto max-w-xs"
             >
               Start for $25 →
             </a>
             
-            <div className="mt-6">
-              <button className="inline-flex items-center gap-2 bg-pink-500 text-white font-medium py-3 px-6 rounded-lg shadow-md hover:bg-pink-600 hover:shadow-lg transition-all">
+            <div className="mt-4 sm:mt-6">
+              <button className="inline-flex items-center justify-center gap-2 bg-pink-500 text-white font-medium py-3 px-4 sm:px-6 rounded-lg shadow-md hover:bg-pink-600 hover:shadow-lg transition-all w-full sm:w-auto max-w-xs text-sm sm:text-base">
                 <Mail className="w-4 h-4" />
                 Sign up for updates & tips
               </button>

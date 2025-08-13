@@ -29,7 +29,8 @@ export default function Header() {
     <header className={`${scrolled ? 'bg-black shadow-md' : 'bg-black'} transition-all duration-300 sticky top-0 z-50`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
-          <div className="flex items-center space-x-2">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-2">
             <div className="relative">
               <Link
                 href="/"
@@ -218,7 +219,9 @@ export default function Header() {
               Contact
             </Link>
           </div>
-          <div className="flex items-center space-x-3">
+          
+          {/* Desktop CTA Buttons */}
+          <div className="hidden md:flex items-center space-x-3">
             <Link 
               href="/signin" 
               className="btn px-4 py-2 bg-coral text-gradientStart font-bold rounded-lg shadow hover:bg-opacity-90 hover-lift focus-highlight"
@@ -236,11 +239,18 @@ export default function Header() {
               Book Your First Session
             </a>
           </div>
+          
+          {/* Mobile Logo */}
+          <div className="md:hidden flex-1 text-center">
+            <Link href="/" className="text-softblue font-bold text-lg">
+              Navigating the Storm
+            </Link>
+          </div>
           {/* Mobile menu button */}
-          <div className="sm:hidden flex items-center ml-2">
+          <div className="md:hidden flex items-center ml-2">
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-navy hover:text-ocean hover:bg-aquablue mobile-touch-target"
+              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-freshaqua hover:bg-gray-800 mobile-touch-target"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-expanded={isMenuOpen}
               aria-label="Toggle menu"
@@ -268,27 +278,31 @@ export default function Header() {
           </div>
         </div>
         {/* Mobile menu */}
-        <div className={`${isMenuOpen ? 'block' : 'hidden'} sm:hidden`}> 
-          <div className="pt-2 pb-3 space-y-1">
-            <Link href="/" className="block px-3 py-2 text-base font-bold text-navy hover:bg-aquablue hover:text-ocean rounded-lg mobile-touch-target">Home</Link>
-            <Link href="/about" className="block px-3 py-2 text-base font-medium text-navy hover:bg-aquablue hover:text-ocean rounded-lg mobile-touch-target">About</Link>
-            <Link href="/services" className="block px-3 py-2 text-base font-medium text-navy hover:bg-aquablue hover:text-ocean rounded-lg mobile-touch-target">Services</Link>
-            <Link href="/quiz" className="block px-3 py-2 text-base font-medium text-navy hover:bg-aquablue hover:text-ocean rounded-lg mobile-touch-target">Quiz</Link>
-            <Link href="/contact" className="block px-3 py-2 text-base font-medium text-navy hover:bg-aquablue hover:text-ocean rounded-lg mobile-touch-target">Contact</Link>
-            <Link
-              href="/signin"
-              className="block px-3 py-2 text-base font-bold text-white bg-coral rounded-lg mt-2 hover:bg-opacity-90 transition mobile-touch-target"
-            >
-              Sign In
-            </Link>
-            <a
-              href="https://cal.com/navcoaching/first-session"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block px-3 py-2 text-base font-bold text-navy bg-freshaqua rounded-lg mt-2 hover:bg-tealblue hover:text-white transition mobile-touch-target"
-            >
-              Book Your First Session
-            </a>
+        <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden bg-black border-t border-gray-700`}> 
+          <div className="pt-2 pb-3 space-y-1 px-2">
+            <Link href="/" className="block px-3 py-3 text-base font-bold text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target" onClick={() => setIsMenuOpen(false)}>Home</Link>
+            <Link href="/about" className="block px-3 py-3 text-base font-medium text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target" onClick={() => setIsMenuOpen(false)}>About</Link>
+            <Link href="/services" className="block px-3 py-3 text-base font-medium text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target" onClick={() => setIsMenuOpen(false)}>Services</Link>
+            <Link href="/quiz" className="block px-3 py-3 text-base font-medium text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target" onClick={() => setIsMenuOpen(false)}>Quiz</Link>
+            <Link href="/contact" className="block px-3 py-3 text-base font-medium text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg mobile-touch-target" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+            <div className="pt-2 space-y-2">
+              <Link
+                href="/signin"
+                className="block px-3 py-3 text-base font-bold text-white bg-coral rounded-lg hover:bg-opacity-90 transition mobile-touch-target text-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Sign In
+              </Link>
+              <a
+                href="https://cal.com/navcoaching/first-session"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block px-3 py-3 text-base font-bold text-navy bg-freshaqua rounded-lg hover:bg-tealblue hover:text-white transition mobile-touch-target text-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Book Your First Session
+              </a>
+            </div>
           </div>
         </div>
       </nav>

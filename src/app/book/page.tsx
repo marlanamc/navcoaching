@@ -11,24 +11,24 @@ export default function BookSession() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-lavender via-skyblue to-freshaqua py-12 px-4">
+    <main className="min-h-screen bg-gradient-to-br from-lavender via-skyblue to-freshaqua py-8 sm:py-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-navy mb-4 font-playfair">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 font-playfair leading-tight">
             Schedule Your Next Session
           </h1>
-          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto px-4">
             Choose the right level of support for your journey
           </p>
         </div>
 
         {/* Booking Options */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
           {/* Drop-In Session */}
-          <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow flex flex-col">
-            <h3 className="text-2xl font-bold text-navy mb-4 font-playfair">Drop-In Session</h3>
-            <div className="text-4xl font-bold text-pink-600 mb-2">$60</div>
+          <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow flex flex-col">
+            <h3 className="text-xl sm:text-2xl font-bold text-navy mb-4 font-playfair">Drop-In Session</h3>
+            <div className="text-3xl sm:text-4xl font-bold text-pink-600 mb-2">$60</div>
             <div className="text-sm text-pink-600 font-semibold mb-6">Existing clients</div>
             
             <div className="space-y-3 text-gray-700 mb-8 flex-grow">
@@ -61,7 +61,7 @@ export default function BookSession() {
           </div>
 
           {/* 4-Session Pack - MOST POPULAR */}
-          <div className="bg-white p-8 rounded-xl border-2 border-teal-500 relative shadow-lg hover:shadow-xl transition-shadow flex flex-col">
+          <div className="bg-white p-6 sm:p-8 rounded-xl border-2 border-teal-500 relative shadow-lg hover:shadow-xl transition-shadow flex flex-col">
             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-teal-500 to-teal-600 text-white text-sm px-4 py-2 rounded-full font-bold shadow-md">
               ⭐ MOST POPULAR
             </div>
@@ -107,7 +107,7 @@ export default function BookSession() {
           </div>
 
           {/* 8-Session Bundle */}
-          <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow flex flex-col">
+          <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow flex flex-col">
             <h3 className="text-2xl font-bold text-navy mb-4 font-playfair">8-Session Bundle</h3>
             <div className="text-4xl font-bold text-purple-600 mb-1">$320 <span className="text-lg text-gray-600">(Save $160)</span></div>
             <div className="text-sm text-purple-600 font-semibold mb-6">$40 per session</div>

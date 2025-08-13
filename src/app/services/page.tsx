@@ -11,32 +11,32 @@ export default function Services() {
     return `https://cal.com/navcoaching/${eventType}?successUrl=${encodeURIComponent(successUrl)}`
   }
   return (
-    <main className="min-h-screen py-12 px-8 lg:px-12">
+    <main className="min-h-screen py-8 sm:py-12 px-4 sm:px-8 lg:px-12">
       <div className="w-full">
         
         {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-navy mb-4 font-playfair">
+        <div className="text-center mb-12 sm:mb-16">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold text-navy mb-4 font-playfair leading-tight">
             Weekly Accountability Sessions with Marlie
           </h1>
-          <p className="text-xl text-deepteal max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-deepteal max-w-2xl mx-auto px-4">
             30-minute weekly sessions.<br />
             The perfect amount of time for real progress without overwhelm.
           </p>
         </div>
 
         {/* First Session - Start Here */}
-        <section className="mb-16">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-navy mb-4 font-playfair">Start Here</h2>
-            <p className="text-xl text-gray-600 mb-8">Get started with your discounted introductory session</p>
+        <section className="mb-12 sm:mb-16">
+          <div className="max-w-3xl mx-auto text-center px-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy mb-4 font-playfair">Start Here</h2>
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8">Get started with your discounted introductory session</p>
             
-            <div className="bg-white p-6 rounded-xl border-2 border-teal-200 shadow-lg max-w-xl mx-auto">
-              <h3 className="text-xl font-bold text-navy mb-3 font-playfair">First Session</h3>
-              <div className="text-3xl font-bold text-teal-700 mb-2">$25</div>
+            <div className="bg-white p-4 sm:p-6 rounded-xl border-2 border-teal-200 shadow-lg max-w-xl mx-auto">
+              <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 font-playfair">First Session</h3>
+              <div className="text-2xl sm:text-3xl font-bold text-teal-700 mb-2">$25</div>
               <div className="text-sm text-teal-600 font-semibold mb-4">New clients only</div>
               
-              <div className="grid grid-cols-2 gap-4 mb-6 text-sm text-gray-700">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 text-sm text-gray-700">
                 <div className="flex items-start">
                   <span className="text-teal-600 mr-2">✓</span>
                   <span>30-minute coaching session</span>

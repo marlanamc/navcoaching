@@ -413,8 +413,8 @@ export default function Dashboard() {
     }
 
     // Complex patterns
-    const highStructureCount = answers.filter(a => a === 3).length;
-    const lowStructureCount = answers.filter(a => a === 1).length;
+    const highStructureCount = answers.filter((a: number) => a === 3).length;
+    const lowStructureCount = answers.filter((a: number) => a === 1).length;
     
     if (highStructureCount >= 5 && lowStructureCount >= 3) {
       insights.push("🎭 You have a complex relationship with structure - you crave it in some areas but resist it in others");

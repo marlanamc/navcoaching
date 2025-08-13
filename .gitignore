@@ -33,3 +33,9 @@ yarn-error.log*
 next-env.d.ts 
 # macOS Finder metadata
 Icon?
+
+# Debug and test files
+*_booking.js
+debug_*.js
+check_*.js
+test_*.js

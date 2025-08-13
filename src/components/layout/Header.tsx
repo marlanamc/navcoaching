@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { ChevronDown } from 'lucide-react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHomeDropdownOpen, setIsHomeDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   // Handle scroll effect for header
@@ -28,9 +30,181 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center space-x-2">
-            <Link href="/" className=" flex items-center font-extrabold text-softblue text-xl tracking-tight px-3 py-2 rounded-lg hover:bg-black hover:text-softblue_light transition hover-lift focus-highlight">
-              Home
-            </Link>
+            <div className="relative">
+              <Link
+                href="/"
+                onMouseEnter={() => setIsHomeDropdownOpen(true)}
+                onMouseLeave={() => setIsHomeDropdownOpen(false)}
+                className="flex items-center font-extrabold text-softblue text-xl tracking-tight px-3 py-2 rounded-lg hover:bg-black hover:text-softblue_light transition hover-lift focus-highlight"
+              >
+                Home
+                <ChevronDown className="ml-1 w-4 h-4" />
+              </Link>
+              
+              {isHomeDropdownOpen && (
+                <div 
+                  className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-lg border border-gray-200 py-2 min-w-48 z-50"
+                  onMouseEnter={() => setIsHomeDropdownOpen(true)}
+                  onMouseLeave={() => setIsHomeDropdownOpen(false)}
+                >
+                  <Link 
+                    href="/" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }, 100);
+                    }}
+                  >
+                    🏠 Home
+                  </Link>
+                  <Link 
+                    href="/#framework" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    🧭 Framework
+                  </Link>
+                  <Link 
+                    href="/#dashboard" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    📊 Dashboard
+                  </Link>
+                  <Link 
+                    href="/#who" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    👥 Who It's For
+                  </Link>
+                  <Link 
+                    href="/#value" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    💰 Pricing
+                  </Link>
+                  <Link 
+                    href="/#not" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    ❌ What It's NOT
+                  </Link>
+                  <Link 
+                    href="/#testimonials" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    💬 Testimonials
+                  </Link>
+                  <Link 
+                    href="/#faq" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    ❓ FAQ
+                  </Link>
+                  <Link 
+                    href="/#policy" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    📅 Scheduling
+                  </Link>
+                  <Link 
+                    href="/#process" 
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    onClick={() => {
+                      setTimeout(() => {
+                        const tabbedSection = document.getElementById('tabbed-section');
+                        if (tabbedSection) {
+                          const headerHeight = 80;
+                          const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                          window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }}
+                  >
+                    🚀 Get Started
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link href="/about" className="text-lavenderblue font-semibold px-3 py-2 rounded-lg hover:bg-black hover:text-lavenderblue_light transition hover-lift focus-highlight">
               About
             </Link>
@@ -54,7 +228,7 @@ export default function Header() {
             
             {/* First Session button */}
             <a 
-              href="https://calendly.com/marlie-navcoaching/initial"
+              href="https://cal.com/navcoaching/first-session"
               target="_blank"
               rel="noopener noreferrer"
               className="btn cta px-4 py-2 bg-freshaqua text-navy font-bold rounded-lg shadow hover:bg-tealblue hover:text-white transition hover-lift focus-highlight"
@@ -108,7 +282,7 @@ export default function Header() {
               Sign In
             </Link>
             <a
-              href="https://calendly.com/marlie-navcoaching/initial"
+              href="https://cal.com/navcoaching/first-session"
               target="_blank"
               rel="noopener noreferrer"
               className="block px-3 py-2 text-base font-bold text-navy bg-freshaqua rounded-lg mt-2 hover:bg-tealblue hover:text-white transition mobile-touch-target"

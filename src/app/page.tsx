@@ -1,13 +1,40 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Heart, Target, Zap, Shield, Fuel, MapPin, Anchor, Compass, CloudRain, Map, Radio, Settings, AlertTriangle, LifeBuoy, Users, Trophy, Handshake, BookCopy, Monitor, Calendar, GraduationCap, CheckSquare, Phone, Briefcase, Clock, Brain, Home, PhoneCall, Play, Cog, MessageCircle, FileText, HelpCircle, Video, Camera, Timer, ClipboardList, Wrench, History, TrendingUp, Stethoscope, CreditCard, CalendarX, UserCheck } from 'lucide-react';
+import { Heart, Target, Zap, Shield, Fuel, MapPin, Anchor, Compass, CloudRain, Map, Radio, Settings, AlertTriangle, LifeBuoy, Users, Trophy, Handshake, BookCopy, Monitor, Calendar, GraduationCap, CheckSquare, Phone, Briefcase, Clock, Brain, Home, PhoneCall, Play, Cog, MessageCircle, FileText, HelpCircle, Video, Camera, Timer, ClipboardList, Wrench, History, TrendingUp, Stethoscope, CreditCard, CalendarX, UserCheck, Mail } from 'lucide-react';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('framework');
   const [showExamples, setShowExamples] = useState(false);
+
+  // Handle URL hash navigation
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      const validTabs = ['framework', 'dashboard', 'who', 'value', 'not', 'testimonials', 'faq', 'policy', 'process'];
+      if (validTabs.includes(hash)) {
+        setActiveTab(hash);
+        // Scroll to the tabbed section
+        setTimeout(() => {
+          const tabbedSection = document.getElementById('tabbed-section');
+          if (tabbedSection) {
+            const headerHeight = 80; // Account for sticky header
+            const sectionTop = tabbedSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            window.scrollTo({ top: sectionTop, behavior: 'smooth' });
+          }
+        }, 100); // Small delay to ensure tab content is rendered
+      }
+    };
+
+    // Check hash on component mount
+    handleHashChange();
+    
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-200 via-blue-300 via-purple-300 via-pink-300 to-indigo-900">
@@ -33,17 +60,17 @@ export default function Home() {
           {/* Benefits Cards */}
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border-2 border-white/60">
-              <Heart className="mx-auto h-12 w-12 text-lavenderblue mb-4" />
+              <Heart className="mx-auto h-12 w-12 text-fuchsia-400 mb-4" />
               <h3 className="text-lg font-bold text-navy mb-2">Real human<br />connection</h3>
               <p className="text-sm text-gray-700">Someone who genuinely cares and<br />remembers your goals</p>
             </div>
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border-2 border-white/60">
-              <Handshake className="mx-auto h-12 w-12 text-lavenderblue mb-4" />
+              <Handshake className="mx-auto h-12 w-12 text-violet-400 mb-4" />
               <h3 className="text-lg font-bold text-navy mb-2">Weekly 1 on 1<br />accountability</h3>
               <p className="text-sm text-gray-700">30 minutes a week, simple system,<br />real progress</p>
             </div>
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border-2 border-white/60">
-              <MapPin className="mx-auto h-12 w-12 text-lavenderblue mb-4" />
+              <MapPin className="mx-auto h-12 w-12 text-sky-400 mb-4" />
               <h3 className="text-lg font-bold text-navy mb-2">Reach your goal,<br />one week at a time</h3>
               <p className="text-sm text-gray-700">Focus on what matters, skip<br />the overwhelm</p>
             </div>
@@ -66,92 +93,126 @@ export default function Home() {
           {/* CTA */}
           <div className="mt-12 text-center">
             <a 
-              href="https://calendly.com/marlie-navcoaching/initial" 
+              href="https://cal.com/navcoaching/first-session" 
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-tealblue text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:bg-deepteal transition-colors text-xl"
             >
               Start for $25 →
             </a>
+            
+            <div className="mt-6">
+              <button className="inline-flex items-center gap-2 bg-pink-500 text-white font-medium py-3 px-6 rounded-lg shadow-md hover:bg-pink-600 hover:shadow-lg transition-all">
+                <Mail className="w-4 h-4" />
+                Sign up for updates & tips
+              </button>
+            </div>
           </div>
         </div>
       </header>
 
 
-      {/* Caught in Rough Waters */}
+      {/* How It Works */}
       <section className="py-16 max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-navy mb-4 font-playfair">
-            Caught in Rough Waters?
+            How Weekly Sessions Work
           </h2>
           <p className="text-xl text-navy mb-8">
-            Whether you're drowning in deadlines, avoiding phone calls, or just feeling stuck, I get it.
+            Simple, consistent support that actually fits your life
           </p>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-8 items-stretch">
-          {/* Left Card */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Before Session */}
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border-2 border-white/60">
             <div className="text-center mb-6">
-              <Heart className="mx-auto h-12 w-12 text-pink-500 mb-4" />
-              <h3 className="text-2xl font-bold text-navy mb-4">Real human connection</h3>
+              <div className="w-16 h-16 bg-violet-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                <MessageCircle className="w-8 h-8 text-violet-700" />
+              </div>
+              <h3 className="text-xl font-bold text-navy mb-2">Before We Meet</h3>
             </div>
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <p className="text-gray-700">Someone who genuinely cares and remembers your goals</p>
-              </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <p className="text-gray-700">Weekly check-ins you'll actually look forward to</p>
-              </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <p className="text-gray-700">No judgment when life gets messy</p>
-              </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <p className="text-gray-700">A real person who "gets" your ADHD brain</p>
-              </div>
-            </div>
+            <ul className="space-y-3 text-gray-700">
+              <li className="flex items-start">
+                <span className="text-violet-500 mr-2">•</span>
+                <span>First session: Quick questionnaire about logistics</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-violet-500 mr-2">•</span>
+                <span>Get a gentle text reminder (if you want one)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-violet-500 mr-2">•</span>
+                <span>No prep needed - come as you are</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-violet-500 mr-2">•</span>
+                <span>Camera optional, pajamas welcome</span>
+              </li>
+            </ul>
           </div>
           
-          {/* Right Card */}
+          {/* During Session */}
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border-2 border-white/60">
             <div className="text-center mb-6">
-              <Handshake className="mx-auto h-12 w-12 text-tealblue mb-4" />
-              <h3 className="text-2xl font-bold text-navy mb-4">Weekly 1 on 1 accountability</h3>
+              <div className="w-16 h-16 bg-sky-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Video className="w-8 h-8 text-sky-700" />
+              </div>
+              <h3 className="text-xl font-bold text-navy mb-2">During Our 30 Minutes</h3>
             </div>
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-tealblue rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <p className="text-gray-700">30 minutes a week, simple system, real progress</p>
+            <ul className="space-y-3 text-gray-700">
+              <li className="flex items-start">
+                <span className="text-sky-500 mr-2">•</span>
+                <span>Celebrate wins (even tiny ones)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-sky-500 mr-2">•</span>
+                <span>Problem-solve stuck points together</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-sky-500 mr-2">•</span>
+                <span>Choose 1-3 doable goals for the week</span>
+              </li>
+            </ul>
+          </div>
+          
+          {/* After Session */}
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border-2 border-white/60">
+            <div className="text-center mb-6">
+              <div className="w-16 h-16 bg-teal-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckSquare className="w-8 h-8 text-teal-700" />
               </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-tealblue rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <p className="text-gray-700">Focus on what matters, skip the overwhelm</p>
-              </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-tealblue rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <p className="text-gray-700">Consistent support that actually works</p>
-              </div>
-              <div className="flex items-start">
-                <span className="w-2 h-2 bg-tealblue rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                <p className="text-gray-700">Build momentum one week at a time</p>
-              </div>
+              <h3 className="text-xl font-bold text-navy mb-2">After We Meet</h3>
             </div>
+            <ul className="space-y-3 text-gray-700">
+              <li className="flex items-start">
+                <span className="text-teal-500 mr-2">•</span>
+                <span>I update your dashboard (no work for you)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-teal-500 mr-2">•</span>
+                <span>Mid-week check-in text (with session packs)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-teal-500 mr-2">•</span>
+                <span>Discord community access (duration varies by package)</span>
+              </li>
+            </ul>
           </div>
         </div>
         
       </section>
 
       {/* Tabbed Interface */}
-      <section className="py-8 bg-white/90 rounded-2xl mb-8">
+      <section id="tabbed-section" className="py-8 bg-white/90 rounded-2xl mb-8">
         <div className="max-w-6xl mx-auto px-8">
           {/* Tab Navigation */}
           <div className="flex flex-wrap justify-center gap-2 mb-8 border-b border-gray-200 pb-4">
             <button
-              onClick={() => setActiveTab('framework')}
+              onClick={() => {
+                setActiveTab('framework');
+                window.history.pushState(null, '', '#framework');
+              }}
               className={`px-4 py-2 rounded-lg font-semibold transition text-sm ${
                 activeTab === 'framework'
                   ? 'bg-purple-500 text-white shadow-lg'
@@ -161,7 +222,10 @@ export default function Home() {
               🧭 Framework
             </button>
             <button
-              onClick={() => setActiveTab('dashboard')}
+              onClick={() => {
+                setActiveTab('dashboard');
+                window.history.pushState(null, '', '#dashboard');
+              }}
               className={`px-4 py-2 rounded-lg font-semibold transition text-sm ${
                 activeTab === 'dashboard'
                   ? 'bg-blue-500 text-white shadow-lg'
@@ -171,7 +235,10 @@ export default function Home() {
               📊 Dashboard
             </button>
             <button
-              onClick={() => setActiveTab('who')}
+              onClick={() => {
+                setActiveTab('who');
+                window.history.pushState(null, '', '#who');
+              }}
               className={`px-4 py-2 rounded-lg font-semibold transition text-sm ${
                 activeTab === 'who'
                   ? 'bg-pink-500 text-white shadow-lg'
@@ -181,7 +248,10 @@ export default function Home() {
               👥 Who It's For
             </button>
             <button
-              onClick={() => setActiveTab('value')}
+              onClick={() => {
+                setActiveTab('value');
+                window.history.pushState(null, '', '#value');
+              }}
               className={`px-4 py-2 rounded-lg font-semibold transition text-sm ${
                 activeTab === 'value'
                   ? 'bg-green-500 text-white shadow-lg'
@@ -191,7 +261,10 @@ export default function Home() {
               💰 Value
             </button>
             <button
-              onClick={() => setActiveTab('not')}
+              onClick={() => {
+                setActiveTab('not');
+                window.history.pushState(null, '', '#not');
+              }}
               className={`px-4 py-2 rounded-lg font-semibold transition text-sm ${
                 activeTab === 'not'
                   ? 'bg-red-500 text-white shadow-lg'
@@ -201,7 +274,10 @@ export default function Home() {
               ❌ What It's NOT
             </button>
             <button
-              onClick={() => setActiveTab('faq')}
+              onClick={() => {
+                setActiveTab('faq');
+                window.history.pushState(null, '', '#faq');
+              }}
               className={`px-4 py-2 rounded-lg font-semibold transition text-sm ${
                 activeTab === 'faq'
                   ? 'bg-orange-500 text-white shadow-lg'
@@ -211,7 +287,10 @@ export default function Home() {
               ❓ FAQ
             </button>
             <button
-              onClick={() => setActiveTab('testimonials')}
+              onClick={() => {
+                setActiveTab('testimonials');
+                window.history.pushState(null, '', '#testimonials');
+              }}
               className={`px-4 py-2 rounded-lg font-semibold transition text-sm ${
                 activeTab === 'testimonials'
                   ? 'bg-indigo-500 text-white shadow-lg'
@@ -221,17 +300,23 @@ export default function Home() {
               💬 Testimonials
             </button>
             <button
-              onClick={() => setActiveTab('policy')}
+              onClick={() => {
+                setActiveTab('policy');
+                window.history.pushState(null, '', '#policy');
+              }}
               className={`px-4 py-2 rounded-lg font-semibold transition text-sm ${
                 activeTab === 'policy'
                   ? 'bg-emerald-500 text-white shadow-lg'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              📅 Flexible Terms
+              📅 Scheduling
             </button>
             <button
-              onClick={() => setActiveTab('process')}
+              onClick={() => {
+                setActiveTab('process');
+                window.history.pushState(null, '', '#process');
+              }}
               className={`px-4 py-2 rounded-lg font-semibold transition text-sm ${
                 activeTab === 'process'
                   ? 'bg-teal-500 text-white shadow-lg'
@@ -286,8 +371,8 @@ export default function Home() {
                       {/* Level 1: Dockside Prep */}
                       <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 border-2 border-white/60 shadow-xl hover:shadow-2xl transition-all duration-300">
                         <div className="flex items-center justify-center mb-4">
-                          <div className="w-12 h-12 bg-gradient-to-r from-tealblue to-ocean rounded-full flex items-center justify-center shadow-lg">
-                            <Anchor className="w-6 h-6 text-white" />
+                          <div className="w-12 h-12 bg-teal-200 rounded-full flex items-center justify-center shadow-md">
+                            <Anchor className="w-6 h-6 text-teal-700" />
                           </div>
                         </div>
                         <h5 className="text-lg font-bold text-navy mb-3 text-center">1. Dockside Prep</h5>
@@ -299,8 +384,8 @@ export default function Home() {
                       {/* Level 2: Destination */}
                       <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 border-2 border-white/60 shadow-xl hover:shadow-2xl transition-all duration-300">
                         <div className="flex items-center justify-center mb-4">
-                          <div className="w-12 h-12 bg-gradient-to-r from-ocean to-blue-600 rounded-full flex items-center justify-center shadow-lg">
-                            <MapPin className="w-6 h-6 text-white" />
+                          <div className="w-12 h-12 bg-sky-200 rounded-full flex items-center justify-center shadow-md">
+                            <MapPin className="w-6 h-6 text-sky-700" />
                           </div>
                         </div>
                         <h5 className="text-lg font-bold text-navy mb-3 text-center">2. Destination</h5>
@@ -312,8 +397,8 @@ export default function Home() {
                       {/* Level 3: Anchor */}
                       <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 border-2 border-white/60 shadow-xl hover:shadow-2xl transition-all duration-300">
                         <div className="flex items-center justify-center mb-4">
-                          <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center shadow-lg">
-                            <Settings className="w-6 h-6 text-white" />
+                          <div className="w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center shadow-md">
+                            <Settings className="w-6 h-6 text-blue-700" />
                           </div>
                         </div>
                         <h5 className="text-lg font-bold text-navy mb-3 text-center">3. Anchor</h5>
@@ -325,8 +410,8 @@ export default function Home() {
                       {/* Level 4: Navigation Tools */}
                       <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 border-2 border-white/60 shadow-xl hover:shadow-2xl transition-all duration-300">
                         <div className="flex items-center justify-center mb-4">
-                          <div className="w-12 h-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
-                            <Compass className="w-6 h-6 text-white" />
+                          <div className="w-12 h-12 bg-violet-200 rounded-full flex items-center justify-center shadow-md">
+                            <Compass className="w-6 h-6 text-violet-700" />
                           </div>
                         </div>
                         <h5 className="text-lg font-bold text-navy mb-3 text-center">4. Navigation Tools</h5>
@@ -338,8 +423,8 @@ export default function Home() {
                       {/* Level 5: Hazards at Sea */}
                       <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 border-2 border-white/60 shadow-xl hover:shadow-2xl transition-all duration-300">
                         <div className="flex items-center justify-center mb-4">
-                          <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center shadow-lg">
-                            <AlertTriangle className="w-6 h-6 text-white" />
+                          <div className="w-12 h-12 bg-fuchsia-200 rounded-full flex items-center justify-center shadow-md">
+                            <AlertTriangle className="w-6 h-6 text-fuchsia-700" />
                           </div>
                         </div>
                         <h5 className="text-lg font-bold text-navy mb-3 text-center">5. Hazards at Sea</h5>
@@ -351,8 +436,8 @@ export default function Home() {
                       {/* Level 6: Lifeboat */}
                       <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 border-2 border-white/60 shadow-xl hover:shadow-2xl transition-all duration-300">
                         <div className="flex items-center justify-center mb-4">
-                          <div className="w-12 h-12 bg-gradient-to-r from-pink-600 to-red-500 rounded-full flex items-center justify-center shadow-lg">
-                            <LifeBuoy className="w-6 h-6 text-white" />
+                          <div className="w-12 h-12 bg-rose-200 rounded-full flex items-center justify-center shadow-md">
+                            <LifeBuoy className="w-6 h-6 text-rose-700" />
                           </div>
                         </div>
                         <h5 className="text-lg font-bold text-navy mb-3 text-center">6. Lifeboat</h5>
@@ -364,8 +449,8 @@ export default function Home() {
                       {/* Level 7: Support Systems */}
                       <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 border-2 border-white/60 shadow-xl hover:shadow-2xl transition-all duration-300">
                         <div className="flex items-center justify-center mb-4">
-                          <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
-                            <Users className="w-6 h-6 text-white" />
+                          <div className="w-12 h-12 bg-orange-200 rounded-full flex items-center justify-center shadow-md">
+                            <Users className="w-6 h-6 text-orange-700" />
                           </div>
                         </div>
                         <h5 className="text-lg font-bold text-navy mb-3 text-center">7. Support Systems</h5>
@@ -377,8 +462,8 @@ export default function Home() {
                       {/* Level 8: Reflection and Recognition */}
                       <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 border-2 border-white/60 shadow-xl hover:shadow-2xl transition-all duration-300">
                         <div className="flex items-center justify-center mb-4">
-                          <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full flex items-center justify-center shadow-lg">
-                            <Trophy className="w-6 h-6 text-white" />
+                          <div className="w-12 h-12 bg-amber-200 rounded-full flex items-center justify-center shadow-md">
+                            <Trophy className="w-6 h-6 text-amber-700" />
                           </div>
                         </div>
                         <h5 className="text-lg font-bold text-navy mb-3 text-center">8. Reflection and Recognition</h5>
@@ -735,12 +820,12 @@ export default function Home() {
                     <h4 className="text-xl font-bold text-green-600 mb-4 flex items-center gap-2"><FileText className="h-5 w-5" /> Logistics</h4>
                     <div className="space-y-4">
                       <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
-                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><CreditCard className="h-4 w-4 text-green-600" />Can I cancel anytime?</h5>
-                        <p className="text-gray-600">Yes! Just give me a week's notice. You'll get a prorated refund for any unused sessions in your current 4-week cycle.</p>
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><CreditCard className="h-4 w-4 text-green-600" />How does payment work?</h5>
+                        <p className="text-gray-600">No subscriptions! Buy a session pack when you need it. Sessions are valid for 8-12 weeks depending on the pack. No auto-renewals, no surprise charges.</p>
                       </div>
                       <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
-                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><CalendarX className="h-4 w-4 text-green-600" />What if I miss a week?</h5>
-                        <p className="text-gray-600">Life happens! If you give me 24+ hours' notice, we can reschedule for another time that week or just pick up the following week. If something comes up last minute, just send me a quick message — we'll figure it out. Your progress dashboard will keep us both on track.</p>
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><CalendarX className="h-4 w-4 text-green-600" />What if I miss a session?</h5>
+                        <p className="text-gray-600">Life happens! If you give me 24+ hours' notice, we can reschedule. With session packs, you have 8-12 weeks to use your sessions, so there's no pressure to meet every single week. Your dashboard keeps track of everything.</p>
                       </div>
                       <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
                         <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><UserCheck className="h-4 w-4 text-green-600" />Do you work with teens or only adults?</h5>
@@ -757,67 +842,65 @@ export default function Home() {
               <div className="space-y-6">
                 <div className="text-center">
                   <h3 className="text-3xl font-bold text-navy mb-3 font-playfair">
-                    More support, lower price
+                    ADHD-Friendly Pricing (No Subscription Traps!)
                   </h3>
                   <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                    A personal project manager for ADHD brains, without the coaching price tag.
+                    Pay for what you use. No auto-renewals. No "forgot to cancel" guilt.
                   </p>
                 </div>
                 
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  {/* Left Card - Typical Coaching */}
-                  <div className="bg-gray-50 p-5 rounded-xl border border-gray-200">
-                    <h4 className="text-xl font-bold text-gray-700 mb-3">Typical accountability coaching</h4>
-                    <div className="mb-4">
-                      <div className="text-3xl font-bold text-gray-700">$75+ per week</div>
-                      <div className="text-sm text-gray-600">About $300+ per month</div>
+                <div className="grid md:grid-cols-3 gap-6 mb-6">
+                  {/* Drop-In Session */}
+                  <div className="bg-white/95 p-6 rounded-2xl border-2 border-pink-300 shadow-lg flex flex-col">
+                    <h4 className="text-lg font-bold text-navy mb-2">Drop-In Session</h4>
+                    <div className="text-2xl font-bold text-pink-600 mb-2">$60</div>
+                    <div className="text-sm text-pink-600 font-semibold mb-4">First session: $25</div>
+                    
+                    <div className="space-y-3 text-gray-700 text-sm mb-6 flex-grow">
+                      <div className="flex items-start">
+                        <span className="text-pink-500 mr-2">✓</span>
+                        <span>30-minute coaching session</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-pink-500 mr-2">✓</span>
+                        <span>Personal Notion dashboard</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-pink-500 mr-2">✓</span>
+                        <span>Discord community access (1 month)</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-pink-500 mr-2">✓</span>
+                        <span>Body doubling sessions included</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-pink-500 mr-2">✓</span>
+                        <span>Book again anytime</span>
+                      </div>
                     </div>
-                    <div className="space-y-2 text-gray-700">
-                      <div className="flex items-start">
-                        <span className="text-green-600 mr-2">✓</span>
-                        <span>Weekly call</span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-green-600 mr-2">✓</span>
-                        <span>Basic text check-ins</span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">–</span>
-                        <span className="text-gray-500">No structured system</span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">–</span>
-                        <span className="text-gray-500">No personal dashboard</span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">–</span>
-                        <span className="text-gray-500">No community</span>
-                      </div>
-                    </div>
+                    <a 
+                      href="https://cal.com/navcoaching/first-session" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full py-3 px-6 bg-pink-500 text-white text-center font-bold rounded-lg shadow-lg hover:bg-pink-600 transition text-sm mt-auto"
+                    >
+                      Select Drop-In
+                    </a>
                   </div>
                   
-                  {/* Right Card - Your Personal PM */}
-                  <div className="bg-gradient-to-br from-tealblue/10 to-ocean/10 p-5 rounded-xl border-2 border-tealblue/30 relative">
-                    <div className="absolute top-4 right-4 bg-ocean text-white text-sm px-4 py-2 rounded-full font-bold shadow-lg">
-                      First session $25
+                  {/* 4-Session Pack - MOST POPULAR */}
+                  <div className="bg-white/95 p-6 rounded-2xl border-2 border-tealblue/30 relative shadow-xl flex flex-col">
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-tealblue to-ocean text-white text-sm px-4 py-1.5 rounded-full font-bold shadow-md">
+                      🌟 MOST POPULAR
                     </div>
-                    <h4 className="text-xl font-bold text-navy mb-3">Your Personal Project Manager</h4>
-                    <div className="mb-4">
-                      <div className="text-2xl font-bold text-tealblue">$50/week</div>
-                      <div className="text-sm text-gray-600">Billed $200 every 4 weeks</div>
-                    </div>
-                    <div className="space-y-2 text-gray-700 mb-4">
+                    <h4 className="text-lg font-bold text-navy mb-2 mt-2">4-Session Pack</h4>
+                    <div className="text-2xl font-bold text-tealblue mb-1">$180 <span className="text-lg">(Save $60)</span></div>
+                    <div className="text-sm text-tealblue font-semibold mb-4">First session: $25</div>
+                    
+                    <div className="space-y-3 text-gray-700 text-sm mb-6 flex-grow">
                       <div className="flex items-start">
                         <span className="text-tealblue mr-2">✓</span>
-                        <span>Weekly 30-min call</span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-tealblue mr-2">✓</span>
-                        <span>Personalized text reminders</span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-tealblue mr-2">✓</span>
-                        <span>ADHD-informed, evidence-based framework</span>
+                        <span>4 × 30-minute coaching sessions</span>
                       </div>
                       <div className="flex items-start">
                         <span className="text-tealblue mr-2">✓</span>
@@ -825,43 +908,88 @@ export default function Home() {
                       </div>
                       <div className="flex items-start">
                         <span className="text-tealblue mr-2">✓</span>
-                        <span>Optional body doubling sessions</span>
+                        <span>Text check-ins between sessions</span>
                       </div>
                       <div className="flex items-start">
                         <span className="text-tealblue mr-2">✓</span>
-                        <span>Private Discord community</span>
+                        <span>Discord community access (3 months)</span>
                       </div>
                       <div className="flex items-start">
                         <span className="text-tealblue mr-2">✓</span>
-                        <span>Cancel anytime</span>
+                        <span>Priority scheduling</span>
                       </div>
-                    </div>
-                    <div className="p-3 bg-green-50 rounded-lg border border-green-200 mb-6">
-                      <div className="text-sm font-semibold text-green-700">💰 Member Rate Available: $45/week</div>
-                      <div className="text-xs text-green-600">$180 every 4 weeks • Save $60 over 12 weeks • Lock in your weekly time slot</div>
+                      <div className="flex items-start">
+                        <span className="text-tealblue mr-2">✓</span>
+                        <span>Use within 8 weeks</span>
+                      </div>
                     </div>
                     <a 
-                      href="https://calendly.com/marlie-navcoaching/initial" 
+                      href="https://cal.com/navcoaching/first-session" 
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block w-full bg-tealblue text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-deepteal transition-colors text-center"
-                      aria-label="Start for twenty-five dollars, first session"
+                      className="block w-full py-3 px-6 bg-tealblue text-white text-center font-bold rounded-lg shadow-lg hover:bg-deepteal transition text-sm mt-auto"
                     >
-                      Start for $25 →
+                      Select 4-Session Pack
                     </a>
-                    <p className="text-xs text-gray-600 text-center mt-2">
-                      Then choose: Standard $200/4 weeks or Member Rate $180/4 weeks
-                    </p>
+                  </div>
+                  
+                  {/* 8-Session Bundle */}
+                  <div className="bg-white/95 p-6 rounded-2xl border-2 border-purple-300 shadow-lg flex flex-col">
+                    <h4 className="text-lg font-bold text-navy mb-2">8-Session Bundle</h4>
+                    <div className="text-2xl font-bold text-purple-600 mb-1">$320 <span className="text-lg">(Save $160)</span></div>
+                    <div className="text-sm text-purple-600 font-semibold mb-4">First session: $25</div>
+                    
+                    <div className="space-y-3 text-gray-700 text-sm mb-6 flex-grow">
+                      <div className="flex items-start">
+                        <span className="text-purple-600 mr-2">✓</span>
+                        <span>8 × 30-minute coaching sessions</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-purple-600 mr-2">✓</span>
+                        <span>Personal Notion dashboard</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-purple-600 mr-2">✓</span>
+                        <span>Text check-ins between sessions</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-purple-600 mr-2">✓</span>
+                        <span>Discord community access (5 months)</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-purple-600 mr-2">✓</span>
+                        <span>Priority scheduling</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-purple-600 mr-2">✓</span>
+                        <span>Use within 16 weeks</span>
+                      </div>
+                    </div>
+                    <a 
+                      href="https://cal.com/navcoaching/first-session" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full py-3 px-6 bg-purple-600 text-white text-center font-bold rounded-lg shadow-lg hover:bg-purple-700 transition text-sm mt-auto"
+                    >
+                      Select 8-Session Bundle
+                    </a>
                   </div>
                 </div>
                 
+                <div className="bg-white p-5 rounded-xl border-2 border-green-500 max-w-4xl mx-auto shadow-sm">
+                  <p className="text-gray-900 text-base font-medium text-center">
+                    💡 <strong className="text-lg text-gray-900">Why no subscriptions?</strong><br />
+                    <span className="text-gray-800">Because ADHD brains forget to cancel, and then feel guilty. Buy a pack when you're ready, use it at your pace, and never worry about surprise charges. Freedom, flexibility, no guilt.</span>
+                  </p>
+                </div>
+                
                 <div className="text-center">
-                  <p className="text-lg text-navy font-semibold">
-                    Save $100+ per month while getting practical tools that support follow-through.
+                  <p className="text-gray-600 text-sm mb-4">
+                    First session: <span className="line-through">$60</span> <span className="text-lg font-bold text-purple-500">$25</span> • 2-week trial period • Flexible scheduling
                   </p>
-                  <p className="text-sm text-gray-600 mt-2">
-                    All plans include: 4 sessions per cycle • Text support • Notion dashboard • 24hr reschedule • 1 rollover per cycle
-                  </p>
+                  <Link href="/services#pricing" className="text-tealblue hover:text-deepteal underline font-medium">
+                    View detailed price comparison →
+                  </Link>
                 </div>
               </div>
             )}
@@ -917,7 +1045,7 @@ export default function Home() {
             {activeTab === 'policy' && (
               <div className="space-y-8">
                 <h3 className="text-3xl font-bold text-navy mb-6 text-center font-playfair">
-                  Flexible Cancellation
+                  Flexible Scheduling
                 </h3>
                 
                 <div className="max-w-3xl mx-auto">
@@ -932,7 +1060,7 @@ export default function Home() {
                       </div>
                       
                       <div className="bg-white/80 p-5 rounded-xl">
-                        <p className="text-navy"><strong>Same-day cancellations:</strong> Just send me a quick message — we'll try to find a new time that week</p>
+                        <p className="text-navy"><strong>Same-day changes:</strong> Just send me a quick message — we'll try to find a new time that week</p>
                       </div>
                       
                       <div className="bg-white/80 p-5 rounded-xl">
@@ -940,13 +1068,17 @@ export default function Home() {
                       </div>
                       
                       <div className="bg-white/80 p-5 rounded-xl">
-                        <p className="text-navy"><strong>Cancel anytime:</strong> One week's notice before your next billing cycle to avoid being charged for the following month</p>
+                        <p className="text-navy"><strong>Session packs expire?</strong> If you can't use all your sessions within the timeframe, just let me know — we'll extend it</p>
+                      </div>
+                      
+                      <div className="bg-white/80 p-5 rounded-xl">
+                        <p className="text-navy"><strong>Need a break?</strong> No problem! Your sessions wait for you — no subscriptions to pause or cancel</p>
                       </div>
                     </div>
                     
                     <div className="mt-8 p-4 bg-emerald-100 rounded-lg text-center">
                       <p className="text-emerald-800 font-semibold">
-                        💚 No stress, no penalties — because I know how ADHD life works.
+                        💚 Buy sessions when you need them. Use them at your pace. No subscription guilt.
                       </p>
                     </div>
                   </div>
@@ -982,14 +1114,14 @@ export default function Home() {
                     <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4">
                       <span className="text-white font-bold text-2xl">3</span>
                     </div>
-                    <h4 className="text-xl font-bold text-navy mb-3">Meet Weekly</h4>
-                    <p className="text-gray-600 leading-relaxed">After your first session, we'll meet for consistent <strong className="text-purple-600">30-minute sessions</strong> you'll actually look forward to! <strong className="text-tealblue">Plus I'll set up your personal dashboard</strong> — no extra work for you!</p>
+                    <h4 className="text-xl font-bold text-navy mb-3">Choose Your Path</h4>
+                    <p className="text-gray-600 leading-relaxed">After your first session, decide what works for you: <strong className="text-purple-600">drop-in sessions when you need them</strong> or <strong className="text-tealblue">a session pack for consistency</strong>. I'll set up your dashboard either way — no extra work for you!</p>
                   </div>
                 </div>
                 
                 <div className="text-center">
                   <a 
-                    href="https://calendly.com/marlie-navcoaching/initial" 
+                    href="https://cal.com/navcoaching/first-session" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block btn cta px-8 py-4 bg-gradient-to-r from-coral to-pink-500 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 text-lg"
@@ -1015,7 +1147,7 @@ export default function Home() {
           </p>
           
           <a 
-            href="https://calendly.com/marlie-navcoaching/initial" 
+            href="https://cal.com/navcoaching/first-session" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block btn cta px-10 py-4 bg-freshaqua text-navy font-bold rounded-lg shadow-lg hover:bg-tealblue hover:text-white transition hover-lift text-lg mb-4"
@@ -1024,7 +1156,7 @@ export default function Home() {
           </a>
           
           <p className="text-sm text-gray-600 mb-2">
-            <span className="line-through text-gray-400">Regular price: $50</span>
+            <span className="line-through text-gray-400">Regular drop-in: $60</span>
           </p>
           
           <p className="text-sm text-gray-600">

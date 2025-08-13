@@ -172,7 +172,7 @@ export default function About() {
           <h3 className="text-xl font-semibold text-navy mb-4">Ready to get started?</h3>
           <p className="text-gray-600 mb-6">Sign up for your $25 first session, then you'll receive a questionnaire to fill out before we meet.</p>
           <a 
-            href="https://calendly.com/marlie-navcoaching/initial" 
+            href="https://cal.com/navcoaching/first-session" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block btn cta px-10 py-4 bg-ocean text-white font-bold rounded-lg shadow-lg hover:bg-tealblue transition hover-lift text-lg"

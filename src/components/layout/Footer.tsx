@@ -59,7 +59,7 @@ export default function Footer() {
               Email: <a href="mailto:marlie@navcoaching.org" className="text-freshaqua hover:text-white transition">marlie@navcoaching.org</a>
             </p>
             <a 
-              href="https://calendly.com/marlie-navcoaching/initial"
+              href="https://cal.com/navcoaching/first-session"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-4 py-2 bg-freshaqua text-black font-semibold rounded-lg hover:bg-white transition text-sm"

@@ -31,7 +31,7 @@ const faqData: FAQItem[] = [
   {
     category: "Coaching Process",
     question: "What's the difference between coaching and therapy?",
-    answer: "I'm not a therapist or certified ADHD coach – I'm your accountability partner who happens to understand ADHD really well. Therapy focuses on clinical treatment and processing emotions. I provide practical support, consistent check-ins, and strategies that work with ADHD brains. Think of me as the friend who actually shows up and helps you follow through."
+    answer: "I'm not a therapist, I'm your accountability partner who happens to understand ADHD really well. Therapy focuses on clinical treatment and processing emotions. I provide practical support, consistent check-ins, and strategies that work with ADHD brains. Think of me as the friend who actually shows up and helps you follow through."
   },
   {
     category: "Coaching Process",
@@ -74,6 +74,11 @@ const faqData: FAQItem[] = [
     category: "Pricing & Plans",
     question: "Do you offer payment plans?",
     answer: "Yes! We can set up weekly or monthly payment plans that work with your budget. The goal is to make coaching accessible, not add financial stress to your life."
+  },
+  {
+    category: "Pricing & Plans",
+    question: "Should I choose drop-in sessions or a session pack?",
+    answer: "It depends on your goals! Drop-in sessions are perfect for immediate support or specific challenges. However, the Navigating the Storm framework is designed to build progressively over multiple weeks - each level builds on the previous one. Session packs help you work through the complete system for lasting change and accountability habits that stick. Most clients see the biggest transformation when they can maintain consistency for 4-8 weeks."
   },
 
   // Technical & Practical
@@ -247,7 +252,7 @@ export default function FAQ() {
               Send a Message
             </Link>
             <a
-              href="https://calendly.com/marlie-navcoaching/initial"
+              href="https://cal.com/navcoaching/first-session"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-8 py-3 bg-gradient-to-r from-freshaqua to-tealblue text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105"

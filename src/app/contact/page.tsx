@@ -50,7 +50,7 @@ export default function Contact() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="https://calendly.com/marlie-navcoaching/initial" 
+                href="https://cal.com/navcoaching/first-session" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-8 py-3 bg-gradient-to-r from-freshaqua to-tealblue text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105"
@@ -222,7 +222,7 @@ export default function Contact() {
               </p>
               
               <a 
-                href="https://calendly.com/marlie-navcoaching/initial" 
+                href="https://cal.com/navcoaching/first-session" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block w-full text-center py-4 px-6 bg-gradient-to-r from-freshaqua to-tealblue text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105"

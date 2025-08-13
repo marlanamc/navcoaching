@@ -30,6 +30,8 @@ export default function Terms() {
                 <li>Body doubling sessions</li>
                 <li>Goal-setting and progress tracking</li>
                 <li>ADHD-focused productivity strategies</li>
+                <li>Private Discord community access</li>
+                <li>Text support between sessions (for session pack clients)</li>
               </ul>
             </div>
           </section>
@@ -67,10 +69,12 @@ export default function Terms() {
                 <li><strong>Communication is key:</strong> A quick message before or after prevents charges</li>
               </ul>
 
-              <h3 className="text-lg font-semibold text-navy">Service Cancellation</h3>
+              <h3 className="text-lg font-semibold text-navy">Session Pack Policy</h3>
               <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Cancel anytime:</strong> One week's notice before your next billing cycle to avoid being charged for the following month</li>
-                <li><strong>Unused sessions:</strong> May be refunded on a prorated basis upon request</li>
+                <li><strong>Session pack validity:</strong> 4-session packs valid for 8 weeks from time of purchase, 8-session bundles valid for 12 weeks from time of purchase</li>
+                <li><strong>Extensions available:</strong> If you can't use all sessions within the timeframe, contact us for a reasonable extension</li>
+                <li><strong>Unused sessions:</strong> May be refunded on a prorated basis if requested before pack expiration</li>
+                <li><strong>No auto-renewals:</strong> You only pay for what you purchase - no surprise charges</li>
               </ul>
 
               <h3 className="text-lg font-semibold text-navy">Coach-Initiated Cancellation</h3>
@@ -99,9 +103,11 @@ export default function Terms() {
 
               <h3 className="text-lg font-semibold text-navy">Billing and Pricing</h3>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Services are billed at $50/week ($200 every 4 weeks)</li>
-                <li>Member rate of $45/week ($180 every 4 weeks) may be available with locked-in weekly time slot</li>
+                <li>Drop-in sessions: $60 per session</li>
+                <li>4-session pack: $180 (save $60) - valid for 8 weeks from time of purchase</li>
+                <li>8-session bundle: $320 (save $160) - valid for 12 weeks from time of purchase</li>
                 <li>First session discounted to $25</li>
+                <li>No auto-renewals or subscription fees</li>
               </ul>
 
               <h3 className="text-lg font-semibold text-navy">Refund Policy</h3>
@@ -123,6 +129,114 @@ export default function Terms() {
                 <li>When required by law</li>
                 <li>If there is imminent danger to yourself or others</li>
               </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-navy mb-4 font-playfair">Text Communication Policy</h2>
+            <div className="space-y-4 text-gray-700">
+              <p>Text support is available for session pack clients as part of our accountability services. To maintain healthy boundaries and ensure quality support for all clients:</p>
+              
+              <h3 className="text-lg font-semibold text-navy">What's Included</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li><strong>Gentle reminders:</strong> Optional session reminders and check-ins</li>
+                <li><strong>Weekly accountability:</strong> Mid-week progress check-ins related to your goals</li>
+                <li><strong>Quick clarifications:</strong> Brief questions about your dashboard or session content</li>
+                <li><strong>Scheduling coordination:</strong> Rescheduling requests and session logistics</li>
+              </ul>
+
+              <h3 className="text-lg font-semibold text-navy mt-6">Reasonable Use Guidelines</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li><strong>Frequency:</strong> 1-3 messages per week between sessions is appropriate</li>
+                <li><strong>Response time:</strong> We aim to respond within 24-48 hours during business days</li>
+                <li><strong>Length:</strong> Keep messages concise - lengthy discussions are better saved for sessions</li>
+                <li><strong>Timing:</strong> Respect business hours and time zones - no expectation of immediate responses</li>
+                <li><strong>Crisis support:</strong> Text support is not for mental health emergencies - please contact appropriate crisis resources</li>
+              </ul>
+
+              <h3 className="text-lg font-semibold text-navy mt-6">What's Not Appropriate</h3>
+              <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                <ul className="list-disc pl-6 space-y-1 text-amber-800">
+                  <li>Multiple daily messages or excessive texting</li>
+                  <li>Detailed therapy-like conversations (save these for sessions)</li>
+                  <li>Urgent or emergency mental health support</li>
+                  <li>Personal conversations unrelated to coaching goals</li>
+                  <li>Expecting immediate responses outside business hours</li>
+                </ul>
+              </div>
+
+              <div className="mt-6 p-4 bg-tealblue/10 rounded-lg border border-tealblue/30">
+                <p className="text-tealblue font-medium text-center">
+                  📱 Text support is designed to enhance your accountability between sessions - think quick check-ins, not extended conversations.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-navy mb-4 font-playfair">Discord Community Guidelines</h2>
+            <div className="space-y-4 text-gray-700">
+              <p>Our Discord community is designed to be a supportive, inclusive space for accountability and peer support. By joining, you agree to:</p>
+              
+              <h3 className="text-lg font-semibold text-navy">Community Access</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li><strong>Current clients:</strong> Full access to all channels including active coaching support and body doubling sessions</li>
+                <li><strong>Alumni (former clients):</strong> Continued access to community channels and general support - you're always welcome here</li>
+                <li><strong>Discord account required:</strong> You must have a Discord account and follow Discord's Terms of Service</li>
+              </ul>
+
+              <h3 className="text-lg font-semibold text-navy mt-6">Zero Tolerance Policy</h3>
+              <div className="bg-red-50 p-4 rounded-lg border border-red-200">
+                <p className="text-red-800 font-medium mb-2">The following behaviors will result in immediate removal from the community:</p>
+                <ul className="list-disc pl-6 space-y-1 text-red-700">
+                  <li>Hate speech, discriminatory language, or slurs of any kind</li>
+                  <li>Harassment, bullying, or intimidation of community members</li>
+                  <li>Sharing explicit, violent, or inappropriate content</li>
+                  <li>Doxxing or sharing personal information without consent</li>
+                  <li>Spam, promotional content, or commercial solicitation</li>
+                  <li>Impersonation of others or creating fake accounts</li>
+                </ul>
+              </div>
+
+              <h3 className="text-lg font-semibold text-navy mt-6">Community Standards</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li><strong>Respect boundaries:</strong> What's shared in sessions stays private unless the person chooses to share</li>
+                <li><strong>Be supportive:</strong> This is a judgment-free zone focused on mutual accountability and encouragement</li>
+                <li><strong>Stay on topic:</strong> Keep discussions relevant to productivity, ADHD support, and personal growth</li>
+                <li><strong>Use appropriate channels:</strong> Body doubling in body doubling channels, general chat in community spaces</li>
+                <li><strong>Be mindful of time zones:</strong> Others may be working or sleeping - keep noise levels appropriate</li>
+              </ul>
+
+              <h3 className="text-lg font-semibold text-navy mt-6">Body Doubling Sessions</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li><strong>Small group focus:</strong> Sessions are designed for intimate, focused work (typically under 25 participants)</li>
+                <li><strong>Mute by default:</strong> Keep microphones muted unless speaking to minimize distractions</li>
+                <li><strong>Optional cameras:</strong> Video is encouraged but never required - come as you are</li>
+                <li><strong>No pressure to participate:</strong> You can work silently or engage as much as feels comfortable</li>
+                <li><strong>Respectful interruptions only:</strong> Save non-urgent questions for breaks or text chat</li>
+              </ul>
+
+              <h3 className="text-lg font-semibold text-navy mt-6">Moderation and Enforcement</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li><strong>Three-step process:</strong> Warning → Temporary timeout → Permanent removal</li>
+                <li><strong>Exception for severe violations:</strong> Hate speech, harassment, or safety threats result in immediate removal</li>
+                <li><strong>Appeals process:</strong> Contact us directly if you believe you've been removed in error</li>
+                <li><strong>Moderator discretion:</strong> Final decisions rest with community moderators and Navigating the Storm staff</li>
+              </ul>
+
+              <h3 className="text-lg font-semibold text-navy mt-6">Privacy and Data</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li><strong>Discord data:</strong> Subject to Discord's privacy policy in addition to our own</li>
+                <li><strong>Message history:</strong> We do not monitor or store private Discord messages</li>
+                <li><strong>Voice recordings:</strong> Body doubling sessions are never recorded by us</li>
+                <li><strong>Screen sharing:</strong> Only share content you're comfortable with others seeing</li>
+              </ul>
+
+              <div className="mt-6 p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+                <p className="text-emerald-800 font-medium text-center">
+                  💚 Our goal is to create the most supportive ADHD community possible - that means everyone deserves respect and safety.
+                </p>
+              </div>
             </div>
           </section>
 
@@ -163,6 +277,10 @@ export default function Terms() {
                 <li>Violates professional boundaries or makes inappropriate requests</li>
                 <li>Repeatedly fails to show up for sessions without communication</li>
                 <li>Fails to pay for services as agreed</li>
+                <li>Violates Discord community guidelines or engages in disruptive behavior in community spaces</li>
+                <li>Sends excessive or inappropriate text messages beyond reasonable use guidelines</li>
+                <li>Creates an unsafe or uncomfortable environment for the coach or other clients</li>
+                <li>Engages in any behavior that, at our sole discretion, is deemed incompatible with a productive coaching relationship</li>
               </ul>
               <p>In cases of termination for cause, no refund will be provided for unused sessions.</p>
             </div>
@@ -184,7 +302,7 @@ export default function Terms() {
                 <li>Having access to necessary technology for video calls (computer, tablet, or phone)</li>
                 <li>Ensuring their technology is functioning properly for scheduled sessions</li>
               </ul>
-              <p>We do not provide technical support or equipment. Sessions missed due to client technology issues will be treated as same-day cancellations and charged accordingly unless advance notice is provided.</p>
+              <p>We understand that technology can be unpredictable! If you're experiencing technical difficulties, just reach out and we'll work together to reschedule or find an alternative solution. We provide full support for your Notion dashboard setup and troubleshooting. For other tech issues, we'll do our best to help or suggest alternatives - communication is key.</p>
             </div>
           </section>
 

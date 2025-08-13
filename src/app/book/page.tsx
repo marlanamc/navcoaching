@@ -51,7 +51,7 @@ export default function BookSession() {
             </div>
             
             <a 
-              href={getCalBookingUrl('drop-in-session', 'drop-in')}
+              href={getCalBookingUrl('drop-in-session', 'drop-in-session')}
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full py-4 px-6 bg-pink-600 text-white text-center font-bold rounded-lg shadow-md hover:bg-pink-700 transition text-lg mt-auto"
@@ -97,7 +97,7 @@ export default function BookSession() {
             </div>
             
             <a 
-              href={getCalBookingUrl('4-session-pack', '4-session')}
+              href={getCalBookingUrl('4-session-pack', '4-session-pack')}
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full py-4 px-6 bg-teal-600 text-white text-center font-bold rounded-lg shadow-md hover:bg-teal-700 transition text-lg mt-auto"
@@ -140,7 +140,7 @@ export default function BookSession() {
             </div>
             
             <a 
-              href={getCalBookingUrl('8-session-pack', '8-session')}
+              href={getCalBookingUrl('8-session-pack', '8-session-pack')}
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full py-4 px-6 bg-purple-600 text-white text-center font-bold rounded-lg shadow-md hover:bg-purple-700 transition text-lg mt-auto"

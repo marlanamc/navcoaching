@@ -52,14 +52,14 @@ export default function Header() {
               Sign In
             </Link>
             
-            {/* Consultation button */}
+            {/* First Session button */}
             <a 
-              href="https://calendly.com/marlie-navcoaching/30min"
+              href="https://calendly.com/marlie-navcoaching/initial"
               target="_blank"
               rel="noopener noreferrer"
               className="btn cta px-4 py-2 bg-freshaqua text-navy font-bold rounded-lg shadow hover:bg-tealblue hover:text-white transition hover-lift focus-highlight"
             >
-              Book a Free Consultation
+              Book Your First Session
             </a>
           </div>
           {/* Mobile menu button */}
@@ -113,7 +113,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="block px-3 py-2 text-base font-bold text-navy bg-freshaqua rounded-lg mt-2 hover:bg-tealblue hover:text-white transition mobile-touch-target"
             >
-              Book a Free Consultation
+              Book Your First Session
             </a>
           </div>
         </div>

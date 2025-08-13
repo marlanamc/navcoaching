@@ -169,14 +169,17 @@ export default function About() {
       {/* CTA Section */}
       <section className="text-center py-8">
         <div className="max-w-2xl mx-auto">
+          <h3 className="text-xl font-semibold text-navy mb-4">Ready to get started?</h3>
+          <p className="text-gray-600 mb-6">Sign up for your $25 first session, then you'll receive a questionnaire to fill out before we meet.</p>
           <a 
             href="https://calendly.com/marlie-navcoaching/initial" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block btn cta px-10 py-4 bg-ocean text-white font-bold rounded-lg shadow-lg hover:bg-tealblue transition hover-lift text-lg"
           >
-            Start for $25, then $50 per week
+            Sign Up for $25 First Session
           </a>
+          <p className="text-sm text-gray-500 mt-3">Then $50/week • Cancel anytime</p>
         </div>
       </section>
     </div>

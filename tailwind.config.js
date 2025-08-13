@@ -37,6 +37,7 @@ module.exports = {
         aquablue_light: '#0f766e',
         freshaqua: '#7db4c7',      // Rich teal
         freshaqua_light: '#0d9488',
+        ocean: '#0891b2',          // Ocean blue
         
         // Vibrant accents (more purposeful)
         tealblue: '#2d7a8a',       // Deep ocean

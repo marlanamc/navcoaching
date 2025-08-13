@@ -178,91 +178,127 @@ export default function StructureQuiz() {
 
   if (showEmailForm && !showResults) {
     return (
-      <div className="max-w-2xl mx-auto bg-white bg-opacity-90 rounded-lg shadow-soft p-8">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-navy mb-4">
-            Your Results Are Ready!
-          </h2>
-          <p className="text-lg mb-6">
-            Enter your email to receive your Structure Archetype results and get weekly ADHD tips tailored to your style.
-          </p>
-        </div>
-
-        <form onSubmit={handleEmailSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="email" className="block text-navy font-bold mb-2">
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-ocean"
-              required
-              disabled={isSubmitting}
-            />
-          </div>
-          {submitError && (
-            <div className="text-red-500 text-sm p-2 bg-red-50 rounded-lg border border-red-100">
-              {submitError}
+      <div className="max-w-2xl mx-auto">
+        <div className="bg-gradient-to-br from-freshaqua/20 to-tealblue/20 rounded-2xl shadow-lg p-8 border border-tealblue/30">
+          <div className="text-center mb-8">
+            <div className="w-20 h-20 bg-freshaqua rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             </div>
-          )}
-          <div className="text-sm text-gray-600 mb-4">
-            By submitting, you agree to receive emails from Navigating The Storm. You can unsubscribe at any time.
+            <h2 className="text-3xl font-bold text-navy mb-4 font-playfair">
+              Your Results Are Ready! 🎉
+            </h2>
+            <p className="text-lg text-gray-700 mb-6">
+              Enter your email to discover your unique ADHD Structure Archetype and get personalized coaching tips.
+            </p>
           </div>
-          <button
-            type="submit"
-            className="w-full py-3 px-6 bg-freshaqua text-white font-bold rounded-lg shadow hover:bg-opacity-90 transition"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? 'Saving...' : 'Get My Results'}
-          </button>
-        </form>
+
+          <form onSubmit={handleEmailSubmit} className="space-y-6">
+            <div>
+              <label htmlFor="email" className="block text-navy font-bold mb-2">
+                Email Address
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="your@email.com"
+                className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-tealblue transition text-lg"
+                required
+                disabled={isSubmitting}
+              />
+            </div>
+            {submitError && (
+              <div className="text-red-600 text-sm p-3 bg-red-50 rounded-lg border border-red-200">
+                ⚠️ {submitError}
+              </div>
+            )}
+            <div className="text-sm text-gray-600 bg-white/70 p-3 rounded-lg">
+              📧 You'll receive your results immediately, plus weekly ADHD tips. Unsubscribe anytime.
+            </div>
+            <button
+              type="submit"
+              className="w-full py-4 px-6 bg-gradient-to-r from-freshaqua to-tealblue text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 text-lg"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <span className="flex items-center justify-center">
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Saving Your Results...
+                </span>
+              ) : '🚀 Discover My Archetype'}
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
 
   if (showResults && result) {
     return (
-      <div className="max-w-2xl mx-auto bg-white bg-opacity-90 rounded-lg shadow-soft p-8 border-2 border-navy">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-navy mb-4">
-            {result.emoji} You're a {result.archetype}!
-          </h2>
-          <p className="text-lg mb-8">{result.description}</p>
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-8 border-2 border-gradient-to-r from-freshaqua to-tealblue">
+          <div className="text-center mb-8">
+            <div className="text-6xl mb-4">{result.emoji}</div>
+            <h2 className="text-4xl font-bold text-navy mb-4 font-playfair">
+              You're a {result.archetype}!
+            </h2>
+            <div className="max-w-2xl mx-auto bg-gradient-to-r from-freshaqua/10 to-tealblue/10 p-4 rounded-xl mb-8">
+              <p className="text-lg text-gray-700">{result.description}</p>
+            </div>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div className="text-left">
-              <h3 className="text-xl font-bold text-navy mb-3 text-center">You need:</h3>
-              <div className="bg-freshaqua bg-opacity-40 p-4 rounded-lg">
-                <ul className="space-y-2">
-                  {result.needs.map((need, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="text-tealblue mr-2">•</span>
-                      <span>{need}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div className="bg-white rounded-xl p-6 shadow-soft">
+              <h3 className="text-xl font-bold text-navy mb-4 text-center flex items-center justify-center">
+                <span className="mr-2">🎯</span> What You Need
+              </h3>
+              <ul className="space-y-3">
+                {result.needs.map((need, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-tealblue mr-3 text-lg">✓</span>
+                    <span className="text-gray-700">{need}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
             
-            <div className="text-left">
-              <h3 className="text-xl font-bold text-navy mb-3 text-center">Best fit:</h3>
-              <div className="bg-softblue bg-opacity-40 p-4 rounded-lg">
-                <p className="text-lg">{result.bestFit}</p>
+            <div className="bg-white rounded-xl p-6 shadow-soft">
+              <h3 className="text-xl font-bold text-navy mb-4 text-center flex items-center justify-center">
+                <span className="mr-2">⭐</span> Perfect Fit
+              </h3>
+              <div className="bg-gradient-to-br from-freshaqua/20 to-tealblue/20 p-4 rounded-lg">
+                <p className="text-gray-700 font-medium">{result.bestFit}</p>
               </div>
             </div>
           </div>
 
-          <div className="mt-8">
-            <Link 
-              href="/pricing" 
-              className="inline-block px-6 py-3 bg-freshaqua text-white font-bold rounded-lg shadow hover:bg-opacity-90 transition"
-            >
-              Sign Up for Coaching
-            </Link>
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-freshaqua/10 to-tealblue/10 rounded-xl p-6 mb-6">
+              <p className="text-lg text-gray-700 mb-4">
+                Ready to work with a coach who understands your {result.archetype.toLowerCase()} style?
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link 
+                href="/services" 
+                className="inline-block px-8 py-4 bg-gradient-to-r from-freshaqua to-tealblue text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 text-lg"
+              >
+                🚀 Book Your First Session
+              </Link>
+              <Link 
+                href="/" 
+                className="inline-block px-8 py-4 bg-white border-2 border-tealblue text-tealblue font-bold rounded-lg shadow hover:shadow-lg transition"
+              >
+                Learn More About Coaching
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -270,65 +306,99 @@ export default function StructureQuiz() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
-      {/* Progress Bar */}
-      <div className="mb-8">
-        <div className="h-2 bg-gray-200 rounded-full">
-          <div
-            className="h-2 bg-coral rounded-full transition-all duration-300"
-            style={{ width: `${progressPercentage}%` }}
-          />
-        </div>
-        <div className="flex justify-between items-center mt-2">
+    <div className="max-w-3xl mx-auto">
+      {/* Progress Section */}
+      <div className="mb-12">
+        <div className="flex items-center justify-between mb-4">
           <button
             onClick={handleGoBack}
-            className={`text-navy hover:text-ocean transition-colors ${currentQuestionIndex === 0 ? 'invisible' : ''}`}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+              currentQuestionIndex === 0 
+                ? 'invisible' 
+                : 'text-tealblue hover:bg-tealblue hover:text-white'
+            }`}
             disabled={currentQuestionIndex === 0}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
+            Back
           </button>
-          <p className="text-center text-navy">
-            <span className="font-bold">Question {currentQuestionIndex + 1}</span> of {quizQuestions.length}
-          </p>
-          <div className="w-6"></div> {/* Spacer for alignment */}
+          
+          <div className="text-center">
+            <p className="text-navy text-lg">
+              <span className="font-bold text-2xl text-tealblue">{currentQuestionIndex + 1}</span>
+              <span className="text-gray-500"> of {quizQuestions.length}</span>
+            </p>
+            <p className="text-sm text-gray-600">{quizQuestions[currentQuestionIndex].category}</p>
+          </div>
+          
+          <div className="w-20"></div> {/* Spacer for alignment */}
+        </div>
+        
+        <div className="relative">
+          <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
+            <div
+              className="h-3 bg-gradient-to-r from-freshaqua to-tealblue rounded-full transition-all duration-500 ease-out"
+              style={{ width: `${progressPercentage}%` }}
+            />
+          </div>
+          <div className="absolute right-0 top-4 text-sm text-gray-600">
+            {Math.round(progressPercentage)}% complete
+          </div>
         </div>
       </div>
 
-      {/* Question */}
-      <div className="bg-white bg-opacity-90 rounded-lg shadow-soft p-8 mb-8">
-        <h2 className="text-xl font-bold text-black mb-6 text-center">
-          {quizQuestions[currentQuestionIndex].text}
+      {/* Question Card */}
+      <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
+        <h2 className="text-2xl font-bold text-navy mb-8 text-center leading-relaxed">
+          How do you typically respond to:
         </h2>
+        
+        <div className="text-center mb-8">
+          <div className="inline-block bg-gradient-to-r from-freshaqua/20 to-tealblue/20 px-6 py-3 rounded-xl">
+            <h3 className="text-xl font-bold text-navy">
+              {quizQuestions[currentQuestionIndex].text}
+            </h3>
+          </div>
+        </div>
 
-        <div className="space-y-4 max-w-xl mx-auto">
+        <div className="space-y-4 max-w-2xl mx-auto">
           <button
             onClick={() => handleAnswer(1)}
-            className="w-full p-4 text-left rounded-lg border border-gray-200 bg-mutedpink hover:bg-opacity-60 transition"
+            className="w-full p-6 text-left rounded-xl border-2 border-rose-200 bg-gradient-to-r from-rose-50 to-pink-25 hover:from-rose-100 hover:to-pink-50 hover:border-rose-300 transition-all duration-200 transform hover:scale-105"
           >
-            <span className="font-bold text-navy">I feel caged by this</span>
-            <p className="text-sm text-gray-600">
+            <div className="flex items-center mb-2">
+              <span className="w-8 h-8 bg-rose-400 text-white rounded-full flex items-center justify-center mr-4 text-sm font-bold">1</span>
+              <span className="font-bold text-navy text-lg">I feel caged by this</span>
+            </div>
+            <p className="text-gray-600 ml-12">
               Feels restrictive, pressure-inducing, or shame-triggering
             </p>
           </button>
 
           <button
             onClick={() => handleAnswer(2)}
-            className="w-full p-4 text-left rounded-lg border border-gray-200 bg-palepurple hover:bg-opacity-60 transition"
+            className="w-full p-6 text-left rounded-xl border-2 border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-25 hover:from-emerald-100 hover:to-teal-50 hover:border-emerald-300 transition-all duration-200 transform hover:scale-105"
           >
-            <span className="font-bold text-navy">I feel held by this</span>
-            <p className="text-sm text-gray-600">
+            <div className="flex items-center mb-2">
+              <span className="w-8 h-8 bg-emerald-400 text-white rounded-full flex items-center justify-center mr-4 text-sm font-bold">2</span>
+              <span className="font-bold text-navy text-lg">I feel held by this</span>
+            </div>
+            <p className="text-gray-600 ml-12">
               Feels supportive, flexible, or rhythm-based
             </p>
           </button>
 
           <button
             onClick={() => handleAnswer(3)}
-            className="w-full p-4 text-left rounded-lg border border-gray-200 bg-softblue hover:bg-opacity-80 transition"
+            className="w-full p-6 text-left rounded-xl border-2 border-violet-200 bg-gradient-to-r from-violet-50 to-purple-25 hover:from-violet-100 hover:to-purple-50 hover:border-violet-300 transition-all duration-200 transform hover:scale-105"
           >
-            <span className="font-bold text-navy">I feel lost without this</span>
-            <p className="text-sm text-gray-600">
+            <div className="flex items-center mb-2">
+              <span className="w-8 h-8 bg-violet-400 text-white rounded-full flex items-center justify-center mr-4 text-sm font-bold">3</span>
+              <span className="font-bold text-navy text-lg">I feel lost without this</span>
+            </div>
+            <p className="text-gray-600 ml-12">
               Feels essential to function, clarity, or emotional safety
             </p>
           </button>

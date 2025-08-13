@@ -16,107 +16,135 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Single Pricing Plan */}
+        {/* Pricing Options */}
         <section id="pricing" className="mb-16">
-          <div className="max-w-2xl mx-auto">
-            <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl overflow-hidden border-2 border-tealblue/30">
-              {/* Header */}
-              <div className="bg-gradient-to-r from-freshaqua to-tealblue p-8 text-center text-white">
-                <h2 className="text-3xl font-bold mb-2 font-playfair">30-Minute Weekly Check-Ins</h2>
-                <p className="text-white/90 mb-4">Focused support that fits your life and attention span</p>
-                <div className="text-5xl font-bold mb-2">$50<span className="text-xl font-normal">/week</span></div>
-                <div className="text-lg text-white/90">Billed $200 every 4 weeks</div>
-                <div className="mt-2 text-sm text-yellow-200 bg-yellow-600/20 rounded px-2 py-1 inline-block">
-                  💰 Most accountability coaches charge $300+ for less
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-navy mb-4 font-playfair">Choose Your Payment Option</h2>
+              <p className="text-gray-600">Same great support, flexible payment to fit your needs</p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Pay by the Week */}
+              <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl overflow-hidden border-2 border-pink-200">
+                <div className="bg-gradient-to-r from-pink-300 to-purple-300 p-6 text-center text-white">
+                  <h3 className="text-2xl font-bold mb-2 font-playfair">Pay by the Week</h3>
+                  <div className="text-4xl font-bold mb-2">$50<span className="text-lg font-normal">/week</span></div>
+                  <p className="text-white/90">Maximum flexibility</p>
                 </div>
-                <div className="mt-3 text-white/90">
-                  First session: <span className="line-through">$50</span> <span className="text-2xl font-bold text-yellow-300">$25</span>
+                
+                <div className="p-6">
+                  <div className="text-center mb-6">
+                    <div className="w-16 h-16 bg-pink-200/50 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-2xl font-bold text-navy">💳</span>
+                    </div>
+                    <h4 className="text-lg font-bold text-navy mb-2">Weekly Billing</h4>
+                    <p className="text-gray-600 text-sm">Pay as you go, cancel anytime</p>
+                  </div>
+                  
+                  <ul className="space-y-2 text-sm text-gray-700 mb-6">
+                    <li>✓ Weekly 30-minute sessions</li>
+                    <li>✓ Personal Notion dashboard</li>
+                    <li>✓ Mid-week check-ins</li>
+                    <li>✓ Discord community access</li>
+                    <li>✓ Cancel anytime</li>
+                  </ul>
+                  
+                  <a 
+                    href="https://calendly.com/marlie-navcoaching/initial" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full py-3 px-6 bg-gradient-to-r from-pink-400 to-purple-400 text-white text-center font-bold rounded-lg shadow-lg hover:from-pink-500 hover:to-purple-500 transition text-sm"
+                  >
+                    Start for $25
+                  </a>
                 </div>
               </div>
-              
-              {/* Content */}
-              <div className="p-8">
-                <div className="text-center mb-8">
-                  <div className="w-20 h-20 bg-tealblue/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-3xl font-bold text-navy">30</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-navy mb-2">30-Minute Weekly Sessions</h3>
-                  <p className="text-gray-600">Quick, focused check-ins that keep you moving without the overwhelm</p>
+
+              {/* 4-Week Plan */}
+              <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl overflow-hidden border-2 border-tealblue/30 relative">
+                <div className="absolute top-0 right-0 bg-green-500 text-white px-3 py-1 rounded-bl-lg text-xs font-bold">
+                  MOST POPULAR
+                </div>
+                <div className="bg-gradient-to-r from-freshaqua to-tealblue p-6 text-center text-white">
+                  <h3 className="text-2xl font-bold mb-2 font-playfair">4-Week Plan</h3>
+                  <div className="text-4xl font-bold mb-2">$45<span className="text-lg font-normal">/week</span></div>
+                  <div className="text-lg text-white/90">$180 every 4 weeks</div>
+                  <p className="text-white/90 text-sm mt-2">Save $20 per month</p>
                 </div>
                 
-                <div className="grid md:grid-cols-2 gap-6 mb-8">
-                  {/* Core Coaching */}
-                  <div className="bg-freshaqua/10 p-4 rounded-lg">
-                    <h4 className="font-bold text-navy mb-3 flex items-center">
-                      <span className="w-6 h-6 bg-freshaqua rounded-full flex items-center justify-center mr-2 text-white text-sm">✓</span>
-                      Core Coaching
-                    </h4>
-                    <ul className="space-y-2 text-sm text-gray-700">
-                      <li>• Weekly 30-minute video sessions</li>
-                      <li>• Goal setting & progress tracking</li>
-                      <li>• Weekly action experiments</li>
-                      <li>• Flexible scheduling around your energy</li>
-                    </ul>
+                <div className="p-6">
+                  <div className="text-center mb-6">
+                    <div className="w-16 h-16 bg-tealblue/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <span className="text-2xl font-bold text-navy">🔒</span>
+                    </div>
+                    <h4 className="text-lg font-bold text-navy mb-2">Lock in Your Time Slot</h4>
+                    <p className="text-gray-600 text-sm">Same weekly time, better consistency</p>
                   </div>
-
-                  {/* Tools & Support */}
-                  <div className="bg-tealblue/10 p-4 rounded-lg">
-                    <h4 className="font-bold text-navy mb-3 flex items-center">
-                      <span className="w-6 h-6 bg-tealblue rounded-full flex items-center justify-center mr-2 text-white text-sm">✓</span>
-                      Tools & Support
-                    </h4>
-                    <ul className="space-y-2 text-sm text-gray-700">
-                      <li>• Personal Notion dashboard setup</li>
-                      <li>• Mid-week check-in messages</li>
-                      <li>• Private Discord community access</li>
-                      <li>• Weekly body doubling sessions</li>
-                      <li>• ADHD strategy resource library</li>
-                    </ul>
-                  </div>
+                  
+                  <ul className="space-y-2 text-sm text-gray-700 mb-6">
+                    <li>✓ Everything in weekly plan</li>
+                    <li>✓ <strong>Locked weekly time slot</strong></li>
+                    <li>✓ <strong>Save $60 over 12 weeks</strong></li>
+                    <li>✓ Better consistency & routine</li>
+                    <li>✓ Cancel anytime with notice</li>
+                  </ul>
+                  
+                  <a 
+                    href="https://calendly.com/marlie-navcoaching/initial" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full py-3 px-6 bg-gradient-to-r from-freshaqua to-tealblue text-white text-center font-bold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 text-sm"
+                  >
+                    Start for $25
+                  </a>
                 </div>
+              </div>
+            </div>
+            
+            <div className="text-center mt-8">
+              <p className="text-gray-600 text-sm">
+                First session: <span className="line-through">$50</span> <span className="text-lg font-bold text-green-600">$25</span> • 2-week trial period • No long-term contracts
+              </p>
+            </div>
+          </div>
+        </section>
 
-                {/* Member Rate */}
-                <div className="p-3 bg-green-50 rounded-lg border border-green-200 mb-6">
-                  <div className="text-sm font-semibold text-green-700">💰 Member Rate Available: $45/week</div>
-                  <div className="text-xs text-green-600">$180 every 4 weeks • Save $60 over 12 weeks</div>
-                </div>
+        {/* What's Included - Shared Features */}
+        <section className="mb-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-navy mb-6 text-center font-playfair">
+              What's Included in Both Plans
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {/* Core Coaching */}
+              <div className="bg-white/90 p-6 rounded-lg shadow-lg border border-freshaqua/30">
+                <h4 className="font-bold text-navy mb-3 flex items-center">
+                  <span className="w-6 h-6 bg-freshaqua rounded-full flex items-center justify-center mr-2 text-white text-sm">✓</span>
+                  Core Coaching
+                </h4>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>• Weekly 30-minute video sessions</li>
+                  <li>• Goal setting & progress tracking</li>
+                  <li>• Weekly action experiments</li>
+                  <li>• Flexible scheduling around your energy</li>
+                </ul>
+              </div>
 
-                {/* Guarantees */}
-                <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-                  <div className="flex items-center justify-center gap-4 text-sm">
-                    <span className="flex items-center text-green-700">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      2-Week Trial Period
-                    </span>
-                    <span className="flex items-center text-green-700">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      Cancel anytime
-                    </span>
-                    <span className="flex items-center text-green-700">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      No Long-term Contracts
-                    </span>
-                  </div>
-                </div>
-                
-                <a 
-                  href="https://calendly.com/marlie-navcoaching/initial" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full py-4 px-6 bg-gradient-to-r from-freshaqua to-tealblue text-white text-center font-bold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 text-lg"
-                >
-                  🚀 Book Your First Session - Only $25
-                </a>
-                
-                <p className="text-center text-sm text-gray-600 mt-4">
-                  Limited time offer • Risk-free trial • No pressure, just support that actually works
-                </p>
+              {/* Tools & Support */}
+              <div className="bg-white/90 p-6 rounded-lg shadow-lg border border-tealblue/30">
+                <h4 className="font-bold text-navy mb-3 flex items-center">
+                  <span className="w-6 h-6 bg-tealblue rounded-full flex items-center justify-center mr-2 text-white text-sm">✓</span>
+                  Tools & Support
+                </h4>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>• Personal Notion dashboard setup</li>
+                  <li>• Mid-week check-in messages</li>
+                  <li>• Private Discord community access</li>
+                  <li>• Weekly body doubling sessions</li>
+                  <li>• ADHD strategy resource library</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -280,8 +308,11 @@ export default function Services() {
                   </div>
                   
                   <div className="mt-8 p-4 bg-gradient-to-r from-freshaqua/10 to-tealblue/10 rounded-lg">
-                    <p className="text-sm text-navy font-medium">
+                    <p className="text-sm text-navy font-medium mb-2">
                       ✨ Research‑backed methods for ADHD, executive function, and habits
+                    </p>
+                    <p className="text-sm text-navy font-medium">
+                      🗂️ Your dashboard is yours to keep forever — even if you cancel, you retain full access
                     </p>
                   </div>
                 </div>
@@ -290,36 +321,6 @@ export default function Services() {
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="mb-16">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-navy mb-8 text-center font-playfair">
-              Common Questions
-            </h2>
-            
-            <div className="space-y-6">
-              <div className="bg-white/90 p-6 rounded-xl">
-                <h3 className="font-bold text-navy mb-2">What if I need to cancel or reschedule?</h3>
-                <p className="text-gray-600">Life with ADHD is unpredictable. I get it. We'll work together to reschedule sessions when needed, and you can pause or cancel anytime.</p>
-              </div>
-              
-              <div className="bg-white/90 p-6 rounded-xl">
-                <h3 className="font-bold text-navy mb-2">How is this different from therapy?</h3>
-                <p className="text-gray-600">I'm not a therapist or certified ADHD coach—I'm your accountability partner who understands ADHD. We focus on practical strategies and consistent support, not clinical treatment.</p>
-              </div>
-              
-              <div className="bg-white/90 p-6 rounded-xl">
-                <h3 className="font-bold text-navy mb-2">How does this compare value-wise?</h3>
-                <p className="text-gray-600">Most accountability coaches charge $300+ monthly for basic weekly calls. Group programs cost $200-400+ with zero personalization. You're getting 1-on-1 sessions, a proprietary framework, personal dashboard, community access, body doubling, and specialized ADHD support—all for significantly less than competitors offer.</p>
-              </div>
-              
-              <div className="bg-white/90 p-6 rounded-xl">
-                <h3 className="font-bold text-navy mb-2">What happens in our first session?</h3>
-                <p className="text-gray-600">We'll talk about your goals, current challenges, and what you've tried before. Then we'll set up your Notion dashboard and plan your first experiment.</p>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Policies & Guarantees */}
         <section className="mb-16">
@@ -350,20 +351,25 @@ export default function Services() {
                   Flexible Cancellation
                 </h3>
                 <p className="text-gray-700 mb-4">
-                  Life with ADHD is unpredictable. Our cancellation policy is designed with that in mind.
+                  Life with ADHD is unpredictable — I get it. Here's how we keep it stress-free:
                 </p>
                 <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• 24+ hours notice: Free rescheduling</li>
-                  <li>• Emergency situations: We're flexible</li>
-                  <li>• Cancel service anytime with 1 week notice</li>
-                  <li>• Unused sessions refunded pro-rata</li>
+                  <li>• 24+ hours' notice: Free reschedule, no penalty</li>
+                  <li>• Same-day cancellations: Quick message — we'll try to find a new time that week</li>
+                  <li>• Emergencies: Let me know, and we'll work it out</li>
+                  <li>• Cancel anytime: One week's notice before your next billing cycle</li>
                 </ul>
+                <div className="mt-4 p-3 bg-emerald-50 rounded-lg border border-emerald-200">
+                  <p className="text-emerald-800 font-semibold text-xs text-center">
+                    💚 No stress, no penalties — because I know how ADHD life works.
+                  </p>
+                </div>
               </div>
             </div>
 
             <div className="mt-8 bg-freshaqua/10 rounded-xl p-6 text-center border border-freshaqua/30">
               <p className="text-navy font-semibold">
-                💡 Questions about our policies? <Link href="/terms" className="text-tealblue underline hover:text-navy">Read our full terms</Link> or <Link href="/contact" className="text-tealblue underline hover:text-navy">ask us directly</Link>.
+                💡 Questions about our policies? <Link href="/terms" className="text-tealblue underline hover:text-navy">Read our full terms</Link>, <Link href="/privacy" className="text-tealblue underline hover:text-navy">privacy policy</Link>, or <Link href="/contact" className="text-tealblue underline hover:text-navy">ask us directly</Link>.
               </p>
             </div>
           </div>

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Heart, Target, Zap, Shield, Fuel, MapPin, Anchor, Compass, CloudRain, Map, Radio, Settings, AlertTriangle, LifeBuoy, Users, Trophy, Handshake, BookCopy, Monitor, Calendar, GraduationCap, CheckSquare, Phone, Briefcase, Clock, Brain, Home, PhoneCall } from 'lucide-react';
+import { Heart, Target, Zap, Shield, Fuel, MapPin, Anchor, Compass, CloudRain, Map, Radio, Settings, AlertTriangle, LifeBuoy, Users, Trophy, Handshake, BookCopy, Monitor, Calendar, GraduationCap, CheckSquare, Phone, Briefcase, Clock, Brain, Home, PhoneCall, Play, Cog, MessageCircle, FileText, HelpCircle, Video, Camera, Timer, ClipboardList, Wrench, History, TrendingUp, Stethoscope, CreditCard, CalendarX, UserCheck } from 'lucide-react';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('framework');
@@ -474,8 +474,11 @@ export default function Home() {
                       <p className="text-sm text-navy font-medium mb-2">
                         ✨ Research‑backed methods for ADHD, executive function, and habits
                       </p>
-                      <p className="text-sm text-gray-600 italic">
+                      <p className="text-sm text-gray-600 italic mb-2">
                         It's always there when you want it, no pressure to use it — I update everything after our sessions
+                      </p>
+                      <p className="text-sm text-navy font-medium">
+                        🗂️ Your dashboard is yours to keep forever — even if you cancel, you retain full access
                       </p>
                     </div>
                   </div>
@@ -630,11 +633,11 @@ export default function Home() {
                     <div className="bg-red-50 p-6 rounded-xl border border-red-200">
                       <h4 className="text-xl font-bold text-red-600 mb-4 text-center">❌ This is NOT</h4>
                       <ul className="space-y-2 text-gray-700 text-sm">
-                        <li>• Therapy or medical treatment</li>
-                        <li>• A magic fix or overnight transformation</li>
-                        <li>• Rigid schedules or harsh accountability</li>
-                        <li>• One-size-fits-all productivity tips</li>
-                        <li>• Group coaching or pre-recorded courses</li>
+                        <li>🩺 <span className="font-semibold">Therapy</span> or medical treatment</li>
+                        <li>✨ A <span className="font-semibold">magic fix</span> or overnight transformation</li>
+                        <li>📅 <span className="font-semibold">Rigid schedules</span> or harsh accountability</li>
+                        <li>📋 <span className="font-semibold">One-size-fits-all</span> productivity tips</li>
+                        <li>🎥 <span className="font-semibold">Group coaching</span> or pre-recorded courses</li>
                       </ul>
                     </div>
                     
@@ -642,11 +645,11 @@ export default function Home() {
                     <div className="bg-tealblue/10 p-6 rounded-xl border border-tealblue/30">
                       <h4 className="text-xl font-bold text-tealblue mb-4 text-center">✅ This IS</h4>
                       <ul className="space-y-2 text-gray-700 text-sm">
-                        <li>• A weekly accountability partner who's in your corner</li>
-                        <li>• ADHD-informed, flexible support that adapts to you</li>
-                        <li>• Practical tools and systems you'll actually use</li>
-                        <li>• 1-on-1 personalized coaching for your real life</li>
-                        <li>• Gentle, judgment-free guidance so you can make steady progress</li>
+                        <li>🤝 A <span className="font-semibold">weekly accountability partner</span> who's in your corner</li>
+                        <li>🧠 <span className="font-semibold">ADHD-informed, flexible support</span> that adapts to you</li>
+                        <li>🛠️ <span className="font-semibold">Practical tools and systems</span> you'll actually use</li>
+                        <li>💬 <span className="font-semibold">1-on-1 personalized coaching</span> for your real life</li>
+                        <li>🌱 <span className="font-semibold">Gentle, judgment-free guidance</span> so you can make steady progress</li>
                       </ul>
                     </div>
                   </div>
@@ -656,35 +659,94 @@ export default function Home() {
             
             {/* FAQ Tab */}
             {activeTab === 'faq' && (
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <h3 className="text-3xl font-bold text-navy mb-6 text-center font-playfair">
-                  Quick Questions
+                  Frequently Asked Questions
                 </h3>
                 
-                <div className="space-y-4 max-w-3xl mx-auto">
-                  <div className="bg-white/90 p-6 rounded-xl border border-gray-200">
-                    <h4 className="font-bold text-navy mb-2">Is this just another app or course?</h4>
-                    <p className="text-gray-600">Nope! This is real human support. I'm your accountability partner who understands executive dysfunction, phone anxiety, and overwhelm — and shows up for you every week.</p>
+                <div className="max-w-4xl mx-auto">
+                  {/* Getting Started */}
+                  <div className="mb-8">
+                    <h4 className="text-xl font-bold text-tealblue mb-4 flex items-center gap-2"><Play className="h-5 w-5" /> Getting Started</h4>
+                    <div className="space-y-4">
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><HelpCircle className="h-4 w-4 text-tealblue" />How do I know if this is the right fit for me?</h5>
+                        <p className="text-gray-600">If you struggle with follow-through, get overwhelmed by productivity advice, or feel like you're constantly starting over, this could help. The $25 first session is a low-risk way to see if we work well together, or if you're still unsure, send me a message and we can set up a free 10-minute call to talk it through.</p>
+                      </div>
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Target className="h-4 w-4 text-tealblue" />What if I don't know my exact goals yet?</h5>
+                        <p className="text-gray-600">That's totally normal! Many clients start with just "I want to get my life together." We'll work together in your first session to clarify what matters most to you right now.</p>
+                      </div>
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Brain className="h-4 w-4 text-tealblue" />Do I need to have ADHD?</h5>
+                        <p className="text-gray-600">Not at all! While I specialize in ADHD-friendly approaches, this works for anyone who struggles with executive function, overwhelm, or just getting things done.</p>
+                      </div>
+                    </div>
                   </div>
-                  
-                  <div className="bg-white/90 p-6 rounded-xl border border-gray-200">
-                    <h4 className="font-bold text-navy mb-2">What if I miss a week?</h4>
-                    <p className="text-gray-600">Life happens! We can reschedule or skip a week when needed. Your progress dashboard keeps everything organized.</p>
+
+                  {/* How It Works */}
+                  <div className="mb-8">
+                    <h4 className="text-xl font-bold text-purple-600 mb-4 flex items-center gap-2"><Cog className="h-5 w-5" /> How It Works</h4>
+                    <div className="space-y-4">
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Video className="h-4 w-4 text-purple-600" />Do we meet on Zoom or another platform?</h5>
+                        <p className="text-gray-600">Zoom, Google Meet, FaceTime, WhatsApp — whatever works best for you! After you sign up, you'll get a questionnaire where you can mark your preference. I want to meet you where you're at in the easiest way possible.</p>
+                      </div>
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Camera className="h-4 w-4 text-purple-600" />Do I have to have my camera on?</h5>
+                        <p className="text-gray-600">Absolutely not! I just want you to be comfortable. Of course I'd love to see your beautiful face, but I understand sometimes we just want to be in the dark under blankets and that's fine.</p>
+                      </div>
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Timer className="h-4 w-4 text-purple-600" />How much time will I need to commit each week?</h5>
+                        <p className="text-gray-600">Just 30 minutes for our call, plus whatever time you want to spend on your chosen weekly focus. The whole point is keeping it manageable.</p>
+                      </div>
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><ClipboardList className="h-4 w-4 text-purple-600" />Is there homework between sessions?</h5>
+                        <p className="text-gray-600">No formal homework! We'll agree on 1-3 small experiments or actions each week, but they're designed to fit into your real life, not add pressure. We're collecting data on what works for your brain specifically.</p>
+                      </div>
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Wrench className="h-4 w-4 text-purple-600" />What if I get overwhelmed by the tools and dashboard?</h5>
+                        <p className="text-gray-600">We start simple and build slowly. If something feels like too much, we'll scale it back. The tools should help, not stress you out.</p>
+                      </div>
+                    </div>
                   </div>
-                  
-                  <div className="bg-white/90 p-6 rounded-xl border border-gray-200">
-                    <h4 className="font-bold text-navy mb-2">How is this different from therapy?</h4>
-                    <p className="text-gray-600">I'm not a therapist or clinical professional—I provide accountability partnership and practical support, not medical or therapeutic treatment.</p>
+
+                  {/* Concerns & Hesitations */}
+                  <div className="mb-8">
+                    <h4 className="text-xl font-bold text-coral mb-4 flex items-center gap-2"><MessageCircle className="h-5 w-5" /> Concerns & Hesitations</h4>
+                    <div className="space-y-4">
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><History className="h-4 w-4 text-coral" />What if I've tried coaching before and it didn't work?</h5>
+                        <p className="text-gray-600">Most coaching isn't designed for ADHD brains. If past experiences felt rigid, overwhelming, or shame-inducing, this will be different. We focus on what works for YOU specifically.</p>
+                      </div>
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><TrendingUp className="h-4 w-4 text-coral" />How long will it take to see progress?</h5>
+                        <p className="text-gray-600">Many clients feel more grounded after just 2-3 sessions. Bigger changes typically show up around 6-8 weeks as we build sustainable habits together.</p>
+                      </div>
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Stethoscope className="h-4 w-4 text-coral" />How is this different from therapy?</h5>
+                        <p className="text-gray-600">I'm not a therapist or clinical professional, I provide accountability partnership and practical support, not medical or therapeutic treatment. Think of me as your productivity project manager. If we decide therapy would be very beneficial, I can help you find one.</p>
+                      </div>
+                    </div>
                   </div>
-                  
-                  <div className="bg-white/90 p-6 rounded-xl border border-gray-200">
-                    <h4 className="font-bold text-navy mb-2">Do I need to have ADHD?</h4>
-                    <p className="text-gray-600">Not at all! While I specialize in ADHD-friendly approaches, this works for anyone who struggles with executive function, phone calls, overwhelm, or just getting things done.</p>
-                  </div>
-                  
-                  <div className="bg-white/90 p-6 rounded-xl border border-gray-200">
-                    <h4 className="font-bold text-navy mb-2">How does this compare to other coaching?</h4>
-                    <p className="text-gray-600">Most 1-on-1 accountability coaches charge $300+ per month for just weekly calls and basic check-ins. Here you get weekly 1-on-1 sessions PLUS a research-backed framework, personal dashboard, Discord community, body doubling, and trauma-informed support — all for $200/month.</p>
+
+                  {/* Logistics */}
+                  <div className="mb-8">
+                    <h4 className="text-xl font-bold text-green-600 mb-4 flex items-center gap-2"><FileText className="h-5 w-5" /> Logistics</h4>
+                    <div className="space-y-4">
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><CreditCard className="h-4 w-4 text-green-600" />Can I cancel anytime?</h5>
+                        <p className="text-gray-600">Yes! Just give me a week's notice. You'll get a prorated refund for any unused sessions in your current 4-week cycle.</p>
+                      </div>
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><CalendarX className="h-4 w-4 text-green-600" />What if I miss a week?</h5>
+                        <p className="text-gray-600">Life happens! If you give me 24+ hours' notice, we can reschedule for another time that week or just pick up the following week. If something comes up last minute, just send me a quick message — we'll figure it out. Your progress dashboard will keep us both on track.</p>
+                      </div>
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><UserCheck className="h-4 w-4 text-green-600" />Do you work with teens or only adults?</h5>
+                        <p className="text-gray-600">I work with adults 18+, and I'm open to coaching teens as long as a parent or guardian is involved and comfortable with the process. We can work together to make sure the approach supports them in a way that feels safe and effective.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -776,7 +838,7 @@ export default function Home() {
                     </div>
                     <div className="p-3 bg-green-50 rounded-lg border border-green-200 mb-6">
                       <div className="text-sm font-semibold text-green-700">💰 Member Rate Available: $45/week</div>
-                      <div className="text-xs text-green-600">$180 every 4 weeks • Save $60 over 12 weeks</div>
+                      <div className="text-xs text-green-600">$180 every 4 weeks • Save $60 over 12 weeks • Lock in your weekly time slot</div>
                     </div>
                     <a 
                       href="https://calendly.com/marlie-navcoaching/initial" 
@@ -813,95 +875,39 @@ export default function Home() {
                 
                 <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                   <div className="bg-gradient-to-br from-softblue/30 to-freshaqua/30 p-8 rounded-2xl border border-tealblue/20">
-                    <div className="flex items-start mb-6">
-                      <div className="flex-shrink-0 mr-4">
-                        <div className="w-12 h-12 bg-tealblue rounded-full flex items-center justify-center">
-                          <span className="text-white font-bold text-lg">JT</span>
-                        </div>
-                      </div>
-                      <div>
-                        <div className="flex items-center mb-2">
-                          <span className="text-freshaqua mr-2">★★★★★</span>
-                          <span className="font-bold text-navy">Jamie T.</span>
-                          <span className="text-gray-600 ml-2">• Graduate Student</span>
-                        </div>
-                        <p className="text-lg italic text-navy">
-                          "Working with Marlie has been transformative. For the first time, I have accountability that actually works for my ADHD brain. I've accomplished more in three months than in the previous year!"
-                        </p>
-                      </div>
+                    <div className="mb-4">
+                      <div className="font-bold text-navy text-lg mb-1">Jeff F. · Graduate Student</div>
                     </div>
+                    <p className="text-navy">
+                      "Working with Marlie has honestly changed the way I work. I finally have accountability that doesn't make me feel bad about myself. In the last 3 months, I've turned in assignments on time (!!!) and even applied for jobs I'd been putting off for a year."
+                    </p>
                   </div>
                   
                   <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border border-purple-200">
-                    <div className="flex items-start mb-6">
-                      <div className="flex-shrink-0 mr-4">
-                        <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
-                          <span className="text-white font-bold text-lg">SM</span>
-                        </div>
-                      </div>
-                      <div>
-                        <div className="flex items-center mb-2">
-                          <span className="text-purple-500 mr-2">★★★★★</span>
-                          <span className="font-bold text-navy">Sarah M.</span>
-                          <span className="text-gray-600 ml-2">• Remote Worker</span>
-                        </div>
-                        <p className="text-lg italic text-navy">
-                          "I was drowning in phone calls I couldn't make and projects I couldn't finish. Marlie gets it. She never makes me feel broken, just supported. My dashboard keeps me organized in a way nothing else has."
-                        </p>
-                      </div>
+                    <div className="mb-4">
+                      <div className="font-bold text-navy text-lg mb-1">Sarah M. · Remote Worker</div>
                     </div>
+                    <p className="text-navy">
+                      "I used to avoid phone calls for weeks and had a list of half-finished projects stressing me out. Marlie totally gets it. She doesn't make me feel broken, just supported. The dashboard is a game changer for keeping my brain organized."
+                    </p>
                   </div>
                   
                   <div className="bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-2xl border border-green-200">
-                    <div className="flex items-start mb-6">
-                      <div className="flex-shrink-0 mr-4">
-                        <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-                          <span className="text-white font-bold text-lg">AL</span>
-                        </div>
-                      </div>
-                      <div>
-                        <div className="flex items-center mb-2">
-                          <span className="text-green-500 mr-2">★★★★★</span>
-                          <span className="font-bold text-navy">Alex L.</span>
-                          <span className="text-gray-600 ml-2">• Entrepreneur</span>
-                        </div>
-                        <p className="text-lg italic text-navy">
-                          "The Discord community is amazing — body doubling sessions help me actually get work done. And the 30-minute sessions are perfect for my attention span. Finally, support that fits my brain!"
-                        </p>
-                      </div>
+                    <div className="mb-4">
+                      <div className="font-bold text-navy text-lg mb-1">Alex L. · Entrepreneur</div>
                     </div>
+                    <p className="text-navy">
+                      "The Discord body doubling sessions are amazing, I get so much work done. And the shorter calls are actually perfect for my attention span. Finally, something that works for my brain instead of against it."
+                    </p>
                   </div>
                   
                   <div className="bg-gradient-to-br from-orange-50 to-coral/20 p-8 rounded-2xl border border-orange-200">
-                    <div className="flex items-start mb-6">
-                      <div className="flex-shrink-0 mr-4">
-                        <div className="w-12 h-12 bg-coral rounded-full flex items-center justify-center">
-                          <span className="text-white font-bold text-lg">MK</span>
-                        </div>
-                      </div>
-                      <div>
-                        <div className="flex items-center mb-2">
-                          <span className="text-coral mr-2">★★★★★</span>
-                          <span className="font-bold text-navy">Maria K.</span>
-                          <span className="text-gray-600 ml-2">• PhD Student</span>
-                        </div>
-                        <p className="text-lg italic text-navy">
-                          "I've tried so many productivity systems. Marlie's framework is different — it actually works with how my ADHD brain operates. The North Star feature keeps me grounded when I feel overwhelmed."
-                        </p>
-                      </div>
+                    <div className="mb-4">
+                      <div className="font-bold text-navy text-lg mb-1">Maria K. · PhD Student</div>
                     </div>
-                  </div>
-                </div>
-                
-                <div className="bg-white/80 rounded-xl p-6 text-center max-w-2xl mx-auto border border-gray-200">
-                  <h4 className="text-lg font-bold text-navy mb-3">
-                    Common themes I hear:
-                  </h4>
-                  <div className="flex flex-wrap justify-center gap-3 text-sm">
-                    <span className="bg-tealblue/20 px-3 py-1 rounded-full text-navy">"Finally, someone who gets it"</span>
-                    <span className="bg-purple-500/20 px-3 py-1 rounded-full text-navy">"No judgment, just support"</span>
-                    <span className="bg-green-500/20 px-3 py-1 rounded-full text-navy">"Actually works for my brain"</span>
-                    <span className="bg-coral/20 px-3 py-1 rounded-full text-navy">"Makes me feel understood"</span>
+                    <p className="text-navy">
+                      "I've bought so many planners and tried every productivity method out there. Marlie's framework is the first one I've stuck with. The North Star thing we set up keeps me from spiraling when deadlines pile up. It's like… actually doable."
+                    </p>
                   </div>
                 </div>
               </div>
@@ -916,41 +922,31 @@ export default function Home() {
                 
                 <div className="max-w-3xl mx-auto">
                   <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 border border-emerald-200">
-                    <div className="flex items-center justify-center mb-6">
-                      <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center">
-                        <span className="text-2xl">📅</span>
-                      </div>
-                    </div>
-                    
                     <p className="text-lg text-navy text-center mb-8 font-medium">
-                      Life with ADHD is unpredictable. Our cancellation policy is designed with that in mind.
+                      Life with ADHD is unpredictable — I get it. Here's how we keep it stress-free:
                     </p>
                     
                     <div className="space-y-4">
-                      <div className="bg-white/80 p-4 rounded-xl flex items-start">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <p className="text-gray-700"><strong>2+ hours notice:</strong> Free rescheduling</p>
+                      <div className="bg-white/80 p-5 rounded-xl">
+                        <p className="text-navy"><strong>24+ hours' notice:</strong> Free reschedule, no penalty</p>
                       </div>
                       
-                      <div className="bg-white/80 p-4 rounded-xl flex items-start">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <p className="text-gray-700"><strong>Emergency situations:</strong> We're flexible</p>
+                      <div className="bg-white/80 p-5 rounded-xl">
+                        <p className="text-navy"><strong>Same-day cancellations:</strong> Just send me a quick message — we'll try to find a new time that week</p>
                       </div>
                       
-                      <div className="bg-white/80 p-4 rounded-xl flex items-start">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <p className="text-gray-700"><strong>Cancel service anytime</strong> with 1 week notice</p>
+                      <div className="bg-white/80 p-5 rounded-xl">
+                        <p className="text-navy"><strong>Emergencies:</strong> Let me know, and we'll work it out</p>
                       </div>
                       
-                      <div className="bg-white/80 p-4 rounded-xl flex items-start">
-                        <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <p className="text-gray-700"><strong>Unused sessions</strong> refunded pro-rata</p>
+                      <div className="bg-white/80 p-5 rounded-xl">
+                        <p className="text-navy"><strong>Cancel anytime:</strong> One week's notice before your next billing cycle to avoid being charged for the following month</p>
                       </div>
                     </div>
                     
                     <div className="mt-8 p-4 bg-emerald-100 rounded-lg text-center">
                       <p className="text-emerald-800 font-semibold">
-                        💚 No stress, no penalties — because I know how ADHD life works
+                        💚 No stress, no penalties — because I know how ADHD life works.
                       </p>
                     </div>
                   </div>
@@ -970,16 +966,16 @@ export default function Home() {
                     <div className="w-16 h-16 bg-gradient-to-r from-coral to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
                       <span className="text-white font-bold text-2xl">1</span>
                     </div>
-                    <h4 className="text-xl font-bold text-navy mb-3">Fill Out Your Questionnaire</h4>
-                    <p className="text-gray-600 leading-relaxed">Quick pre-session form to understand your specific challenges. <strong className="text-coral">Choose your preferred platform:</strong> Zoom, Discord, WhatsApp, FaceTime, Google Meets — whatever works best for you!</p>
+                    <h4 className="text-xl font-bold text-navy mb-3">Sign Up for $25 First Session</h4>
+                    <p className="text-gray-600 leading-relaxed">Click the link below to schedule and pay for your first session. <strong className="text-coral">Choose your preferred platform:</strong> Zoom, Discord, WhatsApp, FaceTime, Google Meet — whatever works best for you!</p>
                   </div>
                   
                   <div className="bg-white/90 p-8 rounded-2xl shadow-lg text-center border border-teal-200">
                     <div className="w-16 h-16 bg-gradient-to-r from-tealblue to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
                       <span className="text-white font-bold text-2xl">2</span>
                     </div>
-                    <h4 className="text-xl font-bold text-navy mb-3">Your $25 First Session</h4>
-                    <p className="text-gray-600 leading-relaxed">30-minute session to set goals and create your action plan. <strong className="text-tealblue">Plus I'll set up your personal dashboard</strong> — no extra work for you!</p>
+                    <h4 className="text-xl font-bold text-navy mb-3">Fill Out Your Questionnaire</h4>
+                    <p className="text-gray-600 leading-relaxed">You'll receive an email with a quick pre-session form to understand your specific challenges. Fill this out before our first meeting.</p>
                   </div>
                   
                   <div className="bg-white/90 p-8 rounded-2xl shadow-lg text-center border border-purple-200">
@@ -987,7 +983,7 @@ export default function Home() {
                       <span className="text-white font-bold text-2xl">3</span>
                     </div>
                     <h4 className="text-xl font-bold text-navy mb-3">Meet Weekly</h4>
-                    <p className="text-gray-600 leading-relaxed">Consistent <strong className="text-purple-600">30-minute sessions</strong> you'll actually look forward to! No judgment — we adapt the system based on what works for your brain.</p>
+                    <p className="text-gray-600 leading-relaxed">After your first session, we'll meet for consistent <strong className="text-purple-600">30-minute sessions</strong> you'll actually look forward to! <strong className="text-tealblue">Plus I'll set up your personal dashboard</strong> — no extra work for you!</p>
                   </div>
                 </div>
                 

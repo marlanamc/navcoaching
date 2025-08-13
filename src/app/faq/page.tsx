@@ -126,7 +126,7 @@ const faqData: FAQItem[] = [
   }
 ];
 
-const categories = [...new Set(faqData.map(item => item.category))];
+const categories = Array.from(new Set(faqData.map(item => item.category)));
 
 export default function FAQ() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");

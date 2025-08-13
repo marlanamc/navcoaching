@@ -1,77 +1,142 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
-export default function TermsOfService() {
+export default function Terms() {
   return (
-    <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <div className="bg-white bg-opacity-90 rounded-lg shadow-soft p-8 content-card">
-        <h1 className="text-3xl font-bold text-navy mb-6">Terms of Service</h1>
-        
-        <div className="prose prose-blue max-w-none">
-          <h2 className="text-xl font-bold text-navy mt-8 mb-4">1. Service Description</h2>
-          <p>
-            Navigating the Storm provides accountability coaching services designed to help individuals with ADHD and executive function challenges achieve their goals through structured support, accountability partnerships, and productivity strategies.
-          </p>
-          
-          <h2 className="text-xl font-bold text-navy mt-8 mb-4">2. Not Medical or Therapeutic Services</h2>
-          <p>
-            <strong>IMPORTANT DISCLAIMER:</strong> The services provided by Navigating the Storm are not therapy, medical treatment, or mental health services. Our coaching is designed to complement, not replace, professional healthcare services.
-          </p>
-          <p>
-            We do not diagnose, treat, or cure any medical or psychological conditions. Our coaching services fill the gap between therapy and medication, providing practical support for goal achievement and productivity.
-          </p>
-          
-          <h2 className="text-xl font-bold text-navy mt-8 mb-4">3. Client Responsibilities</h2>
-          <p>
-            Clients are responsible for:
-          </p>
-          <ul className="list-disc pl-6 mb-4">
-            <li>Seeking appropriate medical or mental health care when needed</li>
-            <li>Providing accurate information about their goals and challenges</li>
-            <li>Actively participating in the coaching relationship</li>
-            <li>Completing agreed-upon tasks between sessions</li>
-            <li>Communicating openly about what is and isn't working</li>
-          </ul>
-          
-          <h2 className="text-xl font-bold text-navy mt-8 mb-4">4. Confidentiality</h2>
-          <p>
-            We respect your privacy and maintain confidentiality regarding all client communications and information. However, coaching is not protected by the same legal privileges as therapy. Information may be disclosed if required by law or if there is risk of harm to self or others.
-          </p>
-          
-          <h2 className="text-xl font-bold text-navy mt-8 mb-4">5. Payment and Cancellation</h2>
-          <p>
-            Payment is required at the time services are scheduled. Cancellations must be made at least 24 hours in advance to receive a refund or reschedule without penalty.
-          </p>
-          
-          <h2 className="text-xl font-bold text-navy mt-8 mb-4">6. Results Not Guaranteed</h2>
-          <p>
-            While we are committed to providing high-quality coaching services, we cannot guarantee specific results. Success depends on many factors, including client engagement and individual circumstances.
-          </p>
-          
-          <h2 className="text-xl font-bold text-navy mt-8 mb-4">7. Agreement</h2>
-          <p>
-            By using our services, you acknowledge that you have read, understood, and agree to these terms. You understand that coaching is not therapy or medical treatment and that you are responsible for seeking appropriate healthcare when needed.
-          </p>
+    <div className="min-h-screen py-12 px-4">
+      <div className="max-w-4xl mx-auto">
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold text-navy mb-4 font-playfair">Terms of Service</h1>
+          <p className="text-gray-600">Last updated: {new Date().toLocaleDateString()}</p>
         </div>
-        
-        <div className="mt-8 pt-6 border-t border-gray-200">
-          <p className="text-sm text-gray-500">
-            Last updated: {new Date().toLocaleDateString()}
-          </p>
-          <div className="mt-4">
-            <Link 
-              href="/" 
-              className="text-ocean hover:text-coral transition hover-lift inline-flex items-center"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
-              </svg>
-              <span>Return to Home</span>
-            </Link>
-          </div>
+
+        <div className="bg-white/90 rounded-2xl shadow-lg p-8 space-y-8">
+          <section>
+            <h2 className="text-2xl font-bold text-navy mb-4 font-playfair">Agreement to Terms</h2>
+            <div className="space-y-4 text-gray-700">
+              <p>By accessing and using the services provided by Navigating the Storm ("we," "us," or "our"), you agree to be bound by these Terms of Service ("Terms").</p>
+              <p>If you do not agree to these Terms, please do not use our services.</p>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-navy mb-4 font-playfair">Our Services</h2>
+            <div className="space-y-4 text-gray-700">
+              <p>Navigating the Storm provides ADHD accountability coaching services, including:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Weekly 30-minute coaching sessions</li>
+                <li>Personal Notion dashboard setup and support</li>
+                <li>Weekly accountability check-ins</li>
+                <li>Body doubling sessions</li>
+                <li>Goal-setting and progress tracking</li>
+                <li>ADHD-focused productivity strategies</li>
+              </ul>
+            </div>
+          </section>
+
+          <section className="bg-red-50 p-6 rounded-lg border border-red-200">
+            <h2 className="text-2xl font-bold text-red-700 mb-4 font-playfair">Important Disclaimer</h2>
+            <div className="space-y-4 text-red-800">
+              <p><strong>Our services are NOT therapy, medical treatment, or mental health services.</strong></p>
+              <p>We provide accountability coaching and productivity support. We do not:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Diagnose, treat, or cure any medical or psychological conditions</li>
+                <li>Provide therapy, counseling, or mental health treatment</li>
+                <li>Replace professional medical or mental health care</li>
+                <li>Prescribe medication or provide medical advice</li>
+              </ul>
+              <p><strong>If you are experiencing mental health concerns, please consult qualified healthcare providers.</strong></p>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-navy mb-4 font-playfair">Scheduling and Cancellation Policy</h2>
+            <div className="space-y-4 text-gray-700">
+              <h3 className="text-lg font-semibold text-navy">Cancellation Policy</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li><strong>24+ hours notice:</strong> Session can be rescheduled at no charge</li>
+                <li><strong>Less than 24 hours:</strong> Session may be charged at full rate</li>
+                <li><strong>Emergency exceptions:</strong> We understand life happens, especially with ADHD. Emergency situations will be handled with flexibility and compassion</li>
+              </ul>
+
+              <h3 className="text-lg font-semibold text-navy">Service Cancellation</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>You may cancel ongoing coaching services at any time with 1 week notice</li>
+                <li>Prepaid sessions will be refunded on a prorated basis</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-navy mb-4 font-playfair">Payment and Refund Policy</h2>
+            <div className="space-y-4 text-gray-700">
+              <h3 className="text-lg font-semibold text-navy">Trial Period</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>All new clients receive a 2-week trial period</li>
+                <li>If you're not satisfied within the trial period, we'll provide a full refund</li>
+                <li>Trial period begins with your first paid session</li>
+              </ul>
+
+              <h3 className="text-lg font-semibold text-navy">Billing and Pricing</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Services are billed at $50/week ($200 every 4 weeks)</li>
+                <li>Member rate of $45/week ($180 every 4 weeks) may be available</li>
+                <li>First session discounted to $25</li>
+              </ul>
+
+              <h3 className="text-lg font-semibold text-navy">Refund Policy</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Refunds for unused sessions are provided on a prorated basis</li>
+                <li>Refund requests must be made in writing</li>
+                <li>Refunds are processed within 10 business days</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-navy mb-4 font-playfair">Confidentiality</h2>
+            <div className="space-y-4 text-gray-700">
+              <p>We are committed to protecting your privacy and maintaining confidentiality of all information shared during coaching sessions.</p>
+              <p>We will not share your personal information or session content with third parties except:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>With your explicit written consent</li>
+                <li>When required by law</li>
+                <li>If there is imminent danger to yourself or others</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-navy mb-4 font-playfair">Contact Information</h2>
+            <div className="space-y-4 text-gray-700">
+              <p>If you have questions about these Terms, please contact us:</p>
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <p><strong>Email:</strong> <a href="mailto:marlie@navcoaching.org" className="text-tealblue hover:text-navy">marlie@navcoaching.org</a></p>
+                <p><strong>Business:</strong> Navigating the Storm</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="bg-freshaqua/10 p-6 rounded-lg border border-freshaqua/30">
+            <h2 className="text-2xl font-bold text-navy mb-4 font-playfair">Questions?</h2>
+            <p className="text-gray-700 mb-4">
+              We believe in transparency and want you to feel comfortable with our terms. If you have any questions or concerns, please don't hesitate to reach out.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link 
+                href="/contact" 
+                className="inline-block px-6 py-3 bg-freshaqua text-navy font-bold rounded-lg shadow hover:bg-tealblue hover:text-white transition text-center"
+              >
+                Contact Us
+              </Link>
+              <Link 
+                href="/" 
+                className="inline-block px-6 py-3 bg-white border-2 border-freshaqua text-freshaqua font-bold rounded-lg shadow hover:shadow-lg transition text-center"
+              >
+                Back to Home
+              </Link>
+            </div>
+          </section>
         </div>
       </div>
     </div>

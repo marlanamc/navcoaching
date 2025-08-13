@@ -1,60 +1,154 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
+import { BookOpen, BarChart3, User, Star } from 'lucide-react';
 import TestimonialCarousel from '@/components/testimonials/TestimonialCarousel';
-import LegalDisclaimer from '@/components/common/LegalDisclaimer';
 
 export default function About() {
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-3xl md:text-4xl font-bold text-navy mb-6 font-playfair text-center">
-        About <span className="text-coral">Navigating the Storm</span>
-      </h1>
+      {/* Hero Section */}
+      <div className="max-w-4xl mx-auto text-center mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-navy mb-4 font-playfair">
+          Why Work With Me
+        </h1>
+      </div>
       
-      {/* About the Coach Section */}
+      {/* Main Story Section */}
       <section className="mb-16">
-        <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-soft content-card">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/3 mb-6 md:mb-0 md:pr-8">
-              <div className="relative">
-                <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-freshaqua shadow-soft mx-auto">
-                  <img 
-                    src="/coach-profile.jpg" 
-                    alt="Marlie - ADHD Accountability Coach" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute -bottom-4 -right-4 bg-coral text-white px-4 py-2 rounded-lg shadow-soft">
-                  Your Guide
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-white bg-opacity-90 p-8 rounded-2xl shadow-lg">
+            <div className="grid md:grid-cols-3 gap-8 items-start">
+              {/* Photo and Quick Stats */}
+              <div className="md:col-span-1">
+                <div className="sticky top-8">
+                  <div className="w-64 h-64 rounded-2xl overflow-hidden shadow-lg mx-auto mb-4 bg-white p-2">
+                    <img 
+                      src="/me.png" 
+                      alt="Marlie, ADHD coach and teacher with data background, smiling in professional headshot" 
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <h2 className="text-2xl font-bold text-navy mb-2">Marlie</h2>
+                    <p className="text-sm text-gray-600 mb-4">Your ADHD Accountability Coach</p>
+                  </div>
+                  
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 justify-center text-xs mb-6">
+                    <span className="bg-ocean/10 text-navy px-3 py-1 rounded-full border border-ocean/20">Compassionate</span>
+                    <span className="bg-ocean/10 text-navy px-3 py-1 rounded-full border border-ocean/20">Research-Based</span>
+                    <span className="bg-ocean/10 text-navy px-3 py-1 rounded-full border border-ocean/20">Practical</span>
+                    <span className="bg-ocean/10 text-navy px-3 py-1 rounded-full border border-ocean/20">Supportive</span>
+                  </div>
+                  
+                  {/* Background */}
+                  <div className="bg-tealblue/10 p-4 rounded-xl border border-tealblue/20 mb-4">
+                    <h3 className="text-lg font-bold text-navy mb-3 font-playfair text-center">
+                      Background
+                    </h3>
+                    <div className="text-sm text-gray-700 space-y-2">
+                      <p><span className="font-semibold text-navy">Education:</span> BS/MS in Economics, Georgia Tech</p>
+                      <div>
+                        <span className="font-semibold text-navy">Experience:</span>
+                        <ul className="list-disc list-inside ml-4 mt-1">
+                          <li>Swim Coach</li>
+                          <li>Server</li>
+                          <li>Economics Research Analyst</li>
+                          <li>Data Analyst</li>
+                          <li>Data Engineer</li>
+                          <li>ESOL Teacher</li>
+                        </ul>
+                        <div className="mt-2 p-2 bg-purple-50 border border-purple-200 rounded-lg">
+                          <p className="text-gray-700 text-sm">If it involves teaching, problem-solving, or keeping calm under pressure, I've probably done it (and have a story to tell).</p>
+                        </div>
+                      </div>
+                      <p><span className="font-semibold text-navy">Location:</span> Atlanta-born, Boston-based.</p>
+                      <p><span className="font-semibold text-navy">When I'm not coaching:</span> Screaming at Atlanta sports teams through the TV, getting lost in period dramas, or wandering the Boston Harbor pretending I'm in one.</p>
+                    </div>
+                  </div>
+
                 </div>
               </div>
-            </div>
-            <div className="md:w-2/3">
-              <h2 className="text-2xl font-bold text-navy mb-4 font-playfair">
-                Hi, I'm Marlie
-              </h2>
-              <p className="mb-4">
-                As someone who has navigated the challenges of ADHD throughout my life, I understand firsthand the frustration of trying to stay productive when your brain works differently. Traditional productivity systems often fail us, and that's where personalized accountability coaching comes in.
-              </p>
-              <p className="mb-4">
-                With a background in data analysis, teaching, and coaching, I combine structured support with empathy and flexibility. My approach fills the gap between therapy and medication, helping you actually follow through on what matters most.
-              </p>
-              <p className="mb-6">
-                I'm not here to "fix" you—your brain isn't broken. I'm here to help you build systems that work <em>with</em> your unique brain, not against it. Together, we'll navigate the storm of overwhelm and create calm, productive waters.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <div className="bg-freshaqua bg-opacity-20 px-4 py-2 rounded-full">
-                  <span className="font-bold">Data Analysis</span>
+              
+              {/* Story and Approach */}
+              <div className="md:col-span-2">
+                <div className="bg-freshaqua/10 p-6 rounded-xl mb-6 border border-freshaqua/20">
+                  <p className="mb-4 text-gray-700 text-lg">
+                    <span className="font-bold text-navy">I live with ADHD.</span> I don't have it all figured out, I still get distracted, procrastinate, and have messy days. I was diagnosed as an adult, which meant years of mourning the "what ifs" and trying to figure out life without the structure I needed. I've tried every system out there, and most didn't stick. But I feel more clear and grounded than I ever have, because I stopped trying to "fix" myself and started building tools that fit my brain.
+                  </p>
+                  <p className="mb-4 text-gray-700 text-lg">
+                    I've consumed hundreds of books, podcasts, and workbooks researching ADHD, not because I'm perfect at it now, but because I'm obsessed with finding what actually works in real life.
+                  </p>
+                  <p className="mb-4 text-gray-700 text-lg">
+                    That's the energy I bring to my clients - whether you're frozen in place and don't know where to start, or running non-stop and burning out. We experiment, adapt, and keep moving together. I'll meet you where you are, celebrate wins that no one else sees, and help you get back up when things fall apart.
+                  </p>
+                  <p className="text-gray-700 text-lg font-semibold">
+                    Absolutely no judgment. No shame. Just forward motion.
+                  </p>
                 </div>
-                <div className="bg-freshaqua bg-opacity-20 px-4 py-2 rounded-full">
-                  <span className="font-bold">Teaching</span>
+
+                {/* What I Bring - After main story */}
+                <div className="bg-white/90 p-6 rounded-xl mb-6 shadow-soft border border-gray-200">
+                  <h3 className="text-xl font-bold text-navy mb-4 font-playfair">
+                    What I Bring
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-ocean/5 p-4 rounded-lg border border-ocean/10">
+                      <div className="flex items-start gap-3">
+                        <BookOpen className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" />
+                        <p className="text-gray-700">
+                          <span className="font-semibold text-navy">Teaching:</span> I turn complex, intimidating work into steps so small you can't get stuck.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="bg-ocean/5 p-4 rounded-lg border border-ocean/10">
+                      <div className="flex items-start gap-3">
+                        <BarChart3 className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" />
+                        <p className="text-gray-700">
+                          <span className="font-semibold text-navy">Data & ops:</span> I spot patterns and design workflows that cut out wasted effort.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="bg-ocean/5 p-4 rounded-lg border border-ocean/10">
+                      <div className="flex items-start gap-3">
+                        <User className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" />
+                        <p className="text-gray-700">
+                          <span className="font-semibold text-navy">Lived experience:</span> I know the real blocks because I've hit them too — and I know how to move past them.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="bg-ocean/5 p-4 rounded-lg border border-ocean/10">
+                      <div className="flex items-start gap-3">
+                        <Star className="h-5 w-5 text-navy mt-0.5 flex-shrink-0" />
+                        <p className="text-gray-700">
+                          <span className="font-semibold text-navy">Results:</span> Clients finish projects, apply for jobs, pass classes, and start believing in themselves again.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-freshaqua bg-opacity-20 px-4 py-2 rounded-full">
-                  <span className="font-bold">ADHD Lived Experience</span>
-                </div>
-                <div className="bg-freshaqua bg-opacity-20 px-4 py-2 rounded-full">
-                  <span className="font-bold">Productivity Systems</span>
+                
+                <div className="bg-tealblue/10 p-6 rounded-xl border border-tealblue/20">
+                  <h3 className="text-xl font-bold text-navy mb-4 font-playfair">
+                    How We Work
+                  </h3>
+                  <div className="space-y-3">
+                    <p className="text-gray-700">
+                      <span className="font-semibold text-navy">30-minute weekly call</span> (focused, action-oriented, and tailored to you)
+                    </p>
+                    <p className="text-gray-700">
+                      <span className="font-semibold text-navy">Personalized check-in texts</span> to keep you moving
+                    </p>
+                    <p className="text-gray-700">
+                      <span className="font-semibold text-navy">A shared Notion dashboard</span> so nothing gets lost
+                    </p>
+                    <p className="text-gray-700">
+                      <span className="font-semibold text-navy">An eight-level nautical system</span> we layer in at your pace — built to handle setbacks, overwhelm, and wins
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -62,154 +156,29 @@ export default function About() {
         </div>
       </section>
       
-      {/* My Approach Section */}
+      
+      {/* Testimonials */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold text-navy mb-8 text-center font-playfair">
-          My <span className="text-coral">Approach</span>
+          Words from My Clients
         </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white bg-opacity-90 p-6 rounded-lg shadow-soft content-card">
-            <div className="flex justify-center mb-4">
-              <div className="w-16 h-16 bg-softblue rounded-full flex items-center justify-center animated-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-            </div>
-            <h3 className="text-xl font-bold text-navy mb-2 text-center">The Lighthouse</h3>
-            <p className="text-center mb-4">
-              Providing clarity and direction when you feel lost in the fog of overwhelm and indecision.
-            </p>
-            <ul className="space-y-2">
-              <li className="flex items-start">
-                <span className="text-coral mr-2">•</span>
-                <span>Clear goal-setting</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-coral mr-2">•</span>
-                <span>Vision alignment</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-coral mr-2">•</span>
-                <span>Priority identification</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div className="bg-white bg-opacity-90 p-6 rounded-lg shadow-soft content-card">
-            <div className="flex justify-center mb-4">
-              <div className="w-16 h-16 bg-softblue rounded-full flex items-center justify-center animated-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-            </div>
-            <h3 className="text-xl font-bold text-navy mb-2 text-center">The Compass</h3>
-            <p className="text-center mb-4">
-              Creating personalized systems that work with your unique brain, not against it.
-            </p>
-            <ul className="space-y-2">
-              <li className="flex items-start">
-                <span className="text-coral mr-2">•</span>
-                <span>Custom workflows</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-coral mr-2">•</span>
-                <span>Habit building</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-coral mr-2">•</span>
-                <span>Strength-based strategies</span>
-              </li>
-            </ul>
-          </div>
-          
-          <div className="bg-white bg-opacity-90 p-6 rounded-lg shadow-soft content-card">
-            <div className="flex justify-center mb-4">
-              <div className="w-16 h-16 bg-softblue rounded-full flex items-center justify-center animated-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
-                </svg>
-              </div>
-            </div>
-            <h3 className="text-xl font-bold text-navy mb-2 text-center">The Anchor</h3>
-            <p className="text-center mb-4">
-              Providing the human accountability that apps and planners alone can't deliver.
-            </p>
-            <ul className="space-y-2">
-              <li className="flex items-start">
-                <span className="text-coral mr-2">•</span>
-                <span>Consistent check-ins</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-coral mr-2">•</span>
-                <span>Judgment-free accountability</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-coral mr-2">•</span>
-                <span>Adaptive support</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      
-      {/* Important Note Section */}
-      <section className="mb-16">
-        <div className="bg-navy p-8 rounded-lg shadow-soft text-white">
-          <h2 className="text-2xl font-bold mb-4 font-playfair text-freshaqua">
-            Important Note About My Services
-          </h2>
-          <p className="mb-4">
-            My coaching services are designed to fill the gap between therapy and medication, providing practical support for goal achievement and productivity. I help you implement strategies and build accountability systems that work for your unique brain.
-          </p>
-          <p className="mb-4">
-            <strong className="text-coral">However, I am not a therapist or healthcare provider.</strong> My services are not therapy, medical treatment, or mental health services. I do not diagnose, treat, or cure any medical or psychological conditions.
-          </p>
-          <p>
-            If you're experiencing mental health concerns, please consult with qualified healthcare providers. My coaching works best as a complement to appropriate medical care, not a replacement for it.
-          </p>
-        </div>
-      </section>
-      
-      {/* Testimonials Section */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold text-navy mb-8 text-center font-playfair">
-          Client <span className="text-coral">Success Stories</span>
-        </h2>
-        
         <TestimonialCarousel />
       </section>
       
+      
       {/* CTA Section */}
-      <section className="text-center">
-        <h2 className="text-3xl font-bold text-navy mb-6 font-playfair">
-          Ready to Navigate Your Storm?
-        </h2>
-        <p className="text-xl mb-8 max-w-2xl mx-auto">
-          Let's work together to create systems that help you thrive with your unique brain.
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Link 
-            href="/services#pricing" 
-            className="btn px-8 py-3 bg-coral text-white font-bold rounded-lg shadow-soft hover:bg-opacity-90 transition hover-lift text-lg"
+      <section className="text-center py-8">
+        <div className="max-w-2xl mx-auto">
+          <a 
+            href="https://calendly.com/marlie-navcoaching/initial" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block btn cta px-10 py-4 bg-ocean text-white font-bold rounded-lg shadow-lg hover:bg-tealblue transition hover-lift text-lg"
           >
-            View Pricing Options
-          </Link>
-          <Link 
-            href="/contact" 
-            className="btn cta px-8 py-3 bg-freshaqua text-navy font-bold rounded-lg shadow-soft hover:bg-tealblue hover:text-white transition hover-lift text-lg"
-          >
-            Book a Free Consultation
-          </Link>
+            Start for $25, then $50 per week
+          </a>
         </div>
       </section>
-      
-      {/* Legal Disclaimer */}
-      <div className="mt-16">
-        <LegalDisclaimer />
-      </div>
     </div>
   );
 }

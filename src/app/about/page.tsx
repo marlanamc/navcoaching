@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { BookOpen, BarChart3, User, Star } from 'lucide-react';
-import TestimonialCarousel from '@/components/testimonials/TestimonialCarousel';
 
 export default function About() {
   return (
@@ -137,16 +136,19 @@ export default function About() {
                   </h3>
                   <div className="space-y-3">
                     <p className="text-gray-700">
-                      <span className="font-semibold text-navy">30-minute weekly call</span> (focused, action-oriented, and tailored to you)
+                      <span className="font-semibold text-navy">Community-first approach</span> with body doubling, group calls, and peer support
                     </p>
                     <p className="text-gray-700">
-                      <span className="font-semibold text-navy">Personalized check-in texts</span> to keep you moving
+                      <span className="font-semibold text-navy">Weekly Sunday Compass Calls</span> to keep everyone anchored and moving forward
                     </p>
                     <p className="text-gray-700">
-                      <span className="font-semibold text-navy">A shared Notion dashboard</span> so nothing gets lost
+                      <span className="font-semibold text-navy">Structured text accountability</span> with healthy boundaries and reply windows
                     </p>
                     <p className="text-gray-700">
-                      <span className="font-semibold text-navy">An eight-level nautical system</span> we layer in at your pace — built to handle setbacks, overwhelm, and wins
+                      <span className="font-semibold text-navy">Optional private coaching add-ons</span> for personalized support when you need it
+                    </p>
+                    <p className="text-gray-700">
+                      <span className="font-semibold text-navy">The nautical framework</span> we use together — built to handle setbacks, overwhelm, and wins
                     </p>
                   </div>
                 </div>
@@ -157,29 +159,29 @@ export default function About() {
       </section>
       
       
-      {/* Testimonials */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold text-navy mb-8 text-center font-playfair">
-          Words from My Clients
-        </h2>
-        <TestimonialCarousel />
-      </section>
-      
       
       {/* CTA Section */}
       <section className="text-center py-8">
         <div className="max-w-2xl mx-auto">
-          <h3 className="text-xl font-semibold text-navy mb-4">Ready to get started?</h3>
-          <p className="text-gray-600 mb-6">Sign up for your $25 first session, then you'll receive a questionnaire to fill out before we meet.</p>
-          <a 
-            href="https://cal.com/navcoaching/first-session" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block btn cta px-10 py-4 bg-ocean text-white font-bold rounded-lg shadow-lg hover:bg-tealblue transition hover-lift text-lg"
-          >
-            Sign Up for $25 First Session
-          </a>
-          <p className="text-sm text-gray-500 mt-3">Then $50/week • Cancel anytime</p>
+          <h3 className="text-xl font-semibold text-navy mb-4">Ready to join the crew?</h3>
+          <p className="text-gray-600 mb-6">Start with our community or add private coaching. Choose the support level that fits your needs.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/membership"
+              className="inline-block btn cta px-8 py-4 bg-ocean text-white font-bold rounded-lg shadow-lg hover:bg-tealblue transition hover-lift text-lg"
+            >
+              Join the Community
+            </Link>
+            <a 
+              href="https://cal.com/navcoaching/first-session" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block btn px-8 py-4 bg-pink-500 text-white font-bold rounded-lg shadow-lg hover:bg-pink-600 transition hover-lift text-lg"
+            >
+              Private Coaching Add-On
+            </a>
+          </div>
+          <p className="text-sm text-gray-500 mt-3">Community starts at $20/month • Private add-ons available</p>
         </div>
       </section>
     </div>

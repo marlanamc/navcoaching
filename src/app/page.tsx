@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      const validTabs = ['framework', 'dashboard', 'who', 'value', 'not', 'testimonials', 'faq', 'policy', 'process'];
+      const validTabs = ['framework', 'dashboard', 'who', 'value', 'not', 'testimonials', 'faq', 'policy', 'process', 'resources'];
       if (validTabs.includes(hash)) {
         setActiveTab(hash);
         // Scroll to the tabbed section
@@ -326,6 +326,19 @@ export default function Home() {
               }`}
             >
               🚀 Get Started
+            </button>
+            <button
+              onClick={() => {
+                setActiveTab('resources');
+                window.history.pushState(null, '', '#resources');
+              }}
+              className={`px-4 py-2 rounded-lg font-semibold transition text-sm ${
+                activeTab === 'resources'
+                  ? 'bg-purple-600 text-white shadow-lg'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              🛟 Free Resources
             </button>
           </div>
           
@@ -1100,36 +1113,142 @@ export default function Home() {
                     <div className="w-16 h-16 bg-gradient-to-r from-coral to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
                       <span className="text-white font-bold text-2xl">1</span>
                     </div>
-                    <h4 className="text-xl font-bold text-navy mb-3">Sign Up for $25 First Session</h4>
-                    <p className="text-gray-600 leading-relaxed">Click the link below to schedule and pay for your first session. <strong className="text-coral">Choose your preferred platform:</strong> Zoom, Discord, WhatsApp, FaceTime, Google Meet — whatever works best for you!</p>
+                    <h4 className="text-xl font-bold text-navy mb-3">Choose Your Membership Tier</h4>
+                    <p className="text-gray-600 leading-relaxed">Start with <strong className="text-coral">Harbor Access for just $10</strong> to try the community, or jump into a higher tier for private coaching support. <strong className="text-coral">Founding member pricing</strong> available through August 31st!</p>
                   </div>
                   
                   <div className="bg-white/90 p-8 rounded-2xl shadow-lg text-center border border-teal-200">
                     <div className="w-16 h-16 bg-gradient-to-r from-tealblue to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
                       <span className="text-white font-bold text-2xl">2</span>
                     </div>
-                    <h4 className="text-xl font-bold text-navy mb-3">Fill Out Your Questionnaire</h4>
-                    <p className="text-gray-600 leading-relaxed">You'll receive an email with a quick pre-session form to understand your specific challenges. Fill this out before our first meeting.</p>
+                    <h4 className="text-xl font-bold text-navy mb-3">Join the Community</h4>
+                    <p className="text-gray-600 leading-relaxed">Get immediate access to Discord, body doubling sessions, and Sunday Compass Calls. If you chose a tier with private calls, you'll receive a scheduling link.</p>
                   </div>
                   
                   <div className="bg-white/90 p-8 rounded-2xl shadow-lg text-center border border-purple-200">
                     <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4">
                       <span className="text-white font-bold text-2xl">3</span>
                     </div>
-                    <h4 className="text-xl font-bold text-navy mb-3">Choose Your Path</h4>
-                    <p className="text-gray-600 leading-relaxed">After your first session, decide what works for you: <strong className="text-purple-600">drop-in sessions when you need them</strong> or <strong className="text-tealblue">a session pack for consistency</strong>. I'll set up your dashboard either way — no extra work for you!</p>
+                    <h4 className="text-xl font-bold text-navy mb-3">Start Building Momentum</h4>
+                    <p className="text-gray-600 leading-relaxed">Jump into body doubling sessions, participate in Sunday calls, and connect with your crew. <strong className="text-purple-600">Upgrade or downgrade anytime</strong> as your needs change — <strong className="text-tealblue">no long-term commitments</strong>!</p>
                   </div>
                 </div>
                 
                 <div className="text-center">
-                  <a 
-                    href="https://cal.com/navcoaching/first-session" 
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link 
+                    href="/membership"
                     className="inline-block btn cta px-8 py-4 bg-gradient-to-r from-coral to-pink-500 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 text-lg"
                   >
-                    Start with Your $25 Session →
-                  </a>
+                    Choose Your Membership →
+                  </Link>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'resources' && (
+              <div className="space-y-8">
+                <h3 className="text-3xl font-bold text-navy mb-8 text-center font-playfair">
+                  Free ADHD Resources
+                </h3>
+                
+                <div className="text-center mb-8">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full shadow-lg mb-4">
+                    <LifeBuoy className="w-8 h-8 text-purple-600" />
+                  </div>
+                  <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+                    A growing collection of practical tools, scripts, and strategies to help you get unstuck fast. 
+                    No paywall, no login required.
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="bg-white/90 rounded-xl shadow-lg p-6 border border-red-100">
+                    <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                      <Zap className="w-6 h-6 text-red-600" />
+                    </div>
+                    <h4 className="text-lg font-bold text-navy mb-3">Crisis Scripts</h4>
+                    <p className="text-gray-700 text-sm mb-4">
+                      Word-for-word scripts for explaining ADHD to your boss, partner, or family during tough moments
+                    </p>
+                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Coming Soon</span>
+                  </div>
+
+                  <div className="bg-white/90 rounded-xl shadow-lg p-6 border border-blue-100">
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                      <Clock className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <h4 className="text-lg font-bold text-navy mb-3">5-Minute Fixes</h4>
+                    <p className="text-gray-700 text-sm mb-4">
+                      Quick strategies to get unstuck when you're paralyzed, overwhelmed, or completely frozen
+                    </p>
+                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Coming Soon</span>
+                  </div>
+
+                  <div className="bg-white/90 rounded-xl shadow-lg p-6 border border-green-100">
+                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                      <Users className="w-6 h-6 text-green-600" />
+                    </div>
+                    <h4 className="text-lg font-bold text-navy mb-3">Body Doubling Guide</h4>
+                    <p className="text-gray-700 text-sm mb-4">
+                      How to start, host, or join body doubling sessions even when social anxiety kicks in
+                    </p>
+                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Coming Soon</span>
+                  </div>
+
+                  <div className="bg-white/90 rounded-xl shadow-lg p-6 border border-purple-100">
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                      <FileText className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <h4 className="text-lg font-bold text-navy mb-3">Templates & Checklists</h4>
+                    <p className="text-gray-700 text-sm mb-4">
+                      Printable Anchor & Compass worksheets, emergency contact lists, and crisis protocols
+                    </p>
+                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Coming Soon</span>
+                  </div>
+
+                  <div className="bg-white/90 rounded-xl shadow-lg p-6 border border-indigo-100">
+                    <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                      <Phone className="w-6 h-6 text-indigo-600" />
+                    </div>
+                    <h4 className="text-lg font-bold text-navy mb-3">Phone Wallpapers</h4>
+                    <p className="text-gray-700 text-sm mb-4">
+                      Emergency reminder cards you can save to your phone for instant access during tough moments
+                    </p>
+                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Coming Soon</span>
+                  </div>
+
+                  <div className="bg-white/90 rounded-xl shadow-lg p-6 border border-pink-100">
+                    <div className="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
+                      <Target className="w-6 h-6 text-pink-600" />
+                    </div>
+                    <h4 className="text-lg font-bold text-navy mb-3">Action Plans</h4>
+                    <p className="text-gray-700 text-sm mb-4">
+                      Step-by-step guides for common ADHD emergencies: forgotten deadlines, lost motivation
+                    </p>
+                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Coming Soon</span>
+                  </div>
+                </div>
+
+                <div className="bg-navy/10 rounded-xl p-6 text-center">
+                  <p className="text-navy font-medium italic mb-4">
+                    "These resources are free for everyone. But inside our community, 
+                    we take them from helpful guides to real-world change — with live practice, 
+                    accountability, and personalization."
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button 
+                      className="px-6 py-3 bg-purple-600 text-white font-bold rounded-lg hover:bg-purple-700 transition-colors"
+                      onClick={() => alert('Resource library coming soon! Join our community for early access.')}
+                    >
+                      Get Updates on Release
+                    </button>
+                    <Link
+                      href="/membership"
+                      className="px-6 py-3 bg-teal-600 text-white font-bold rounded-lg hover:bg-teal-700 transition-colors"
+                    >
+                      Join the Community →
+                    </Link>
+                  </div>
                 </div>
               </div>
             )}
@@ -1142,106 +1261,39 @@ export default function Home() {
       <section className="py-16 text-center">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold mb-4 font-playfair drop-shadow-sm" style={{color: '#d9e4ff'}}>
-            Ready to Finally Follow Through?
+            Ready to Join the Crew?
           </h2>
           <p className="text-xl mb-8 text-white">
-            The power of community + the structure you need.
+            Community support that actually works. Start with founding member pricing.
           </p>
           
-          <a 
-            href="https://cal.com/navcoaching/first-session" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block btn cta px-10 py-4 bg-freshaqua text-navy font-bold rounded-lg shadow-lg hover:bg-tealblue hover:text-white transition hover-lift text-lg mb-4"
-          >
-            Claim Your $25 First Session →
-          </a>
-          
-          <p className="text-sm text-gray-600 mb-2">
-            <span className="line-through text-gray-400">Regular drop-in: $60</span>
-          </p>
-          
-          <p className="text-sm text-gray-600">
-            Already a member? <Link href="/signin" className="text-tealblue underline hover:text-navy">Sign in here</Link>
-          </p>
-        </div>
-      </section>
-
-      {/* ADHD First Aid Kit Section */}
-      <section className="py-16 max-w-6xl mx-auto px-4">
-        <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-3xl shadow-2xl overflow-hidden">
-          <div className="p-8 md:p-12">
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-full shadow-lg mb-6">
-                <LifeBuoy className="w-10 h-10 text-purple-600" />
-              </div>
-              <h2 className="text-4xl font-bold text-navy mb-4 font-playfair">
-                The ADHD First Aid Kit
-              </h2>
-              <p className="text-xl text-purple-900 font-semibold mb-2">
-                Free for Everyone
-              </p>
-              <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-                A growing library of guides, scripts, and strategies to help you get unstuck fast. 
-                No paywall, no login, no strings.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-white/80 backdrop-blur rounded-xl p-6">
-                <h3 className="font-bold text-navy mb-4 flex items-center gap-2">
-                  <FileText className="w-5 h-5 text-purple-600" />
-                  What's Inside
-                </h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Emergency scripts for tough conversations</li>
-                  <li>• 5-minute unstuck strategies</li>
-                  <li>• Body doubling quick-starts</li>
-                  <li>• Anchor & Compass templates</li>
-                  <li>• Crisis mode protocols</li>
-                </ul>
-              </div>
-
-              <div className="bg-white/80 backdrop-blur rounded-xl p-6">
-                <h3 className="font-bold text-navy mb-4 flex items-center gap-2">
-                  <Users className="w-5 h-5 text-pink-600" />
-                  How Members Get More
-                </h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Weekly guided walkthroughs</li>
-                  <li>• Custom application to your situation</li>
-                  <li>• Early access to new content</li>
-                  <li>• Bonus printable checklists</li>
-                  <li>• "First Aid in Action" examples</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-navy/10 rounded-xl p-6 mb-8">
-              <p className="text-center text-navy font-medium italic">
-                "The ADHD First Aid Kit is free for anyone. But inside our community, 
-                we take it from resource to real-world change — with live guidance, 
-                accountability, and personalization."
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/first-aid-kit"
-                className="inline-block bg-purple-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-purple-700 transition-colors text-center"
-              >
-                Get the Free Kit →
-              </Link>
-              <Link
-                href="/membership"
-                className="inline-block bg-pink-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-pink-700 transition-colors text-center"
-              >
-                Join the Community →
-              </Link>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+            <Link 
+              href="/membership"
+              className="inline-block btn cta px-8 py-4 bg-freshaqua text-navy font-bold rounded-lg shadow-lg hover:bg-tealblue hover:text-white transition hover-lift text-lg"
+            >
+              Join the Community →
+            </Link>
+            <a 
+              href="https://cal.com/navcoaching/first-session" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block btn px-8 py-4 bg-pink-500 text-white font-bold rounded-lg shadow-lg hover:bg-pink-600 transition hover-lift text-lg"
+            >
+              Private Coaching Add-On
+            </a>
           </div>
+          
+          <p className="text-sm text-gray-300 mb-2">
+            Founding specials: Harbor $10 • Crew $20 • First Mate $50
+          </p>
+          
+          <p className="text-sm text-gray-300">
+            Already a member? <Link href="/signin" className="text-freshaqua underline hover:text-white">Sign in here</Link>
+          </p>
         </div>
       </section>
+
       </div>
     </div>
   );

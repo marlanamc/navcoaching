@@ -47,7 +47,7 @@ export default function Footer() {
                 <Link href="/contact" className="text-gray-300 hover:text-freshaqua transition">Contact</Link>
               </li>
               <li>
-                <Link href="/first-aid-kit" className="text-gray-300 hover:text-freshaqua transition">Free First Aid Kit</Link>
+                <Link href="/#resources" className="text-gray-300 hover:text-freshaqua transition">Free Resources</Link>
               </li>
               <li>
                 <Link href="/signin" className="text-gray-300 hover:text-freshaqua transition">Sign In</Link>

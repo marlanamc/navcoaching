@@ -1,17 +1,16 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Anchor, Users, MessageSquare, Navigation, Crown, Check, Calendar, Video, FileText, Zap, Star } from 'lucide-react';
 
 export default function Membership() {
-  const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
 
   const tiers = [
     {
       name: 'Harbor Access',
       price: 20,
-      annualPrice: 200,
+      firstMonth: 10,
       icon: Anchor,
       color: 'bg-blue-500',
       description: 'Join the community and start building momentum',
@@ -33,7 +32,6 @@ export default function Membership() {
     {
       name: 'Crew Essentials',
       price: 35,
-      annualPrice: 350,
       firstMonth: 20,
       icon: Users,
       color: 'bg-purple-500',
@@ -55,7 +53,6 @@ export default function Membership() {
     {
       name: 'First Mate',
       price: 75,
-      annualPrice: 750,
       firstMonth: 50,
       icon: MessageSquare,
       color: 'bg-teal-500',
@@ -78,7 +75,6 @@ export default function Membership() {
     {
       name: 'Navigator',
       price: 150,
-      annualPrice: 1500,
       icon: Navigation,
       color: 'bg-indigo-500',
       description: 'Comprehensive support with personalized tools',
@@ -99,7 +95,6 @@ export default function Membership() {
     {
       name: "Captain's Concierge",
       price: 350,
-      annualPrice: 3500,
       icon: Crown,
       color: 'bg-gold-500',
       description: 'Premium white-glove accountability service',
@@ -138,39 +133,20 @@ export default function Membership() {
               <Star className="w-5 h-5 text-yellow-600" />
             </div>
             <p className="text-yellow-900">
-              First month discount on Crew Essentials & First Mate
+              First month discounts: Harbor $10, Crew $20, First Mate $50
             </p>
             <p className="text-sm text-yellow-700 mt-1">
               Offer ends Sunday, August 31 - lock in your spot now
             </p>
           </div>
 
-          {/* Billing Toggle */}
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <span className={`font-medium ${billingCycle === 'monthly' ? 'text-navy' : 'text-gray-500'}`}>
-              Monthly
-            </span>
-            <button
-              onClick={() => setBillingCycle(billingCycle === 'monthly' ? 'annual' : 'monthly')}
-              className="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            >
-              <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                  billingCycle === 'annual' ? 'translate-x-6' : 'translate-x-1'
-                }`}
-              />
-            </button>
-            <span className={`font-medium ${billingCycle === 'annual' ? 'text-navy' : 'text-gray-500'}`}>
-              Annual <span className="text-green-600 text-sm">(Save 2 months)</span>
-            </span>
-          </div>
         </div>
 
-        {/* Pricing Tiers */}
-        <div className="grid gap-6 lg:grid-cols-5 max-w-7xl mx-auto">
-          {tiers.map((tier) => {
+        {/* Main Pricing Tiers */}
+        <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto mb-12">
+          {tiers.slice(0, 3).map((tier) => {
             const Icon = tier.icon;
-            const currentPrice = billingCycle === 'monthly' ? tier.price : tier.annualPrice;
+            const currentPrice = tier.price;
             
             return (
               <div
@@ -187,40 +163,31 @@ export default function Membership() {
                   </div>
                 )}
                 
-                <div className="text-center mb-6">
-                  <div className={`inline-flex p-3 rounded-full ${tier.color} bg-opacity-20 mb-4`}>
-                    <Icon className={`w-8 h-8 ${tier.color.replace('bg-', 'text-')}`} />
+                <div className="text-center mb-4">
+                  <div className={`inline-flex p-3 rounded-full ${tier.color} bg-opacity-20 mb-3`}>
+                    <Icon className={`w-6 h-6 ${tier.color.replace('bg-', 'text-')}`} />
                   </div>
                   <h3 className="text-xl font-bold text-navy mb-2">{tier.name}</h3>
-                  <p className="text-sm text-gray-600 mb-4">{tier.description}</p>
                   
-                  <div className="mb-4">
-                    {tier.firstMonth && billingCycle === 'monthly' && (
+                  <div className="mb-3">
+                    {tier.firstMonth && (
                       <p className="text-sm text-green-600 font-medium mb-1">
                         First month: ${tier.firstMonth}
                       </p>
                     )}
-                    <p className="text-3xl font-bold text-navy">
+                    <p className="text-2xl font-bold text-navy">
                       ${currentPrice}
-                      <span className="text-base font-normal text-gray-600">
-                        /{billingCycle === 'monthly' ? 'mo' : 'yr'}
-                      </span>
+                      <span className="text-base font-normal text-gray-600">/mo</span>
                     </p>
                   </div>
                 </div>
 
-                {/* Features */}
-                <div className="space-y-3 mb-6">
-                  {tier.features.map((feature, idx) => (
+                {/* Condensed Features */}
+                <div className="space-y-2 mb-6">
+                  {tier.features.slice(0, 4).map((feature, idx) => (
                     <div key={idx} className="flex items-start gap-2">
-                      <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-gray-700">{feature}</span>
-                    </div>
-                  ))}
-                  {tier.notIncluded.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-2 opacity-50">
-                      <span className="w-5 h-5 flex-shrink-0 mt-0.5 text-gray-400 text-center">✕</span>
-                      <span className="text-sm text-gray-500 line-through">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -230,6 +197,48 @@ export default function Membership() {
                     ? 'bg-teal-500 text-white hover:bg-teal-600' 
                     : 'bg-gray-100 text-navy hover:bg-gray-200'
                 }`}>
+                  {tier.cta}
+                </button>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Premium Tiers */}
+        <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto mb-12">
+          {tiers.slice(3).map((tier) => {
+            const Icon = tier.icon;
+            const currentPrice = tier.price;
+            
+            return (
+              <div
+                key={tier.name}
+                className="relative bg-white rounded-2xl shadow-xl p-6 border-2 border-indigo-200"
+              >
+                <div className="text-center mb-4">
+                  <div className={`inline-flex p-3 rounded-full ${tier.color} bg-opacity-20 mb-3`}>
+                    <Icon className={`w-6 h-6 ${tier.color.replace('bg-', 'text-')}`} />
+                  </div>
+                  <h3 className="text-xl font-bold text-navy mb-2">{tier.name}</h3>
+                  <p className="text-sm text-gray-600 mb-3">{tier.description}</p>
+                  
+                  <p className="text-2xl font-bold text-navy">
+                    ${currentPrice}
+                    <span className="text-base font-normal text-gray-600">/mo</span>
+                  </p>
+                </div>
+
+                {/* Condensed Features */}
+                <div className="space-y-2 mb-6">
+                  {tier.features.slice(0, 4).map((feature, idx) => (
+                    <div key={idx} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-gray-700">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <button className="w-full py-3 rounded-lg font-bold transition-all bg-indigo-500 text-white hover:bg-indigo-600">
                   {tier.cta}
                 </button>
               </div>
@@ -334,6 +343,110 @@ export default function Membership() {
               <span className="font-semibold">Plus:</span> Member-led sessions can be scheduled in #body-doubling-links. 
               Host your own or join others when you need extra support!
             </p>
+          </div>
+        </div>
+
+        {/* Price Comparison Table */}
+        <div className="mt-16 bg-white rounded-2xl shadow-xl overflow-hidden max-w-6xl mx-auto">
+          <div className="bg-white text-navy p-6 text-center border-b border-gray-200">
+            <h2 className="text-2xl font-bold">Compare All Plans</h2>
+          </div>
+          
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="px-4 py-6 text-left text-base font-bold text-navy">Features</th>
+                  <th className="px-4 py-6 text-center text-navy">
+                    <div className="font-bold text-base">Harbor Access</div>
+                    <div className="text-lg font-extrabold text-blue-600">$20/mo</div>
+                  </th>
+                  <th className="px-4 py-6 text-center text-navy">
+                    <div className="font-bold text-base">Crew Essentials</div>
+                    <div className="text-lg font-extrabold text-purple-600">$35/mo</div>
+                  </th>
+                  <th className="px-4 py-6 text-center text-navy bg-teal-50">
+                    <div className="font-bold text-base">First Mate</div>
+                    <div className="text-lg font-extrabold text-teal-600">$75/mo</div>
+                    <div className="text-xs text-teal-600 font-semibold mt-1">MOST POPULAR</div>
+                  </th>
+                  <th className="px-4 py-6 text-center text-navy">
+                    <div className="font-bold text-base">Navigator</div>
+                    <div className="text-lg font-extrabold text-indigo-600">$150/mo</div>
+                  </th>
+                  <th className="px-4 py-6 text-center text-navy">
+                    <div className="font-bold text-base">Captain's Concierge</div>
+                    <div className="text-lg font-extrabold text-amber-600">$350/mo</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                <tr>
+                  <td className="px-6 py-4 text-sm text-gray-700">Discord Community</td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                  <td className="px-6 py-4 text-center bg-teal-50"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="px-6 py-4 text-sm text-gray-700">Body Doubling Sessions</td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                  <td className="px-6 py-4 text-center bg-teal-50"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm text-gray-700">Weekly Sunday Compass Call</td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                  <td className="px-6 py-4 text-center bg-teal-50"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="px-6 py-4 text-sm text-gray-700">Private Calls per Month</td>
+                  <td className="px-6 py-4 text-center text-gray-400">—</td>
+                  <td className="px-6 py-4 text-center text-sm">1 × 20min</td>
+                  <td className="px-6 py-4 text-center bg-teal-50 text-sm">1 × 30min</td>
+                  <td className="px-6 py-4 text-center text-sm">3 × 30min</td>
+                  <td className="px-6 py-4 text-center text-sm">4 × 30min</td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm text-gray-700">Text Nudges per Week</td>
+                  <td className="px-6 py-4 text-center text-gray-400">—</td>
+                  <td className="px-6 py-4 text-center text-sm">2×</td>
+                  <td className="px-6 py-4 text-center bg-teal-50 text-sm">3×</td>
+                  <td className="px-6 py-4 text-center text-sm">Unlimited</td>
+                  <td className="px-6 py-4 text-center text-sm">Same-day</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="px-6 py-4 text-sm text-gray-700">Personal Dashboard</td>
+                  <td className="px-6 py-4 text-center text-gray-400">—</td>
+                  <td className="px-6 py-4 text-center text-gray-400">—</td>
+                  <td className="px-6 py-4 text-center bg-teal-50 text-gray-400">—</td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                </tr>
+                <tr>
+                  <td className="px-6 py-4 text-sm text-gray-700">Priority Support</td>
+                  <td className="px-6 py-4 text-center text-gray-400">—</td>
+                  <td className="px-6 py-4 text-center text-gray-400">—</td>
+                  <td className="px-6 py-4 text-center bg-teal-50"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="px-6 py-4 text-sm text-gray-700">Quarterly Planning</td>
+                  <td className="px-6 py-4 text-center text-gray-400">—</td>
+                  <td className="px-6 py-4 text-center text-gray-400">—</td>
+                  <td className="px-6 py-4 text-center bg-teal-50 text-gray-400">—</td>
+                  <td className="px-6 py-4 text-center text-gray-400">—</td>
+                  <td className="px-6 py-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 

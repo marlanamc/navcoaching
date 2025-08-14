@@ -289,6 +289,54 @@ export default function Membership() {
           </div>
         </div>
 
+        {/* Calendar of Events */}
+        <div className="mt-16 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-navy mb-6 text-center">
+            Weekly Community Calendar
+          </h2>
+          
+          <div className="bg-white rounded-xl p-6 mb-6">
+            <h3 className="font-bold text-navy mb-4 flex items-center gap-2">
+              <Calendar className="w-5 h-5 text-indigo-500" />
+              Regular Events (All Times ET)
+            </h3>
+            
+            <div className="space-y-4">
+              <div className="border-l-4 border-indigo-500 pl-4">
+                <p className="font-semibold text-navy">Sunday 7:00 PM - Compass Call</p>
+                <p className="text-sm text-gray-600">Weekly check-in: Anchor, Compass, Storms, Drift, Starlight</p>
+              </div>
+              
+              <div className="border-l-4 border-purple-500 pl-4">
+                <p className="font-semibold text-navy">Monday 9:00 AM - Body Doubling</p>
+                <p className="text-sm text-gray-600">Camera optional, get stuff done together</p>
+              </div>
+              
+              <div className="border-l-4 border-purple-500 pl-4">
+                <p className="font-semibold text-navy">Wednesday 9:00 AM - Body Doubling</p>
+                <p className="text-sm text-gray-600">Midweek momentum boost</p>
+              </div>
+              
+              <div className="border-l-4 border-purple-500 pl-4">
+                <p className="font-semibold text-navy">Friday 9:00 AM - Body Doubling</p>
+                <p className="text-sm text-gray-600">End the week strong</p>
+              </div>
+              
+              <div className="border-l-4 border-pink-500 pl-4">
+                <p className="font-semibold text-navy">Monthly Workshop</p>
+                <p className="text-sm text-gray-600">Rotating themes: planning, ADHD tools, crisis protocols</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-blue-50 rounded-xl p-4">
+            <p className="text-sm text-gray-700">
+              <span className="font-semibold">Plus:</span> Member-led sessions can be scheduled in #body-doubling-links. 
+              Host your own or join others when you need extra support!
+            </p>
+          </div>
+        </div>
+
         {/* CTA Section */}
         <div className="mt-12 text-center">
           <p className="text-lg text-navy mb-4">

@@ -14,7 +14,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4 text-freshaqua">Navigating the Storm</h3>
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
-              ADHD accountability coaching that meets you where you are. Human support when apps and planners aren't enough.
+              Community-first accountability that actually works. Body doubling, weekly calls, and structured support for ADHD brains.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-freshaqua hover:text-white transition" aria-label="Twitter">
@@ -41,10 +41,13 @@ export default function Footer() {
                 <Link href="/about" className="text-gray-300 hover:text-freshaqua transition">About</Link>
               </li>
               <li>
-                <Link href="/services" className="text-gray-300 hover:text-freshaqua transition">Services</Link>
+                <Link href="/membership" className="text-gray-300 hover:text-freshaqua transition">Membership</Link>
               </li>
               <li>
                 <Link href="/contact" className="text-gray-300 hover:text-freshaqua transition">Contact</Link>
+              </li>
+              <li>
+                <Link href="/first-aid-kit" className="text-gray-300 hover:text-freshaqua transition">Free First Aid Kit</Link>
               </li>
               <li>
                 <Link href="/signin" className="text-gray-300 hover:text-freshaqua transition">Sign In</Link>

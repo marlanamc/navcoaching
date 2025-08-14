@@ -40,8 +40,8 @@ export default function Header() {
             <Link href="/about" className="text-lavenderblue font-semibold px-3 py-2 rounded-lg hover:bg-gray-800 hover:text-lavenderblue_light transition">
               About
             </Link>
-            <Link href="/services" className="text-dustylilac font-semibold px-3 py-2 rounded-lg hover:bg-gray-800 hover:text-dustylilac_light transition">
-              Services
+            <Link href="/membership" className="text-dustylilac font-semibold px-3 py-2 rounded-lg hover:bg-gray-800 hover:text-dustylilac_light transition">
+              Membership
             </Link>
             <Link href="/quiz" className="text-mutedpink font-semibold px-3 py-2 rounded-lg hover:bg-gray-800 hover:text-mutedpink_light transition">
               Quiz
@@ -64,7 +64,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="btn cta px-4 py-2 bg-freshaqua text-navy font-bold rounded-lg shadow hover:bg-tealblue hover:text-white transition"
             >
-              Book Your First Session
+              Join the Crew
             </a>
           </div>
           
@@ -89,8 +89,8 @@ export default function Header() {
               <Link href="/about" className="block px-3 py-3 text-base font-medium text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg" onClick={() => setIsMenuOpen(false)}>
                 About
               </Link>
-              <Link href="/services" className="block px-3 py-3 text-base font-medium text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg" onClick={() => setIsMenuOpen(false)}>
-                Services
+              <Link href="/membership" className="block px-3 py-3 text-base font-medium text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg" onClick={() => setIsMenuOpen(false)}>
+                Membership
               </Link>
               <Link href="/quiz" className="block px-3 py-3 text-base font-medium text-white hover:bg-gray-800 hover:text-freshaqua rounded-lg" onClick={() => setIsMenuOpen(false)}>
                 Quiz
@@ -293,7 +293,7 @@ export default function Header() {
                   className="block px-3 py-3 text-base font-bold text-navy bg-freshaqua rounded-lg hover:bg-tealblue hover:text-white transition text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Book Your First Session
+                  Join the Crew
                 </a>
               </div>
             </div>

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Target, Zap, Shield, Fuel, MapPin, Anchor, Compass, CloudRain, Map, Radio, Settings, AlertTriangle, LifeBuoy, Users, Trophy, BookCopy, Monitor, Calendar, GraduationCap, CheckSquare, Phone, Briefcase, Clock, Brain, PhoneCall, Play, Cog, MessageCircle, FileText, HelpCircle, Video, Camera, Timer, ClipboardList, Wrench, History, TrendingUp, Stethoscope, CreditCard, CalendarX, UserCheck } from 'lucide-react';
+import { Target, Zap, Shield, Fuel, MapPin, Anchor, Compass, CloudRain, Map, Radio, Settings, AlertTriangle, LifeBuoy, Users, Trophy, BookCopy, Monitor, Calendar, GraduationCap, CheckSquare, Phone, Briefcase, Clock, Brain, Play, Cog, MessageCircle, FileText, HelpCircle, Video, Camera, Timer, ClipboardList, Wrench, History, TrendingUp, Stethoscope, CreditCard, CalendarX, UserCheck } from 'lucide-react';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('framework');
@@ -77,7 +77,7 @@ export default function Home() {
           </div>
 
           <p className="mt-6 sm:mt-8 text-lg sm:text-xl lg:text-2xl tracking-tight text-navy font-medium text-center px-4">
-            Not another app. Not AI. Not exhausting 1:1 sessions.
+            Not another app. Not AI. Not another overwhelming system.
           </p>
           <p className="mt-4 text-lg sm:text-xl lg:text-2xl tracking-tight text-navy font-bold text-center px-4">
             The power of community + the structure you need.
@@ -99,16 +99,6 @@ export default function Home() {
               Join the Crew →
             </Link>
             
-            <div className="mt-4 sm:mt-6">
-              <a 
-                href="https://cal.com/navcoaching/first-session"
-                target="_blank"
-                rel="noopener noreferrer" 
-                className="inline-flex items-center justify-center gap-2 bg-pink-500 text-white font-medium py-3 px-4 sm:px-6 rounded-lg shadow-md hover:bg-pink-600 hover:shadow-lg transition-all w-full sm:w-auto max-w-xs text-sm sm:text-base">
-                <PhoneCall className="w-4 h-4" />
-                Private Coaching Add-Ons
-              </a>
-            </div>
           </div>
         </div>
       </header>
@@ -1267,22 +1257,12 @@ export default function Home() {
             Community support that actually works. Start with founding member pricing.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-            <Link 
-              href="/membership"
-              className="inline-block btn cta px-8 py-4 bg-freshaqua text-navy font-bold rounded-lg shadow-lg hover:bg-tealblue hover:text-white transition hover-lift text-lg"
-            >
-              Join the Community →
-            </Link>
-            <a 
-              href="https://cal.com/navcoaching/first-session" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block btn px-8 py-4 bg-pink-500 text-white font-bold rounded-lg shadow-lg hover:bg-pink-600 transition hover-lift text-lg"
-            >
-              Private Coaching Add-On
-            </a>
-          </div>
+          <Link 
+            href="/membership"
+            className="inline-block btn cta px-10 py-4 bg-freshaqua text-navy font-bold rounded-lg shadow-lg hover:bg-tealblue hover:text-white transition hover-lift text-lg mb-6"
+          >
+            Join the Community →
+          </Link>
           
           <p className="text-sm text-gray-300 mb-2">
             Founding specials: Harbor $10 • Crew $20 • First Mate $50

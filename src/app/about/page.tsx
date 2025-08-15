@@ -165,22 +165,12 @@ export default function About() {
         <div className="max-w-2xl mx-auto">
           <h3 className="text-xl font-semibold text-navy mb-4">Ready to join the crew?</h3>
           <p className="text-gray-600 mb-6">Start with our community or add private coaching. Choose the support level that fits your needs.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/membership"
-              className="inline-block btn cta px-8 py-4 bg-ocean text-white font-bold rounded-lg shadow-lg hover:bg-tealblue transition hover-lift text-lg"
-            >
-              Join the Community
-            </Link>
-            <a 
-              href="https://cal.com/navcoaching/first-session" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block btn px-8 py-4 bg-pink-500 text-white font-bold rounded-lg shadow-lg hover:bg-pink-600 transition hover-lift text-lg"
-            >
-              Private Coaching Add-On
-            </a>
-          </div>
+          <Link 
+            href="/membership"
+            className="inline-block btn cta px-10 py-4 bg-ocean text-white font-bold rounded-lg shadow-lg hover:bg-tealblue transition hover-lift text-lg"
+          >
+            Join the Community →
+          </Link>
           <p className="text-sm text-gray-500 mt-3">Community starts at $20/month • Private add-ons available</p>
         </div>
       </section>

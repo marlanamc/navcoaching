@@ -247,39 +247,6 @@ export default function Dashboard() {
     return structureMap[quizData.archetype] || 'medium';
   };
 
-  const getPersonalizedRecommendation = () => {
-    if (!quizData?.archetype || sessionPacks.length > 0) return null;
-    
-    const archetype = quizData.archetype;
-    
-    switch (archetype) {
-      case 'Drift Sailor':
-        return {
-          pack: 'drop-in',
-          reason: 'As a Drift Sailor, you avoid rigid structure. Drop-in sessions give you the flexibility to get support exactly when you need it, without the pressure of a set schedule.'
-        };
-      case 'Tide Navigator':
-        return {
-          pack: '4-session',
-          reason: 'Tide Navigators thrive with gentle rhythm. The 4-session pack provides consistent support while allowing weekly adjustments based on your energy and flow.'
-        };
-      case 'Deckhand Builder':
-        return {
-          pack: '4-session',
-          reason: 'As a Deckhand Builder, you like structure that adapts to real life. The 4-session pack gives you regular check-ins with the flexibility to refine your systems weekly.'
-        };
-      case 'Lighthouse Operator':
-        return {
-          pack: '8-session',
-          reason: 'Lighthouse Operators crave clear structure and tracking. The 8-session bundle provides the consistent, structured support you need to build and maintain strong systems.'
-        };
-      default:
-        return {
-          pack: '4-session',
-          reason: 'The 4-session pack offers a great balance of consistency and flexibility, perfect for exploring what works best for your style.'
-        };
-    }
-  };
 
   // Quiz questions from your StructureQuiz component
   const quizQuestions = [
@@ -485,56 +452,18 @@ export default function Dashboard() {
         {/* Membership Check */}
         {profile && !profile.is_member ? (
           <div className="space-y-6">
-            {/* Personalized Recommendation based on Quiz */}
-            {quizData && getPersonalizedRecommendation() && (
-              <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg shadow-soft p-6 border border-purple-200">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-2xl">🧠</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-navy mb-2">Personalized for Your Style</h3>
-                    <p className="text-gray-700 mb-4">
-                      Based on your quiz results (archetype: <span className="font-medium text-purple-600">{quizData.archetype}</span>):
-                    </p>
-                    <div className="bg-white rounded-lg p-4 mb-4">
-                      <p className="text-gray-700 italic">"{getPersonalizedRecommendation()?.reason}"</p>
-                    </div>
-                    <div className="flex flex-col sm:flex-row gap-3">
-                      <Link
-                        href={`/services#pricing`}
-                        className="btn px-6 py-3 bg-purple-600 text-white font-bold rounded-lg shadow-soft hover:bg-purple-700 transition hover-lift inline-block text-center"
-                      >
-                        Get {
-                          getPersonalizedRecommendation()?.pack === '8-session' ? '8-Session Bundle' :
-                          getPersonalizedRecommendation()?.pack === '4-session' ? '4-Session Pack' : 
-                          'Drop-in Session'
-                        }
-                      </Link>
-                      <Link
-                        href="/services#pricing"
-                        className="btn px-6 py-3 bg-white text-purple-600 font-medium rounded-lg shadow-soft hover:bg-gray-50 transition hover-lift inline-block text-center border border-purple-200"
-                      >
-                        Compare All Options
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-            
             {/* Default Welcome */}
             <div className="bg-white bg-opacity-90 rounded-lg shadow-soft p-8 content-card text-center">
-              <h2 className="text-2xl font-bold text-navy mb-4 font-playfair">Welcome!</h2>
+              <h2 className="text-2xl font-bold text-navy mb-4 font-playfair">Welcome to the Crew!</h2>
               <p className="text-navy mb-6">
-                Get started with your first session for just $25, then choose the package that works best for you.
+                Ready to join our community? Choose your membership tier and get instant access to body doubling sessions, weekly planning calls, and more.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="/services#pricing"
+                  href="/membership"
                   className="btn px-6 py-3 bg-tealblue text-white font-bold rounded-lg shadow-soft hover:bg-opacity-90 transition hover-lift inline-block"
                 >
-                  View Pricing & Book
+                  Choose Your Membership
                 </Link>
                 <Link
                   href="/contact"
@@ -546,11 +475,226 @@ export default function Dashboard() {
               {!quizData && (
                 <div className="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
                   <p className="text-yellow-800 text-sm">
-                    💡 <strong>Tip:</strong> Take our <Link href="/quiz" className="underline hover:no-underline">planning style quiz</Link> to get personalized session recommendations!
+                    💡 <strong>Tip:</strong> Take our <Link href="/quiz" className="underline hover:no-underline">planning style quiz</Link> to get personalized membership recommendations!
                   </p>
                 </div>
               )}
             </div>
+
+            {/* Quiz Results Display for Non-Members */}
+            {quizData && (
+              <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl shadow-soft p-6 border-2 border-slate-200 mb-8 relative overflow-hidden">
+                {/* Nautical wave pattern background */}
+                <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
+                  <svg viewBox="0 0 100 100" className="w-full h-full text-tealblue">
+                    <path d="M0,50 Q25,30 50,50 T100,50 L100,100 L0,100 Z" fill="currentColor"/>
+                  </svg>
+                </div>
+                
+                <div className="relative">
+                  <div className="flex items-start space-x-4 mb-4">
+                    <div className="w-14 h-14 bg-gradient-to-br from-tealblue to-ocean rounded-full flex items-center justify-center flex-shrink-0 shadow-md">
+                      <span className="text-2xl">
+                        {quizData.archetype === 'Drift Sailor' && '🌊'}
+                        {quizData.archetype === 'Tide Navigator' && '⛵'}
+                        {quizData.archetype === 'Deckhand Builder' && '⚓'}
+                        {quizData.archetype === 'Lighthouse Operator' && '🛳'}
+                      </span>
+                    </div>
+                    <div className="flex-grow">
+                      <h3 className="text-xl font-bold text-navy mb-2">
+                        Your Navigation Style: {quizData.archetype}
+                      </h3>
+                      <p className="text-gray-700 text-sm mb-3">
+                        Quiz taken on {new Date(quizData.created_at).toLocaleDateString()}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Category Breakdown */}
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-navy mb-3 flex items-center">
+                      <span className="mr-2">🎯</span> Your Structure Profile by Category
+                    </h4>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {getQuizCategories() && Object.entries(getQuizCategories()!).map(([category, data]) => {
+                        const insight = getCategoryInsight(category, data.scores, data.total);
+                        const bgColor = insight.type === 'high' ? 'bg-violet-50 border-violet-200' :
+                                       insight.type === 'low' ? 'bg-rose-50 border-rose-200' :
+                                       insight.type === 'complex' ? 'bg-orange-50 border-orange-200' :
+                                       'bg-emerald-50 border-emerald-200';
+                        
+                        return (
+                          <div key={category} className={`p-4 rounded-lg border ${bgColor}`}>
+                            <h5 className="text-sm font-bold text-gray-800 mb-2">{category}</h5>
+                            <div className="mb-3">
+                              {/* Dots showing individual responses */}
+                              <div className="flex space-x-1.5 mb-3">
+                                {data.scores.map((score, idx) => (
+                                  <div
+                                    key={idx}
+                                    className={`w-3 h-3 rounded-full ${
+                                      score === 1 ? 'bg-rose-400' : score === 2 ? 'bg-emerald-400' : 'bg-violet-400'
+                                    }`}
+                                  />
+                                ))}
+                              </div>
+                              
+                              {/* Progress bar */}
+                              <div className="relative">
+                                <div className="w-full h-2 bg-gray-200 rounded-full">
+                                  <div
+                                    className="h-2 rounded-full bg-gradient-to-r from-rose-300 via-emerald-300 to-violet-300"
+                                    style={{ width: `${(data.total / 9) * 100}%` }}
+                                  />
+                                </div>
+                                <div className="flex justify-between text-sm text-gray-600 mt-2">
+                                  <span>Flexible</span>
+                                  <span>Structured</span>
+                                </div>
+                              </div>
+                            </div>
+                            <p className="text-sm text-gray-700 font-medium">{insight.message}</p>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Personalized Insights */}
+                  {getPersonalizedInsights().length > 0 && (
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-navy mb-3 flex items-center">
+                        <span className="mr-2">💡</span> Your Personal Coaching Insights
+                      </h4>
+                      <div className="space-y-2">
+                        {getPersonalizedInsights().map((insight, index) => (
+                          <div key={index} className="bg-white/80 backdrop-blur rounded-lg p-3 border border-slate-200">
+                            <p className="text-sm text-gray-700">{insight}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-white/80 backdrop-blur rounded-lg p-4 border border-slate-200">
+                      <h4 className="font-semibold text-navy mb-2 flex items-center">
+                        <span className="mr-2">📊</span> Overall Summary
+                      </h4>
+                      <div className="text-sm text-gray-600">
+                        <p>Total responses: {quizData.answers?.length || 0}</p>
+                        <p>Structure preference: {
+                          getStructurePreference() === 'high' ? 'High Structure' :
+                          getStructurePreference() === 'low' ? 'Flexible Structure' : 'Balanced Structure'
+                        }</p>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-white/80 backdrop-blur rounded-lg p-4 border border-slate-200">
+                      <h4 className="font-semibold text-navy mb-2 flex items-center">
+                        <span className="mr-2">⛵</span> Your Recommended Membership
+                      </h4>
+                      <p className="text-sm text-gray-600 mb-3">
+                        {quizData.archetype === 'Drift Sailor' && 'Harbor Access - Low-pressure community with flexible support'}
+                        {quizData.archetype === 'Tide Navigator' && 'Crew Essentials - Gentle structure with 1-on-1 support'}
+                        {quizData.archetype === 'Deckhand Builder' && 'First Mate - Structured support with regular coaching calls'}
+                        {quizData.archetype === 'Lighthouse Operator' && 'Captain\'s Concierge - Clear structure with maximum support'}
+                      </p>
+                      <Link
+                        href="/membership"
+                        className="btn px-4 py-2 bg-tealblue text-white font-medium rounded-lg hover:bg-deepteal transition text-sm inline-block"
+                      >
+                        Join {
+                          quizData.archetype === 'Drift Sailor' ? 'Harbor Access' :
+                          quizData.archetype === 'Tide Navigator' ? 'Crew Essentials' :
+                          quizData.archetype === 'Deckhand Builder' ? 'First Mate' :
+                          'Captain\'s Concierge'
+                        }
+                      </Link>
+                    </div>
+                  </div>
+                  
+                  {/* Detailed Quiz Breakdown */}
+                  <div className="mt-6 bg-white/60 backdrop-blur rounded-lg border border-slate-200">
+                    <button
+                      onClick={() => setShowQuizDetails(!showQuizDetails)}
+                      className="w-full px-4 py-3 text-left flex items-center justify-between hover:bg-white/40 transition-colors rounded-lg"
+                    >
+                      <span className="font-medium text-navy">📋 View Question-by-Question Results</span>
+                      <span className={`transform transition-transform ${showQuizDetails ? 'rotate-180' : ''}`}>
+                        ▼
+                      </span>
+                    </button>
+                    
+                    {showQuizDetails && (
+                      <div className="px-4 pb-4 border-t border-slate-200 mt-2">
+                        <div className="grid gap-3 mt-3">
+                          {quizData.answers?.map((answer: number, index: number) => {
+                            const questionText = getQuestionText(index);
+                            const responseText = getResponseText(answer);
+                            const badgeColor = answer === 1 ? 'bg-rose-100 border-rose-300 text-rose-700' : 
+                                             answer === 2 ? 'bg-emerald-100 border-emerald-300 text-emerald-700' : 
+                                             'bg-violet-100 border-violet-300 text-violet-700';
+                            const bulletColor = answer === 1 ? 'bg-rose-500' : answer === 2 ? 'bg-emerald-500' : 'bg-violet-500';
+                            
+                            return (
+                              <div key={index} className="bg-white/80 rounded-lg p-4 border border-slate-100">
+                                <div className="flex justify-between items-start mb-3">
+                                  <p className="text-base font-medium text-gray-800 flex-1 mr-4">
+                                    {index + 1}. {questionText}
+                                  </p>
+                                  <div className="text-right flex-shrink-0">
+                                    <span className={`text-sm font-bold px-3 py-1.5 rounded-full border ${badgeColor}`}>
+                                      {answer}
+                                    </span>
+                                  </div>
+                                </div>
+                                <div className="flex items-start space-x-3">
+                                  <div className={`w-3 h-3 rounded-full ${bulletColor} mt-1.5 flex-shrink-0`}></div>
+                                  <p className="text-sm text-gray-700 font-medium leading-relaxed">
+                                    {responseText}
+                                  </p>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                        
+                        <div className="mt-4 p-3 bg-tealblue/10 rounded-lg border border-tealblue/20">
+                          <p className="text-sm text-tealblue font-medium">
+                            💡 <strong>Your Structure Style:</strong> {(() => {
+                              const totalScore = quizData.answers?.reduce((sum: number, score: number) => sum + score, 0) || 0;
+                              if (totalScore <= 22) return "🌊 Flexible & Flow-Based";
+                              else if (totalScore <= 30) return "⛵ Gentle & Rhythm-Based";  
+                              else if (totalScore <= 37) return "⚓ Structured & Adaptable";
+                              else return "🛳 Clear & Systematic";
+                            })()}
+                            <span className="ml-2 text-xs text-gray-600">
+                              (Total responses: {quizData.answers?.reduce((sum: number, score: number) => sum + score, 0)} points)
+                            </span>
+                          </p>
+                          <div className="mt-2 text-xs text-gray-600">
+                            <p><strong>How scoring works:</strong></p>
+                            <p>1 = "I feel caged" • 2 = "I feel held" • 3 = "I feel lost without this"</p>
+                            <p>Higher scores indicate you thrive with more structure - there's no "right" score! 🎯</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  
+                  <div className="mt-4 text-center">
+                    <Link
+                      href="/quiz"
+                      className="text-tealblue hover:text-ocean underline text-sm font-medium"
+                    >
+                      ↻ Retake Quiz
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         ) : (
           <>
@@ -569,10 +713,10 @@ export default function Dashboard() {
                 
                 {sessionPacks.length === 0 ? (
                   <Link
-                    href="/services#pricing"
+                    href="/membership"
                     className="btn px-4 py-2 bg-tealblue text-white font-medium rounded-lg hover:bg-opacity-90 transition text-sm"
                   >
-                    Purchase Sessions
+                    Upgrade Membership
                   </Link>
                 ) : (
                   <div className="space-y-2">
@@ -625,12 +769,12 @@ export default function Dashboard() {
                 ) : (
                   <div className="text-center">
                     <p className="text-gray-600 mb-4">No upcoming sessions scheduled</p>
-                    <a
-                      href="/book"
+                    <Link
+                      href="/membership"
                       className="btn px-4 py-2 bg-purple-600 text-white font-medium rounded-lg hover:bg-opacity-90 transition text-sm"
                     >
-                      Schedule Next Session
-                    </a>
+                      Upgrade for 1-on-1 Calls
+                    </Link>
                   </div>
                 )}
               </div>

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Target, Zap, Shield, Fuel, MapPin, Anchor, Compass, CloudRain, Map, Radio, Settings, AlertTriangle, LifeBuoy, Users, Trophy, BookCopy, Monitor, Calendar, GraduationCap, CheckSquare, Phone, Briefcase, Clock, Brain, Play, Cog, MessageCircle, FileText, HelpCircle, Video, Camera, Timer, ClipboardList, Wrench, History, TrendingUp, Stethoscope, CreditCard, CalendarX, UserCheck } from 'lucide-react';
+import { Target, Zap, Shield, Fuel, MapPin, Anchor, Compass, CloudRain, Map, Radio, Settings, AlertTriangle, LifeBuoy, Users, Trophy, BookCopy, Monitor, Calendar, GraduationCap, CheckSquare, Phone, Briefcase, Clock, Brain, Play, Cog, MessageCircle, FileText, HelpCircle, Video, Camera, Timer, ClipboardList, Wrench, History, TrendingUp, Stethoscope, CreditCard, CalendarX, UserCheck, MessageSquare, Crown, User } from 'lucide-react';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('framework');
@@ -54,25 +54,30 @@ export default function Home() {
               Navigating the Storm
             </h1>
             <h2 className="text-xl sm:text-2xl lg:text-4xl font-extrabold tracking-tight text-navy font-playfair leading-tight">
-              Join a Crew That Gets You Through the Storm
+              Join a Crew That Helps You Navigate Executive Dysfunction
             </h2>
           </div>
           {/* Benefits Cards */}
-          <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto px-2">
+          <div className="mt-8 sm:mt-12 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto px-2">
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-white/60">
               <Users className="mx-auto h-12 w-12 text-fuchsia-400 mb-4" />
-              <h3 className="text-lg font-bold text-navy mb-2">Community That<br />Actually Shows Up</h3>
-              <p className="text-sm text-gray-700">Body doubling, group calls, and<br />real momentum together</p>
+              <h3 className="text-lg font-bold text-navy mb-2">Daily Body Doubling<br />Sessions</h3>
+              <p className="text-sm text-gray-700">4 hours of scheduled sessions every<br />weekday + member-led options</p>
             </div>
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-white/60">
               <Compass className="mx-auto h-12 w-12 text-violet-400 mb-4" />
-              <h3 className="text-lg font-bold text-navy mb-2">Weekly Compass<br />Calls</h3>
-              <p className="text-sm text-gray-700">Sunday check-ins to keep you<br />anchored and moving forward</p>
+              <h3 className="text-lg font-bold text-navy mb-2">Weekly Planning<br />Calls</h3>
+              <p className="text-sm text-gray-700">Sunday group calls to plan your<br />week ahead together</p>
             </div>
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-white/60">
-              <MessageCircle className="mx-auto h-12 w-12 text-sky-400 mb-4" />
-              <h3 className="text-lg font-bold text-navy mb-2">Structured Text<br />Accountability</h3>
-              <p className="text-sm text-gray-700">Gentle nudges within healthy<br />boundaries that actually work</p>
+              <Users className="mx-auto h-12 w-12 text-emerald-400 mb-4" />
+              <h3 className="text-lg font-bold text-navy mb-2">1-on-1 Accountability<br />Coaching</h3>
+              <p className="text-sm text-gray-700">Personal coaching calls based on<br />your membership tier</p>
+            </div>
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl border-2 border-white/60">
+              <GraduationCap className="mx-auto h-12 w-12 text-sky-400 mb-4" />
+              <h3 className="text-lg font-bold text-navy mb-2">Monthly<br />Workshops</h3>
+              <p className="text-sm text-gray-700">Skills training, ADHD tools, and<br />crisis protocols. Always recorded.</p>
             </div>
           </div>
 
@@ -108,86 +113,94 @@ export default function Home() {
       <section className="py-16 max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-navy mb-4 font-playfair">
-            How Weekly Sessions Work
+            How Community Accountability Works
           </h2>
           <p className="text-xl text-navy mb-8">
-            Simple, consistent support that actually fits your life
+            Daily support, weekly planning, monthly skill-building - all in one community
           </p>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
-          {/* Before Session */}
+          {/* Daily Support */}
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border-2 border-white/60">
             <div className="text-center mb-6">
               <div className="w-16 h-16 bg-violet-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                <MessageCircle className="w-8 h-8 text-violet-700" />
+                <Users className="w-8 h-8 text-violet-700" />
               </div>
-              <h3 className="text-xl font-bold text-navy mb-2">Before We Meet</h3>
+              <h3 className="text-xl font-bold text-navy mb-2">Daily Body Doubling</h3>
             </div>
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start">
                 <span className="text-violet-500 mr-2">•</span>
-                <span>First session: Quick questionnaire about logistics</span>
+                <span>10 AM - 12 PM & 1 PM - 3 PM every weekday</span>
               </li>
               <li className="flex items-start">
                 <span className="text-violet-500 mr-2">•</span>
-                <span>Get a gentle text reminder (if you want one)</span>
+                <span>Work alongside others virtually</span>
               </li>
               <li className="flex items-start">
                 <span className="text-violet-500 mr-2">•</span>
-                <span>No prep needed - come as you are</span>
+                <span>Camera optional, no pressure</span>
               </li>
               <li className="flex items-start">
                 <span className="text-violet-500 mr-2">•</span>
-                <span>Camera optional, pajamas welcome</span>
+                <span>Member-led sessions available anytime</span>
               </li>
             </ul>
           </div>
           
-          {/* During Session */}
+          {/* Weekly Planning */}
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border-2 border-white/60">
             <div className="text-center mb-6">
               <div className="w-16 h-16 bg-sky-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Video className="w-8 h-8 text-sky-700" />
+                <Compass className="w-8 h-8 text-sky-700" />
               </div>
-              <h3 className="text-xl font-bold text-navy mb-2">During Our 30 Minutes</h3>
+              <h3 className="text-xl font-bold text-navy mb-2">Weekly Compass Calls</h3>
             </div>
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start">
                 <span className="text-sky-500 mr-2">•</span>
-                <span>Celebrate wins (even tiny ones)</span>
+                <span>Sunday 7-9 PM group planning calls</span>
               </li>
               <li className="flex items-start">
                 <span className="text-sky-500 mr-2">•</span>
-                <span>Problem-solve stuck points together</span>
+                <span>Reflect on wins and challenges</span>
               </li>
               <li className="flex items-start">
                 <span className="text-sky-500 mr-2">•</span>
-                <span>Choose 1-3 doable goals for the week</span>
+                <span>Set intentions for the week ahead</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-sky-500 mr-2">•</span>
+                <span>Connect with your crew</span>
               </li>
             </ul>
           </div>
           
-          {/* After Session */}
+          {/* Monthly Learning */}
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-xl border-2 border-white/60">
             <div className="text-center mb-6">
               <div className="w-16 h-16 bg-teal-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CheckSquare className="w-8 h-8 text-teal-700" />
+                <GraduationCap className="w-8 h-8 text-teal-700" />
               </div>
-              <h3 className="text-xl font-bold text-navy mb-2">After We Meet</h3>
+              <h3 className="text-xl font-bold text-navy mb-2">Monthly Workshops</h3>
             </div>
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-start">
                 <span className="text-teal-500 mr-2">•</span>
-                <span>I update your dashboard (no work for you)</span>
+                <span>Last Friday night of each month</span>
               </li>
               <li className="flex items-start">
                 <span className="text-teal-500 mr-2">•</span>
-                <span>Mid-week check-in text (with session packs)</span>
+                <span>ADHD tools, planning strategies</span>
               </li>
               <li className="flex items-start">
                 <span className="text-teal-500 mr-2">•</span>
-                <span>Discord community access (duration varies by package)</span>
+                <span>Crisis protocols and seasonal themes</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-teal-500 mr-2">•</span>
+                <span>Always recorded for later access</span>
               </li>
             </ul>
           </div>
@@ -847,153 +860,171 @@ export default function Home() {
               <div className="space-y-6">
                 <div className="text-center">
                   <h3 className="text-3xl font-bold text-navy mb-3 font-playfair">
-                    ADHD-Friendly Pricing (No Subscription Traps!)
+                    Community-First Membership
                   </h3>
                   <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Pay for what you use. No auto-renewals. No "forgot to cancel" guilt.
+                    Join at your comfort level. Upgrade or downgrade anytime. No long-term commitments.
                   </p>
                 </div>
                 
-                <div className="grid md:grid-cols-3 gap-6 mb-6">
-                  {/* Drop-In Session */}
-                  <div className="bg-white/95 p-6 rounded-2xl border-2 border-pink-300 shadow-lg flex flex-col">
-                    <h4 className="text-lg font-bold text-navy mb-2">Drop-In Session</h4>
-                    <div className="text-2xl font-bold text-pink-600 mb-2">$60</div>
-                    <div className="text-sm text-pink-600 font-semibold mb-4">First session: $25</div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                  {/* Harbor Access */}
+                  <div className="bg-white/95 p-5 rounded-2xl border-2 border-blue-300 shadow-lg flex flex-col">
+                    <div className="text-center mb-4">
+                      <Anchor className="w-8 h-8 text-blue-500 mx-auto mb-2" />
+                      <h4 className="text-lg font-bold text-navy mb-1">Harbor Access</h4>
+                      <div className="text-2xl font-bold text-blue-600 mb-1">$35/mo</div>
+                      <div className="text-sm text-blue-600 font-semibold mb-3">First month: $15</div>
+                    </div>
                     
-                    <div className="space-y-3 text-gray-700 text-sm mb-6 flex-grow">
+                    <div className="space-y-2 text-gray-700 text-sm mb-6 flex-grow">
                       <div className="flex items-start">
-                        <span className="text-pink-500 mr-2">✓</span>
-                        <span>30-minute coaching session</span>
+                        <span className="text-blue-500 mr-2">✓</span>
+                        <span>Discord community</span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-pink-500 mr-2">✓</span>
-                        <span>Personal Notion dashboard</span>
+                        <span className="text-blue-500 mr-2">✓</span>
+                        <span>Body doubling sessions</span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-pink-500 mr-2">✓</span>
-                        <span>Discord community access (1 month)</span>
+                        <span className="text-blue-500 mr-2">✓</span>
+                        <span>Weekly Compass Calls</span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-pink-500 mr-2">✓</span>
-                        <span>Body doubling sessions included</span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-pink-500 mr-2">✓</span>
-                        <span>Book again anytime</span>
+                        <span className="text-blue-500 mr-2">✓</span>
+                        <span>Shared resources</span>
                       </div>
                     </div>
-                    <a 
-                      href="https://cal.com/navcoaching/first-session" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full py-3 px-6 bg-pink-500 text-white text-center font-bold rounded-lg shadow-lg hover:bg-pink-600 transition text-sm mt-auto"
+                    <Link 
+                      href="/membership"
+                      className="block w-full py-3 px-4 bg-blue-500 text-white text-center font-bold rounded-lg shadow-lg hover:bg-blue-600 transition text-sm mt-auto"
                     >
-                      Select Drop-In
-                    </a>
+                      Start with Harbor
+                    </Link>
                   </div>
                   
-                  {/* 4-Session Pack - MOST POPULAR */}
-                  <div className="bg-white/95 p-6 rounded-2xl border-2 border-tealblue/30 relative shadow-xl flex flex-col">
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-tealblue to-ocean text-white text-sm px-4 py-1.5 rounded-full font-bold shadow-md">
-                      🌟 MOST POPULAR
+                  {/* Crew Essentials */}
+                  <div className="bg-white/95 p-5 rounded-2xl border-2 border-purple-300 shadow-lg flex flex-col">
+                    <div className="text-center mb-4">
+                      <Users className="w-8 h-8 text-purple-500 mx-auto mb-2" />
+                      <h4 className="text-lg font-bold text-navy mb-1">Crew Essentials</h4>
+                      <div className="text-2xl font-bold text-purple-600 mb-1">$85/mo</div>
+                      <div className="text-sm text-purple-600 font-semibold mb-3">First month: $65</div>
                     </div>
-                    <h4 className="text-lg font-bold text-navy mb-2 mt-2">4-Session Pack</h4>
-                    <div className="text-2xl font-bold text-tealblue mb-1">$180 <span className="text-lg">(Save $60)</span></div>
-                    <div className="text-sm text-tealblue font-semibold mb-4">First session: $25</div>
                     
-                    <div className="space-y-3 text-gray-700 text-sm mb-6 flex-grow">
+                    <div className="space-y-2 text-gray-700 text-sm mb-6 flex-grow">
                       <div className="flex items-start">
-                        <span className="text-tealblue mr-2">✓</span>
-                        <span>4 × 30-minute coaching sessions</span>
+                        <span className="text-purple-500 mr-2">✓</span>
+                        <span>Everything in Harbor</span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-tealblue mr-2">✓</span>
-                        <span>Personal Notion dashboard</span>
+                        <span className="text-purple-500 mr-2">✓</span>
+                        <span>1 × 1:1 coaching call/month</span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-tealblue mr-2">✓</span>
-                        <span>Text check-ins between sessions</span>
+                        <span className="text-purple-500 mr-2">✓</span>
+                        <span>1×/week text nudges</span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-tealblue mr-2">✓</span>
-                        <span>Discord community access (3 months)</span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-tealblue mr-2">✓</span>
-                        <span>Priority scheduling</span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-tealblue mr-2">✓</span>
-                        <span>Use within 8 weeks</span>
+                        <span className="text-purple-500 mr-2">✓</span>
+                        <span>Personal dashboard</span>
                       </div>
                     </div>
-                    <a 
-                      href="https://cal.com/navcoaching/first-session" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full py-3 px-6 bg-tealblue text-white text-center font-bold rounded-lg shadow-lg hover:bg-deepteal transition text-sm mt-auto"
+                    <Link 
+                      href="/membership"
+                      className="block w-full py-3 px-4 bg-purple-500 text-white text-center font-bold rounded-lg shadow-lg hover:bg-purple-600 transition text-sm mt-auto"
                     >
-                      Select 4-Session Pack
-                    </a>
+                      Join Crew Essentials
+                    </Link>
                   </div>
                   
-                  {/* 8-Session Bundle */}
-                  <div className="bg-white/95 p-6 rounded-2xl border-2 border-purple-300 shadow-lg flex flex-col">
-                    <h4 className="text-lg font-bold text-navy mb-2">8-Session Bundle</h4>
-                    <div className="text-2xl font-bold text-purple-600 mb-1">$320 <span className="text-lg">(Save $160)</span></div>
-                    <div className="text-sm text-purple-600 font-semibold mb-4">First session: $25</div>
+                  {/* First Mate - MOST POPULAR */}
+                  <div className="bg-white/95 p-5 rounded-2xl border-2 border-teal-400 relative shadow-xl flex flex-col">
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-teal-500 to-emerald-500 text-white text-xs px-3 py-1.5 rounded-full font-bold shadow-md">
+                      🌟 RECOMMENDED
+                    </div>
+                    <div className="text-center mb-4">
+                      <MessageSquare className="w-8 h-8 text-teal-500 mx-auto mb-2" />
+                      <h4 className="text-lg font-bold text-navy mb-1 mt-2">First Mate</h4>
+                      <div className="text-2xl font-bold text-teal-600 mb-1">$125/mo</div>
+                      <div className="text-sm text-teal-600 font-semibold mb-3">First month: $105</div>
+                    </div>
                     
-                    <div className="space-y-3 text-gray-700 text-sm mb-6 flex-grow">
+                    <div className="space-y-2 text-gray-700 text-sm mb-6 flex-grow">
                       <div className="flex items-start">
-                        <span className="text-purple-600 mr-2">✓</span>
-                        <span>8 × 30-minute coaching sessions</span>
+                        <span className="text-teal-500 mr-2">✓</span>
+                        <span>Everything in Crew</span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-purple-600 mr-2">✓</span>
-                        <span>Personal Notion dashboard</span>
+                        <span className="text-teal-500 mr-2">✓</span>
+                        <span>2 × 1:1 coaching calls/month</span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-purple-600 mr-2">✓</span>
-                        <span>Text check-ins between sessions</span>
+                        <span className="text-teal-500 mr-2">✓</span>
+                        <span>2×/week text nudges</span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-purple-600 mr-2">✓</span>
-                        <span>Discord community access (5 months)</span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-purple-600 mr-2">✓</span>
-                        <span>Priority scheduling</span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-purple-600 mr-2">✓</span>
-                        <span>Use within 16 weeks</span>
+                        <span className="text-teal-500 mr-2">✓</span>
+                        <span>Priority support</span>
                       </div>
                     </div>
-                    <a 
-                      href="https://cal.com/navcoaching/first-session" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full py-3 px-6 bg-purple-600 text-white text-center font-bold rounded-lg shadow-lg hover:bg-purple-700 transition text-sm mt-auto"
+                    <Link 
+                      href="/membership"
+                      className="block w-full py-3 px-4 bg-teal-500 text-white text-center font-bold rounded-lg shadow-lg hover:bg-teal-600 transition text-sm mt-auto"
                     >
-                      Select 8-Session Bundle
-                    </a>
+                      Become First Mate
+                    </Link>
+                  </div>
+                  
+                  {/* Captain's Concierge */}
+                  <div className="bg-white/95 p-5 rounded-2xl border-2 border-amber-300 shadow-lg flex flex-col">
+                    <div className="text-center mb-4">
+                      <Crown className="w-8 h-8 text-amber-500 mx-auto mb-2" />
+                      <h4 className="text-lg font-bold text-navy mb-1">Concierge</h4>
+                      <div className="text-2xl font-bold text-amber-600 mb-1">$185/mo</div>
+                      <div className="text-sm text-amber-600 font-semibold mb-3">First month: $165</div>
+                    </div>
+                    
+                    <div className="space-y-2 text-gray-700 text-sm mb-6 flex-grow">
+                      <div className="flex items-start">
+                        <span className="text-amber-500 mr-2">✓</span>
+                        <span>Everything in First Mate</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-amber-500 mr-2">✓</span>
+                        <span>4 × 1:1 coaching calls/month</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-amber-500 mr-2">✓</span>
+                        <span>3×/week + unlimited texts</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-amber-500 mr-2">✓</span>
+                        <span>Custom dashboard</span>
+                      </div>
+                    </div>
+                    <Link 
+                      href="/membership"
+                      className="block w-full py-3 px-4 bg-amber-500 text-white text-center font-bold rounded-lg shadow-lg hover:bg-amber-600 transition text-sm mt-auto"
+                    >
+                      Join Concierge
+                    </Link>
                   </div>
                 </div>
                 
-                <div className="bg-white p-5 rounded-xl border-2 border-green-500 max-w-4xl mx-auto shadow-sm">
+                <div className="bg-white p-5 rounded-xl border-2 border-teal-500 max-w-4xl mx-auto shadow-sm">
                   <p className="text-gray-900 text-base font-medium text-center">
-                    💡 <strong className="text-lg text-gray-900">Why no subscriptions?</strong><br />
-                    <span className="text-gray-800">Because ADHD brains forget to cancel, and then feel guilty. Buy a pack when you're ready, use it at your pace, and never worry about surprise charges. Freedom, flexibility, no guilt.</span>
+                    🌟 <strong className="text-lg text-gray-900">Founding Member Special</strong><br />
+                    <span className="text-gray-800">50% off your first month when you join before August 31st. Upgrade or downgrade anytime - no long-term commitments!</span>
                   </p>
                 </div>
                 
                 <div className="text-center">
                   <p className="text-gray-600 text-sm mb-4">
-                    First session: <span className="line-through">$60</span> <span className="text-lg font-bold text-purple-500">$25</span> • 2-week trial period • Flexible scheduling
+                    All tiers include: Discord community • Body doubling sessions • Weekly Compass Calls
                   </p>
-                  <Link href="/services#pricing" className="text-tealblue hover:text-deepteal underline font-medium">
-                    View detailed price comparison →
+                  <Link href="/membership" className="text-tealblue hover:text-deepteal underline font-medium">
+                    View complete feature comparison →
                   </Link>
                 </div>
               </div>
@@ -1104,7 +1135,7 @@ export default function Home() {
                       <span className="text-white font-bold text-2xl">1</span>
                     </div>
                     <h4 className="text-xl font-bold text-navy mb-3">Choose Your Membership Tier</h4>
-                    <p className="text-gray-600 leading-relaxed">Start with <strong className="text-coral">Harbor Access for just $10</strong> to try the community, or jump into a higher tier for private coaching support. <strong className="text-coral">Founding member pricing</strong> available through August 31st!</p>
+                    <p className="text-gray-600 leading-relaxed">Start with <strong className="text-coral">Harbor Access for just $15</strong> to try the community, or jump into a higher tier for private coaching support. <strong className="text-coral">Founding member pricing</strong> available through August 31st!</p>
                   </div>
                   
                   <div className="bg-white/90 p-8 rounded-2xl shadow-lg text-center border border-teal-200">
@@ -1265,7 +1296,7 @@ export default function Home() {
           </Link>
           
           <p className="text-sm text-gray-300 mb-2">
-            Founding specials: Harbor $10 • Crew $20 • First Mate $50
+            Founding specials: Harbor $15 • Crew $65 • First Mate $105
           </p>
           
           <p className="text-sm text-gray-300">

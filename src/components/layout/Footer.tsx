@@ -61,14 +61,12 @@ export default function Footer() {
             <p className="text-gray-300 text-sm mb-4">
               Email: <a href="mailto:marlie@navcoaching.org" className="text-freshaqua hover:text-white transition">marlie@navcoaching.org</a>
             </p>
-            <a 
-              href="https://cal.com/navcoaching/first-session"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link 
+              href="/membership"
               className="inline-block px-4 py-2 bg-freshaqua text-black font-semibold rounded-lg hover:bg-white transition text-sm"
             >
-              Book Your First Session →
-            </a>
+              Join the Community →
+            </Link>
           </div>
 
           {/* Newsletter Signup */}

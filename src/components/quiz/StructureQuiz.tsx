@@ -3,12 +3,14 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { saveQuizSubmission } from '@/lib/supabase';
 
 interface QuizQuestion {
   id: number;
   text: string;
   category: string;
+  visual: string;
 }
 
 interface QuizResult {
@@ -20,21 +22,21 @@ interface QuizResult {
 }
 
 const quizQuestions: QuizQuestion[] = [
-  { id: 1, text: "Daily schedule (with specific time blocks)", category: "Time Structure" },
-  { id: 2, text: "Weekly meal planning", category: "Physical/Environment" },
-  { id: 3, text: "Having a consistent morning routine", category: "Self-Regulation Tools" },
-  { id: 4, text: "Deadlines (work, school, creative)", category: "Time Structure" },
-  { id: 5, text: "Digital task manager or to-do list", category: "Task Systems" },
-  { id: 6, text: "Accountability check-ins with another person", category: "Relational Support" },
-  { id: 7, text: "Budgeting and tracking spending", category: "Self-Regulation Tools" },
-  { id: 8, text: "Exercise or movement plans", category: "Physical/Environment" },
-  { id: 9, text: "Journaling or reflecting regularly", category: "Relational Support" },
-  { id: 10, text: "Using timers to focus (Pomodoro, countdowns)", category: "Time Structure" },
-  { id: 11, text: "Habit trackers or streak apps", category: "Task Systems" },
-  { id: 12, text: "Phone limits or screen time blockers", category: "Self-Regulation Tools" },
-  { id: 13, text: "Clean, organized environment", category: "Physical/Environment" },
-  { id: 14, text: "Saying no to spontaneous plans to protect your time", category: "Relational Support" },
-  { id: 15, text: "Writing out your goals or intentions", category: "Task Systems" }
+  { id: 1, text: "Daily schedule (with specific time blocks)", category: "Time Structure", visual: "daily_schedule.jpg" },
+  { id: 2, text: "Weekly meal planning", category: "Physical/Environment", visual: "meal_plannnig.jpg" },
+  { id: 3, text: "Having a consistent morning routine", category: "Self-Regulation Tools", visual: "morning_routine.jpg" },
+  { id: 4, text: "Deadlines (work, school, creative)", category: "Time Structure", visual: "deadline.jpg" },
+  { id: 5, text: "Digital task manager or to-do list", category: "Task Systems", visual: "task_manager.png" },
+  { id: 6, text: "Accountability check-ins with another person", category: "Relational Support", visual: "accountability.jpg" },
+  { id: 7, text: "Budgeting and tracking spending", category: "Self-Regulation Tools", visual: "budgeting.png" },
+  { id: 8, text: "Exercise or movement plans", category: "Physical/Environment", visual: "exercise.jpg" },
+  { id: 9, text: "Journaling or reflecting regularly", category: "Relational Support", visual: "journaling.jpg" },
+  { id: 10, text: "Using timers to focus (Pomodoro, countdowns)", category: "Time Structure", visual: "timer.jpg" },
+  { id: 11, text: "Habit trackers or streak apps", category: "Task Systems", visual: "habit_tracking.jpg" },
+  { id: 12, text: "Phone limits or screen time blockers", category: "Self-Regulation Tools", visual: "phone_limits.jpg" },
+  { id: 13, text: "Clean, organized environment", category: "Physical/Environment", visual: "clean_space.jpg" },
+  { id: 14, text: "Saying no to spontaneous plans to protect your time", category: "Relational Support", visual: "saying_no.jpg" },
+  { id: 15, text: "Writing out your goals or intentions", category: "Task Systems", visual: "goals.jpg" }
 ];
 
 const quizResults: { [key: string]: QuizResult } = {
@@ -279,25 +281,41 @@ export default function StructureQuiz() {
           </div>
 
           <div className="text-center">
-            <div className="bg-gradient-to-r from-freshaqua/10 to-tealblue/10 rounded-xl p-6 mb-6">
-              <p className="text-lg text-gray-700 mb-4">
-                Ready to work with a coach who understands your {result.archetype.toLowerCase()} style?
+            <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-6 mb-6 border border-purple-200">
+              <h3 className="text-xl font-bold text-navy mb-3">🎯 Want to See Your Complete Results?</h3>
+              <p className="text-gray-700 mb-4">
+                Create your personal dashboard to access detailed insights, category breakdowns, and personalized recommendations for your {result.archetype.toLowerCase()} style.
               </p>
+              <div className="bg-white rounded-lg p-4 mb-4">
+                <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
+                  <span>📊 Detailed analysis</span>
+                  <span>•</span>
+                  <span>💡 Personal insights</span>
+                  <span>•</span>
+                  <span>⛵ Membership recommendations</span>
+                </div>
+              </div>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
-                href="/services" 
-                className="inline-block px-8 py-4 bg-gradient-to-r from-freshaqua to-tealblue text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 text-lg"
+                href="/signup" 
+                className="inline-block px-8 py-4 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 text-lg"
               >
-                🚀 Book Your First Session
+                📊 Create Dashboard & See Full Results
               </Link>
               <Link 
-                href="/" 
-                className="inline-block px-8 py-4 bg-white border-2 border-tealblue text-tealblue font-bold rounded-lg shadow hover:shadow-lg transition"
+                href="/membership" 
+                className="inline-block px-8 py-4 bg-gradient-to-r from-freshaqua to-tealblue text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105 text-lg"
               >
-                Learn More About Coaching
+                🚀 Join the Community
               </Link>
+            </div>
+            
+            <div className="mt-4 text-center">
+              <p className="text-sm text-gray-600">
+                Already have an account? <Link href="/signin" className="text-tealblue hover:text-navy underline font-medium">Sign in to view results</Link>
+              </p>
             </div>
           </div>
         </div>
@@ -355,11 +373,28 @@ export default function StructureQuiz() {
           How do you typically respond to:
         </h2>
         
-        <div className="text-center mb-8">
-          <div className="inline-block bg-gradient-to-r from-freshaqua/20 to-tealblue/20 px-6 py-3 rounded-xl">
-            <h3 className="text-xl font-bold text-navy">
-              {quizQuestions[currentQuestionIndex].text}
-            </h3>
+        <div className="grid lg:grid-cols-2 gap-8 items-center mb-8">
+          {/* Question Text */}
+          <div className="text-center lg:text-left">
+            <div className="inline-block bg-gradient-to-r from-freshaqua/20 to-tealblue/20 px-6 py-3 rounded-xl">
+              <h3 className="text-xl font-bold text-navy">
+                {quizQuestions[currentQuestionIndex].text}
+              </h3>
+            </div>
+          </div>
+          
+          {/* Visual Element */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="w-64 h-64 md:w-72 md:h-72 bg-gradient-to-br from-slate-100 to-slate-200 rounded-2xl overflow-hidden shadow-lg border-2 border-white">
+              <Image
+                src={`/quiz_pics/${quizQuestions[currentQuestionIndex].visual}`}
+                alt={quizQuestions[currentQuestionIndex].text}
+                width={288}
+                height={288}
+                className="w-full h-full object-cover"
+                priority={currentQuestionIndex <= 2} // Preload first few images
+              />
+            </div>
           </div>
         </div>
 

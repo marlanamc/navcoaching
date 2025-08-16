@@ -1,10 +1,84 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { Crown, MessageCircle, Calendar, Phone, ExternalLink, Clock, Database, Target, Zap, Award } from 'lucide-react';
 
 export default function ConciergeSuccess() {
+  const [isAuthorized, setIsAuthorized] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const validateAccess = () => {
+      const sessionId = searchParams.get('session_id');
+      const paymentIntent = searchParams.get('payment_intent');
+      
+      if (sessionId || paymentIntent) {
+        const timestamp = Date.now();
+        const token = btoa(`captains-concierge_${timestamp}`);
+        sessionStorage.setItem('captains-concierge_access_token', token);
+        sessionStorage.setItem('captains-concierge_access_time', timestamp.toString());
+        return true;
+      }
+
+      const token = sessionStorage.getItem('captains-concierge_access_token');
+      const accessTime = sessionStorage.getItem('captains-concierge_access_time');
+      
+      if (token && accessTime) {
+        const timeElapsed = Date.now() - parseInt(accessTime);
+        const oneHour = 60 * 60 * 1000;
+        
+        if (timeElapsed < oneHour) {
+          return true;
+        } else {
+          sessionStorage.removeItem('captains-concierge_access_token');
+          sessionStorage.removeItem('captains-concierge_access_time');
+        }
+      }
+
+      return false;
+    };
+
+    if (validateAccess()) {
+      setIsAuthorized(true);
+    } else {
+      window.location.href = '/membership';
+    }
+    
+    setIsLoading(false);
+  }, [searchParams]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Verifying payment...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthorized) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center max-w-md mx-auto p-8">
+          <h1 className="text-2xl font-bold text-navy mb-4">Access Restricted</h1>
+          <p className="text-gray-600 mb-4">
+            This page is only accessible after completing payment.
+          </p>
+          <Link 
+            href="/membership"
+            className="inline-block bg-amber-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-amber-700 transition"
+          >
+            Return to Membership
+          </Link>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-100 via-yellow-200 to-orange-300">
       <div className="container mx-auto px-4 py-16">
@@ -28,7 +102,32 @@ export default function ConciergeSuccess() {
 
           {/* Next Steps */}
           <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-            <h2 className="text-2xl font-bold text-navy mb-6">Your VIP Onboarding</h2>
+            <h2 className="text-2xl font-bold text-navy mb-6">Let's Get You Started!</h2>
+            
+            <div className="space-y-6">
+              {/* Step 1: Complete Payment */}
+              <div className="flex items-start gap-4 p-4 bg-green-50 rounded-xl border-2 border-green-200">
+                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-white font-bold text-sm">1</span>
+                </div>
+                <div className="text-left">
+                  <h3 className="font-bold text-navy mb-2 flex items-center gap-2">
+                    💳 Complete Your Concierge Payment
+                  </h3>
+                  <p className="text-gray-700 mb-3">
+                    Secure your Captain's Concierge membership with founding member pricing ($165 first month, then $185/month).
+                  </p>
+                  <a 
+                    href="https://buy.stripe.com/captains-concierge-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Complete Payment ($165)
+                  </a>
+                </div>
+              </div>
             
             <div className="space-y-6">
               {/* Step 1: Discord */}

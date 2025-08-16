@@ -96,13 +96,6 @@ export default function Header() {
                       ❌ What It's NOT
                     </Link>
                     <Link 
-                      href="/#testimonials" 
-                      className="block px-4 py-2 text-sm text-white hover:bg-gray-800 hover:text-softblue transition"
-                      onClick={() => setIsHomeDropdownOpen(false)}
-                    >
-                      💬 Testimonials
-                    </Link>
-                    <Link 
                       href="/#faq" 
                       className="block px-4 py-2 text-sm text-white hover:bg-gray-800 hover:text-softblue transition"
                       onClick={() => setIsHomeDropdownOpen(false)}
@@ -122,13 +115,6 @@ export default function Header() {
                       onClick={() => setIsHomeDropdownOpen(false)}
                     >
                       🚀 Get Started
-                    </Link>
-                    <Link 
-                      href="/#resources" 
-                      className="block px-4 py-2 text-sm text-white hover:bg-gray-800 hover:text-softblue transition"
-                      onClick={() => setIsHomeDropdownOpen(false)}
-                    >
-                      🛟 Free Resources
                     </Link>
                   </div>
                 </div>

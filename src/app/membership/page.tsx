@@ -145,6 +145,7 @@ export default function Membership() {
         'Shared resources'
       ],
       cta: 'Start My Harbor Journey',
+      stripeUrl: 'https://buy.stripe.com/test_00waEW1T7cPj2Jkcap1ck00',
       highlighted: false,
       recommended: false
     },
@@ -162,6 +163,8 @@ export default function Membership() {
         'Personal dashboard'
       ],
       cta: 'Join Crew Essentials',
+      stripeUrl: 'https://buy.stripe.com/crew-essentials-link', // Replace with actual Stripe link
+      needsOnboarding: true,
       highlighted: false,
       recommended: false
     },
@@ -179,6 +182,8 @@ export default function Membership() {
         'Priority support'
       ],
       cta: 'Become First Mate',
+      stripeUrl: 'https://buy.stripe.com/first-mate-link', // Replace with actual Stripe link
+      needsOnboarding: true,
       highlighted: true,
       recommended: true
     },
@@ -197,6 +202,8 @@ export default function Membership() {
         'Early access to new features'
       ],
       cta: 'Join Concierge',
+      stripeUrl: 'https://buy.stripe.com/captains-concierge-link', // Replace with actual Stripe link
+      needsOnboarding: true,
       highlighted: false,
       recommended: false
     }
@@ -300,7 +307,17 @@ export default function Membership() {
                   </div>
 
                   <a 
-                    href={`#signup-${tier.name.toLowerCase().replace(/\s+/g, '-').replace("'", "")}`}
+                    href={tier.name === 'Harbor Access' ? tier.stripeUrl : `/success/${tier.name.toLowerCase().replace(/\s+/g, '-').replace("'", "")}`}
+                    target={tier.name === 'Harbor Access' ? '_blank' : '_self'}
+                    rel={tier.name === 'Harbor Access' ? 'noopener noreferrer' : undefined}
+                    onClick={() => {
+                      // Generate access token for this tier
+                      const timestamp = Date.now();
+                      const tierSlug = tier.name.toLowerCase().replace(/\s+/g, '-').replace("'", "");
+                      const token = btoa(`${tierSlug}_${timestamp}`);
+                      sessionStorage.setItem(`${tierSlug}_access_token`, token);
+                      sessionStorage.setItem(`${tierSlug}_access_time`, timestamp.toString());
+                    }}
                     className={`w-full py-4 rounded-xl font-bold text-lg transition-all transform hover:scale-105 active:scale-95 inline-block text-center mt-auto ${
                     tier.name === 'Harbor Access' 
                       ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 shadow-lg shadow-blue-500/25' 
@@ -417,71 +434,104 @@ export default function Membership() {
                   Weekly Schedule (All Times ET)
                 </h3>
                 
-                {/* Time-blocked Calendar */}
-                <div className="grid grid-cols-8 gap-1 text-xs">
-                  {/* Header Row */}
-                  <div className="font-bold text-center py-2"></div>
-                  <div className="font-bold text-center py-2 text-gray-700">Sun</div>
-                  <div className="font-bold text-center py-2 text-gray-700">Mon</div>
-                  <div className="font-bold text-center py-2 text-gray-700">Tue</div>
-                  <div className="font-bold text-center py-2 text-gray-700">Wed</div>
-                  <div className="font-bold text-center py-2 text-gray-700">Thu</div>
-                  <div className="font-bold text-center py-2 text-gray-700">Fri</div>
-                  <div className="font-bold text-center py-2 text-gray-700">Sat</div>
+                {/* Mobile-friendly Schedule */}
+                <div className="md:hidden space-y-4">
+                  {/* Mobile Body Doubling */}
+                  <div className="bg-purple-100 border border-purple-300 rounded-lg p-4">
+                    <h4 className="font-bold text-purple-800 mb-2">Body Doubling Sessions</h4>
+                    <div className="text-sm text-gray-700 space-y-1">
+                      <div><strong>Mon-Fri:</strong> 10 AM - 12 PM</div>
+                      <div><strong>Mon-Fri:</strong> 1 PM - 3 PM</div>
+                      <div className="text-xs text-purple-600 mt-2">Camera optional, get stuff done together</div>
+                    </div>
+                  </div>
                   
-                  {/* 10 AM - 12 PM Row */}
-                  <div className="font-semibold text-right py-3 pr-2 text-gray-600">10 AM - 12 PM</div>
-                  <div className=""></div>
-                  <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
-                    <div className="font-semibold text-purple-800">Body Doubling</div>
+                  {/* Mobile Compass Call */}
+                  <div className="bg-indigo-100 border border-indigo-300 rounded-lg p-4">
+                    <h4 className="font-bold text-indigo-800 mb-2">Compass Call</h4>
+                    <div className="text-sm text-gray-700">
+                      <div><strong>Sunday:</strong> 7 PM - 9 PM</div>
+                      <div className="text-xs text-indigo-600 mt-2">Plan the week ahead together</div>
+                    </div>
                   </div>
-                  <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
-                    <div className="font-semibold text-purple-800">Body Doubling</div>
-                  </div>
-                  <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
-                    <div className="font-semibold text-purple-800">Body Doubling</div>
-                  </div>
-                  <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
-                    <div className="font-semibold text-purple-800">Body Doubling</div>
-                  </div>
-                  <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
-                    <div className="font-semibold text-purple-800">Body Doubling</div>
-                  </div>
-                  <div className=""></div>
                   
-                  {/* 1 PM - 3 PM Row */}
-                  <div className="font-semibold text-right py-3 pr-2 text-gray-600">1 PM - 3 PM</div>
-                  <div className=""></div>
-                  <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
-                    <div className="font-semibold text-purple-800">Body Doubling</div>
+                  {/* Mobile Monthly Workshop */}
+                  <div className="bg-green-100 border border-green-300 rounded-lg p-4">
+                    <h4 className="font-bold text-green-800 mb-2">Monthly Workshop</h4>
+                    <div className="text-sm text-gray-700">
+                      <div><strong>Last Friday:</strong> 7 PM each month</div>
+                      <div className="text-xs text-green-600 mt-2">Skills training & ADHD tools</div>
+                    </div>
                   </div>
-                  <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
-                    <div className="font-semibold text-purple-800">Body Doubling</div>
+                </div>
+
+                {/* Desktop Calendar Grid */}
+                <div className="hidden md:block">
+                  <div className="grid grid-cols-8 gap-1 text-xs">
+                    {/* Header Row */}
+                    <div className="font-bold text-center py-2"></div>
+                    <div className="font-bold text-center py-2 text-gray-700">Sun</div>
+                    <div className="font-bold text-center py-2 text-gray-700">Mon</div>
+                    <div className="font-bold text-center py-2 text-gray-700">Tue</div>
+                    <div className="font-bold text-center py-2 text-gray-700">Wed</div>
+                    <div className="font-bold text-center py-2 text-gray-700">Thu</div>
+                    <div className="font-bold text-center py-2 text-gray-700">Fri</div>
+                    <div className="font-bold text-center py-2 text-gray-700">Sat</div>
+                    
+                    {/* 10 AM - 12 PM Row */}
+                    <div className="font-semibold text-right py-3 pr-2 text-gray-600">10 AM - 12 PM</div>
+                    <div className=""></div>
+                    <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
+                      <div className="font-semibold text-purple-800">Body Doubling</div>
+                    </div>
+                    <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
+                      <div className="font-semibold text-purple-800">Body Doubling</div>
+                    </div>
+                    <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
+                      <div className="font-semibold text-purple-800">Body Doubling</div>
+                    </div>
+                    <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
+                      <div className="font-semibold text-purple-800">Body Doubling</div>
+                    </div>
+                    <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
+                      <div className="font-semibold text-purple-800">Body Doubling</div>
+                    </div>
+                    <div className=""></div>
+                    
+                    {/* 1 PM - 3 PM Row */}
+                    <div className="font-semibold text-right py-3 pr-2 text-gray-600">1 PM - 3 PM</div>
+                    <div className=""></div>
+                    <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
+                      <div className="font-semibold text-purple-800">Body Doubling</div>
+                    </div>
+                    <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
+                      <div className="font-semibold text-purple-800">Body Doubling</div>
+                    </div>
+                    <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
+                      <div className="font-semibold text-purple-800">Body Doubling</div>
+                    </div>
+                    <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
+                      <div className="font-semibold text-purple-800">Body Doubling</div>
+                    </div>
+                    <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
+                      <div className="font-semibold text-purple-800">Body Doubling</div>
+                    </div>
+                    <div className=""></div>
+                    
+                    {/* 7 PM Row */}
+                    <div className="font-semibold text-right py-3 pr-2 text-gray-600">7 PM</div>
+                    <div className="bg-indigo-100 border border-indigo-300 rounded p-2 text-center">
+                      <div className="font-semibold text-indigo-800">Compass Call</div>
+                    </div>
+                    <div className=""></div>
+                    <div className=""></div>
+                    <div className=""></div>
+                    <div className=""></div>
+                    <div className="bg-green-100 border border-green-300 rounded p-2 text-center">
+                      <div className="font-semibold text-green-800 text-xs">Monthly Workshop</div>
+                    </div>
+                    <div className=""></div>
                   </div>
-                  <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
-                    <div className="font-semibold text-purple-800">Body Doubling</div>
-                  </div>
-                  <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
-                    <div className="font-semibold text-purple-800">Body Doubling</div>
-                  </div>
-                  <div className="bg-purple-100 border border-purple-300 rounded p-2 text-center">
-                    <div className="font-semibold text-purple-800">Body Doubling</div>
-                  </div>
-                  <div className=""></div>
-                  
-                  {/* 7 PM Row */}
-                  <div className="font-semibold text-right py-3 pr-2 text-gray-600">7 PM</div>
-                  <div className="bg-indigo-100 border border-indigo-300 rounded p-2 text-center">
-                    <div className="font-semibold text-indigo-800">Compass Call</div>
-                  </div>
-                  <div className=""></div>
-                  <div className=""></div>
-                  <div className=""></div>
-                  <div className=""></div>
-                  <div className="bg-green-100 border border-green-300 rounded p-2 text-center">
-                    <div className="font-semibold text-green-800 text-xs">Monthly Workshop</div>
-                  </div>
-                  <div className=""></div>
                 </div>
                 
                 <div className="mt-6 space-y-3">

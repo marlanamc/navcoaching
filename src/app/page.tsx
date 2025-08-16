@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      const validTabs = ['framework', 'dashboard', 'who', 'value', 'not', 'testimonials', 'faq', 'policy', 'process', 'resources'];
+      const validTabs = ['framework', 'dashboard', 'who', 'value', 'not', 'faq', 'policy', 'process'];
       if (validTabs.includes(hash)) {
         setActiveTab(hash);
         // Scroll to the tabbed section
@@ -293,19 +293,6 @@ export default function Home() {
             </button>
             <button
               onClick={() => {
-                setActiveTab('testimonials');
-                window.history.pushState(null, '', '#testimonials');
-              }}
-              className={`px-4 py-2 rounded-lg font-semibold transition text-sm ${
-                activeTab === 'testimonials'
-                  ? 'bg-indigo-500 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              💬 Testimonials
-            </button>
-            <button
-              onClick={() => {
                 setActiveTab('policy');
                 window.history.pushState(null, '', '#policy');
               }}
@@ -329,19 +316,6 @@ export default function Home() {
               }`}
             >
               🚀 Get Started
-            </button>
-            <button
-              onClick={() => {
-                setActiveTab('resources');
-                window.history.pushState(null, '', '#resources');
-              }}
-              className={`px-4 py-2 rounded-lg font-semibold transition text-sm ${
-                activeTab === 'resources'
-                  ? 'bg-purple-600 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              🛟 Free Resources
             </button>
           </div>
           
@@ -773,16 +747,20 @@ export default function Home() {
                     <h4 className="text-xl font-bold text-tealblue mb-4 flex items-center gap-2"><Play className="h-5 w-5" /> Getting Started</h4>
                     <div className="space-y-4">
                       <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
-                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><HelpCircle className="h-4 w-4 text-tealblue" />How do I know if this is the right fit for me?</h5>
-                        <p className="text-gray-600">If you struggle with follow-through, get overwhelmed by productivity advice, or feel like you're constantly starting over, this could help. The $25 first session is a low-risk way to see if we work well together, or if you're still unsure, send me a message and we can set up a free 10-minute call to talk it through.</p>
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><HelpCircle className="h-4 w-4 text-tealblue" />How do I know which membership tier is right for me?</h5>
+                        <p className="text-gray-600">Start with Harbor Access ($15 first month) to try the community. You can upgrade anytime! If you need personal accountability, Crew Essentials adds 1 monthly coaching call. For regular support, First Mate (2 calls) is most popular. Captain's Concierge is for intensive support with 4 calls monthly.</p>
+                      </div>
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Users className="h-4 w-4 text-tealblue" />How is this different from free Discord body doubling servers?</h5>
+                        <p className="text-gray-600">Free servers are great but often chaotic and unmoderated. Our community is small, vetted, and ADHD-focused. You get structured sessions with consistent hosts, weekly planning calls, personalized support, and actual accountability - not just random strangers. Plus, higher tiers include 1-on-1 coaching tailored to your specific challenges.</p>
                       </div>
                       <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
                         <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Target className="h-4 w-4 text-tealblue" />What if I don't know my exact goals yet?</h5>
-                        <p className="text-gray-600">That's totally normal! Many clients start with just "I want to get my life together." We'll work together in your first session to clarify what matters most to you right now.</p>
+                        <p className="text-gray-600">That's totally normal! Many members start with just "I want to get my life together." The weekly Compass Calls help you clarify what matters most, and if you're in a tier with coaching, we'll work together to figure it out.</p>
                       </div>
                       <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
                         <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Brain className="h-4 w-4 text-tealblue" />Do I need to have ADHD?</h5>
-                        <p className="text-gray-600">Not at all! While I specialize in ADHD-friendly approaches, this works for anyone who struggles with executive function, overwhelm, or just getting things done.</p>
+                        <p className="text-gray-600">Not at all! While we specialize in ADHD-friendly approaches, this works for anyone who struggles with executive function, overwhelm, or just getting things done.</p>
                       </div>
                     </div>
                   </div>
@@ -792,24 +770,24 @@ export default function Home() {
                     <h4 className="text-xl font-bold text-purple-600 mb-4 flex items-center gap-2"><Cog className="h-5 w-5" /> How It Works</h4>
                     <div className="space-y-4">
                       <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
-                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Video className="h-4 w-4 text-purple-600" />Do we meet on Zoom or another platform?</h5>
-                        <p className="text-gray-600">Zoom, Google Meet, FaceTime, WhatsApp — whatever works best for you! After you sign up, you'll get a questionnaire where you can mark your preference. I want to meet you where you're at in the easiest way possible.</p>
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><MessageCircle className="h-4 w-4 text-purple-600" />Where do we meet for community and coaching?</h5>
+                        <p className="text-gray-600">All community activities (body doubling, Compass Calls, workshops) happen in our private Discord server. For 1-on-1 coaching calls, I'll send you a Cal.com link to book your session at a time that works for you. We can meet via Zoom, Google Meet, or your preferred platform.</p>
+                      </div>
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Calendar className="h-4 w-4 text-purple-600" />How do I schedule my 1-on-1 coaching calls?</h5>
+                        <p className="text-gray-600">Members with coaching calls receive a personal Cal.com booking link. You can schedule your monthly calls whenever works best for you - morning, evening, weekends - I have flexible availability to accommodate different schedules and time zones.</p>
                       </div>
                       <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
                         <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Camera className="h-4 w-4 text-purple-600" />Do I have to have my camera on?</h5>
-                        <p className="text-gray-600">Absolutely not! I just want you to be comfortable. Of course I'd love to see your beautiful face, but I understand sometimes we just want to be in the dark under blankets and that's fine.</p>
+                        <p className="text-gray-600">Never! Camera is always optional for everything - body doubling, group calls, and 1-on-1s. I want you to be comfortable. Sometimes we need to be in the dark under blankets and that's perfectly fine.</p>
                       </div>
                       <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
-                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Timer className="h-4 w-4 text-purple-600" />How much time will I need to commit each week?</h5>
-                        <p className="text-gray-600">Just 30 minutes for our call, plus whatever time you want to spend on your chosen weekly focus. The whole point is keeping it manageable.</p>
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Timer className="h-4 w-4 text-purple-600" />How much time will I need to commit?</h5>
+                        <p className="text-gray-600">As little or as much as you want! Harbor Access members might just pop into body doubling when they need it. Higher tiers add 30-minute monthly coaching calls. Everything else (Compass Calls, workshops) is optional based on your energy and needs.</p>
                       </div>
                       <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
-                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><ClipboardList className="h-4 w-4 text-purple-600" />Is there homework between sessions?</h5>
-                        <p className="text-gray-600">No formal homework! We'll agree on 1-3 small experiments or actions each week, but they're designed to fit into your real life, not add pressure. We're collecting data on what works for your brain specifically.</p>
-                      </div>
-                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
-                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Wrench className="h-4 w-4 text-purple-600" />What if I get overwhelmed by the tools and dashboard?</h5>
-                        <p className="text-gray-600">We start simple and build slowly. If something feels like too much, we'll scale it back. The tools should help, not stress you out.</p>
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><Wrench className="h-4 w-4 text-purple-600" />What if I can't make the scheduled community sessions?</h5>
+                        <p className="text-gray-600">No worries! Body doubling runs multiple times daily, and members can start impromptu sessions anytime. Compass Calls and workshops are recorded. Your membership works around YOUR schedule, not the other way around.</p>
                       </div>
                     </div>
                   </div>
@@ -839,15 +817,23 @@ export default function Home() {
                     <div className="space-y-4">
                       <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
                         <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><CreditCard className="h-4 w-4 text-green-600" />How does payment work?</h5>
-                        <p className="text-gray-600">No subscriptions! Buy a session pack when you need it. Sessions are valid for 8-12 weeks depending on the pack. No auto-renewals, no surprise charges.</p>
+                        <p className="text-gray-600">Simple monthly membership - cancel anytime! Start with 50% off your first month. You can upgrade, downgrade, or pause whenever you need. No long-term contracts, no sneaky fees. Just straightforward community support at a price that works for you.</p>
                       </div>
                       <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
-                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><CalendarX className="h-4 w-4 text-green-600" />What if I miss a session?</h5>
-                        <p className="text-gray-600">Life happens! If you give me 24+ hours' notice, we can reschedule. With session packs, you have 8-12 weeks to use your sessions, so there's no pressure to meet every single week. Your dashboard keeps track of everything.</p>
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><CalendarX className="h-4 w-4 text-green-600" />What if I miss a coaching call or need to reschedule?</h5>
+                        <p className="text-gray-600">Life happens! If you give me 24+ hours' notice, we can reschedule. Your monthly coaching calls are flexible - book them when it works for you. Unused calls don't roll over, but we'll always try to find a time that works within the month.</p>
                       </div>
                       <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
-                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><UserCheck className="h-4 w-4 text-green-600" />Do you work with teens or only adults?</h5>
-                        <p className="text-gray-600">I work with adults 18+, and I'm open to coaching teens as long as a parent or guardian is involved and comfortable with the process. We can work together to make sure the approach supports them in a way that feels safe and effective.</p>
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><TrendingUp className="h-4 w-4 text-green-600" />Can I change my membership tier?</h5>
+                        <p className="text-gray-600">Absolutely! Upgrade or downgrade anytime. Need more support this month? Jump to a higher tier. Feeling overwhelmed? Drop to Harbor Access to stay connected without pressure. Your membership should adapt to YOUR life, not the other way around.</p>
+                      </div>
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><CreditCard className="h-4 w-4 text-green-600" />How does billing work if I upgrade mid-month?</h5>
+                        <p className="text-gray-600">Stripe automatically prorates everything! If you upgrade from Harbor ($35) to Crew Essentials ($85) on day 15, you'll only pay the difference for the remaining days (~$25). Your next full billing cycle starts at the new rate. Downgrades get credited to your account automatically.</p>
+                      </div>
+                      <div className="bg-white/90 p-5 rounded-xl border border-gray-200">
+                        <h5 className="font-bold text-navy mb-2 flex items-center gap-2"><UserCheck className="h-4 w-4 text-green-600" />Is this appropriate for teens or just adults?</h5>
+                        <p className="text-gray-600">The community is designed for adults 18+. For teens, I offer individual coaching (not community membership) with parent/guardian involvement. We'll work together to ensure the approach is age-appropriate and supportive.</p>
                       </div>
                     </div>
                   </div>
@@ -1030,53 +1016,6 @@ export default function Home() {
               </div>
             )}
             
-            {/* Testimonials Tab */}
-            {activeTab === 'testimonials' && (
-              <div className="space-y-8">
-                <h3 className="text-3xl font-bold text-navy mb-8 text-center font-playfair">
-                  What People Are Saying
-                </h3>
-                
-                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                  <div className="bg-gradient-to-br from-softblue/30 to-freshaqua/30 p-8 rounded-2xl border border-tealblue/20">
-                    <div className="mb-4">
-                      <div className="font-bold text-navy text-lg mb-1">Jeff F. · Graduate Student</div>
-                    </div>
-                    <p className="text-navy">
-                      "Working with Marlie has honestly changed the way I work. I finally have accountability that doesn't make me feel bad about myself. In the last 3 months, I've turned in assignments on time (!!!) and even applied for jobs I'd been putting off for a year."
-                    </p>
-                  </div>
-                  
-                  <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border border-purple-200">
-                    <div className="mb-4">
-                      <div className="font-bold text-navy text-lg mb-1">Sarah M. · Remote Worker</div>
-                    </div>
-                    <p className="text-navy">
-                      "I used to avoid phone calls for weeks and had a list of half-finished projects stressing me out. Marlie totally gets it. She doesn't make me feel broken, just supported. The dashboard is a game changer for keeping my brain organized."
-                    </p>
-                  </div>
-                  
-                  <div className="bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-2xl border border-green-200">
-                    <div className="mb-4">
-                      <div className="font-bold text-navy text-lg mb-1">Alex L. · Entrepreneur</div>
-                    </div>
-                    <p className="text-navy">
-                      "The Discord body doubling sessions are amazing, I get so much work done. And the shorter calls are actually perfect for my attention span. Finally, something that works for my brain instead of against it."
-                    </p>
-                  </div>
-                  
-                  <div className="bg-gradient-to-br from-orange-50 to-coral/20 p-8 rounded-2xl border border-orange-200">
-                    <div className="mb-4">
-                      <div className="font-bold text-navy text-lg mb-1">Maria K. · PhD Student</div>
-                    </div>
-                    <p className="text-navy">
-                      "I've bought so many planners and tried every productivity method out there. Marlie's framework is the first one I've stuck with. The North Star thing we set up keeps me from spiraling when deadlines pile up. It's like… actually doable."
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-            
             {/* Policy Tab */}
             {activeTab === 'policy' && (
               <div className="space-y-8">
@@ -1166,113 +1105,6 @@ export default function Home() {
               </div>
             )}
 
-            {activeTab === 'resources' && (
-              <div className="space-y-8">
-                <h3 className="text-3xl font-bold text-navy mb-8 text-center font-playfair">
-                  Free ADHD Resources
-                </h3>
-                
-                <div className="text-center mb-8">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full shadow-lg mb-4">
-                    <LifeBuoy className="w-8 h-8 text-purple-600" />
-                  </div>
-                  <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-                    A growing collection of practical tools, scripts, and strategies to help you get unstuck fast. 
-                    No paywall, no login required.
-                  </p>
-                </div>
-
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <div className="bg-white/90 rounded-xl shadow-lg p-6 border border-red-100">
-                    <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                      <Zap className="w-6 h-6 text-red-600" />
-                    </div>
-                    <h4 className="text-lg font-bold text-navy mb-3">Crisis Scripts</h4>
-                    <p className="text-gray-700 text-sm mb-4">
-                      Word-for-word scripts for explaining ADHD to your boss, partner, or family during tough moments
-                    </p>
-                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Coming Soon</span>
-                  </div>
-
-                  <div className="bg-white/90 rounded-xl shadow-lg p-6 border border-blue-100">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                      <Clock className="w-6 h-6 text-blue-600" />
-                    </div>
-                    <h4 className="text-lg font-bold text-navy mb-3">5-Minute Fixes</h4>
-                    <p className="text-gray-700 text-sm mb-4">
-                      Quick strategies to get unstuck when you're paralyzed, overwhelmed, or completely frozen
-                    </p>
-                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Coming Soon</span>
-                  </div>
-
-                  <div className="bg-white/90 rounded-xl shadow-lg p-6 border border-green-100">
-                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                      <Users className="w-6 h-6 text-green-600" />
-                    </div>
-                    <h4 className="text-lg font-bold text-navy mb-3">Body Doubling Guide</h4>
-                    <p className="text-gray-700 text-sm mb-4">
-                      How to start, host, or join body doubling sessions even when social anxiety kicks in
-                    </p>
-                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Coming Soon</span>
-                  </div>
-
-                  <div className="bg-white/90 rounded-xl shadow-lg p-6 border border-purple-100">
-                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                      <FileText className="w-6 h-6 text-purple-600" />
-                    </div>
-                    <h4 className="text-lg font-bold text-navy mb-3">Templates & Checklists</h4>
-                    <p className="text-gray-700 text-sm mb-4">
-                      Printable Anchor & Compass worksheets, emergency contact lists, and crisis protocols
-                    </p>
-                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Coming Soon</span>
-                  </div>
-
-                  <div className="bg-white/90 rounded-xl shadow-lg p-6 border border-indigo-100">
-                    <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                      <Phone className="w-6 h-6 text-indigo-600" />
-                    </div>
-                    <h4 className="text-lg font-bold text-navy mb-3">Phone Wallpapers</h4>
-                    <p className="text-gray-700 text-sm mb-4">
-                      Emergency reminder cards you can save to your phone for instant access during tough moments
-                    </p>
-                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Coming Soon</span>
-                  </div>
-
-                  <div className="bg-white/90 rounded-xl shadow-lg p-6 border border-pink-100">
-                    <div className="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
-                      <Target className="w-6 h-6 text-pink-600" />
-                    </div>
-                    <h4 className="text-lg font-bold text-navy mb-3">Action Plans</h4>
-                    <p className="text-gray-700 text-sm mb-4">
-                      Step-by-step guides for common ADHD emergencies: forgotten deadlines, lost motivation
-                    </p>
-                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">Coming Soon</span>
-                  </div>
-                </div>
-
-                <div className="bg-navy/10 rounded-xl p-6 text-center">
-                  <p className="text-navy font-medium italic mb-4">
-                    "These resources are free for everyone. But inside our community, 
-                    we take them from helpful guides to real-world change — with live practice, 
-                    accountability, and personalization."
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button 
-                      className="px-6 py-3 bg-purple-600 text-white font-bold rounded-lg hover:bg-purple-700 transition-colors"
-                      onClick={() => alert('Resource library coming soon! Join our community for early access.')}
-                    >
-                      Get Updates on Release
-                    </button>
-                    <Link
-                      href="/membership"
-                      className="px-6 py-3 bg-teal-600 text-white font-bold rounded-lg hover:bg-teal-700 transition-colors"
-                    >
-                      Join the Community →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </section>

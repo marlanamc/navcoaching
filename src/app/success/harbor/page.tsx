@@ -1,10 +1,97 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { Users, MessageCircle, Calendar, Anchor, ExternalLink } from 'lucide-react';
 
 export default function HarborSuccess() {
+  const [isAuthorized, setIsAuthorized] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    // Generate access token when coming from membership page
+    const generateAccessToken = () => {
+      const timestamp = Date.now();
+      const token = btoa(`harbor_${timestamp}`);
+      sessionStorage.setItem('harbor_access_token', token);
+      sessionStorage.setItem('harbor_access_time', timestamp.toString());
+      return token;
+    };
+
+    // Validate access token
+    const validateAccess = () => {
+      // Check for Stripe parameters (most reliable)
+      const sessionId = searchParams.get('session_id');
+      const paymentIntent = searchParams.get('payment_intent');
+      
+      if (sessionId || paymentIntent) {
+        // Valid Stripe parameters - generate new token for future visits
+        generateAccessToken();
+        return true;
+      }
+
+      // Check for valid access token (for direct URL access)
+      const token = sessionStorage.getItem('harbor_access_token');
+      const accessTime = sessionStorage.getItem('harbor_access_time');
+      
+      if (token && accessTime) {
+        const timeElapsed = Date.now() - parseInt(accessTime);
+        const oneHour = 60 * 60 * 1000; // 1 hour in milliseconds
+        
+        // Token valid for 1 hour
+        if (timeElapsed < oneHour) {
+          return true;
+        } else {
+          // Token expired - clear it
+          sessionStorage.removeItem('harbor_access_token');
+          sessionStorage.removeItem('harbor_access_time');
+        }
+      }
+
+      return false;
+    };
+
+    if (validateAccess()) {
+      setIsAuthorized(true);
+    } else {
+      // Redirect immediately
+      window.location.href = '/membership';
+    }
+    
+    setIsLoading(false);
+  }, [searchParams]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Verifying payment...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthorized) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center max-w-md mx-auto p-8">
+          <h1 className="text-2xl font-bold text-navy mb-4">Access Restricted</h1>
+          <p className="text-gray-600 mb-4">
+            This page is only accessible after completing payment. You'll be redirected to the membership page.
+          </p>
+          <Link 
+            href="/membership"
+            className="inline-block bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition"
+          >
+            Return to Membership
+          </Link>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 via-sky-200 to-indigo-300">
       <div className="container mx-auto px-4 py-16">
@@ -62,12 +149,15 @@ export default function HarborSuccess() {
                     <Calendar className="w-5 h-5 text-purple-600" />
                     Mark Your Calendar
                   </h3>
-                  <p className="text-gray-700 mb-2">
-                    <strong>Sunday 7:00 PM ET</strong> - Weekly Compass Call
-                  </p>
-                  <p className="text-gray-700">
-                    <strong>Mon/Wed/Fri 9:00 AM ET</strong> - Body Doubling Sessions
-                  </p>
+                  <div className="space-y-2 text-gray-700">
+                    <p><strong>Sunday 7:00 PM ET</strong> - Weekly Compass Call</p>
+                    <p><strong>Monday-Friday 10 AM-12 PM ET</strong> - Body Doubling Sessions</p>
+                    <p><strong>Monday-Friday 1-3 PM ET</strong> - Body Doubling Sessions</p>
+                    <p><strong>Last Friday 7 PM ET</strong> - Monthly Workshop</p>
+                  </div>
+                  <div className="mt-3 text-xs text-purple-600 bg-purple-100 rounded-lg p-2">
+                    💡 All sessions are optional! Plus member-led sessions available anytime.
+                  </div>
                 </div>
               </div>
 
